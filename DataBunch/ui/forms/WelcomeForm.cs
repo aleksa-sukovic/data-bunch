@@ -26,18 +26,6 @@ namespace DataBunch.ui.forms
             ConsoleManager.Show();
 
             InitializeDatabase();
-
-            testInsert();
-        }
-
-        private void testInsert()
-        {
-            var userParams = new Dictionary<string, KeyValuePair<object, SqlDbType>>();
-
-            userParams.Add("name", new KeyValuePair<object, SqlDbType>("Aleksa", SqlDbType.VarChar));
-            userParams.Add("age", new KeyValuePair<object, SqlDbType>(21, SqlDbType.Int));
-
-            DB.save("users", userParams);
         }
     }
 }
