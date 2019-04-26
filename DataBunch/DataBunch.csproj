@@ -47,9 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="foundation\db\DbConnector.cs" />
+    <Compile Include="foundation\db\DbParams.cs" />
+    <Compile Include="foundation\db\DbParam.cs" />
     <Compile Include="foundation\facades\DB.cs" />
-    <Compile Include="foundation\models\Model.cs" />
+    <Compile Include="foundation\processors\query\DeleteQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\InsertQueryProcessor.cs" />
+    <Compile Include="foundation\processors\query\QueryProcessor.cs" />
+    <Compile Include="foundation\processors\query\UpdateQueryProcessor.cs" />
     <Compile Include="foundation\utils\ConsoleManager.cs" />
     <Compile Include="foundation\utils\ExceptionHandler.cs" />
     <Compile Include="foundation\utils\Log.cs" />
