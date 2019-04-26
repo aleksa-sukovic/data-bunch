@@ -1,43 +1,44 @@
 using System;
 using System.Data.SqlClient;
+using DataBunch.foundation.utils;
 
 namespace DataBunch.foundation.db
 {
     public class DbConnector
     {
-        private static string DB_USER = "ALEKSAWDTC/Aleksa";
-        private static string DB_SERVER = "ALEKSAWDTC";
-        private static string DB_CONNECTION_TYPE = "Trusted_Connection=yes";
+        private static string DB_USER = "ALEKSAWDTC";
+        private static string DB_SERVER = "ALEKSAWDTC\\ALEKSAWDTC";
+        private static string DB_CONNECTION_TYPE = "yes";
         private static string DB_DATABASE = "data_bunch";
-        private static string DB_TIMEOUT = "connection timeout=5";
+        private static string DB_TIMEOUT = "5";
 
         private static bool connected;
         private static SqlConnection connection;
 
         public void connect()
         {
-            if (isConnected()) {
+            if (connected) {
                 return;
             }
 
             DbConnector.connection = new SqlConnection(getConnectionString());
             DbConnector.connection.Open();
             DbConnector.connected = true;
-            Console.WriteLine("Connected");
+            Log.info("Successfully connected to database.");
         }
 
-        public bool isConnected()
+        public static SqlConnection getConnection()
         {
-            return DbConnector.connected;
+            return connection;
         }
 
-        protected string getConnectionString()
+        private string getConnectionString()
         {
-            return DB_USER + ";"
-                           + DB_SERVER + ";"
-                           + DB_CONNECTION_TYPE + ";"
-                           + DB_DATABASE + ";"
-                           + DB_TIMEOUT;
+            return "user id=" + DB_USER + ";"
+                           + "server=" + DB_SERVER + ";"
+                           + "Trusted_Connection=" + DB_CONNECTION_TYPE + ";"
+                           + "database=" + DB_DATABASE + ";"
+                           + "connection timeout=" + DB_TIMEOUT;
         }
     }
 }
