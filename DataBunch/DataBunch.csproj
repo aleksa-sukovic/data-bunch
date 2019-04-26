@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="foundation\db\DbConnector.cs" />
+    <Compile Include="foundation\utils\ConsoleManager.cs" />
+    <Compile Include="foundation\utils\ExceptionHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ui\forms\Welcome.Designer.cs">
@@ -63,6 +66,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ui\forms\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,10 +83,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="base\facades\.gitkeep" />
-    <Content Include="base\interfaces\.gitkeep" />
-    <Content Include="base\models\.gitkeep" />
-    <Content Include="base\repositories\.gitkeep" />
+    <Content Include="foundation\facades\.gitkeep" />
+    <Content Include="foundation\interfaces\.gitkeep" />
+    <Content Include="foundation\models\.gitkeep" />
+    <Content Include="foundation\repositories\.gitkeep" />
     <Content Include="data_bunch\.gitkeep" />
     <Content Include="file\.gitkeep" />
     <Content Include="user\.gitkeep" />

@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
+using DataBunch.foundation.db;
+using DataBunch.foundation.utils;
 
 namespace DataBunch.ui.forms
 {
@@ -7,6 +9,20 @@ namespace DataBunch.ui.forms
         public WelcomeForm()
         {
             InitializeComponent();
+        }
+
+        private static void InitializeDatabase()
+        {
+            var dbConnector = new DbConnector();
+
+            dbConnector.connect();
+        }
+
+        private void onFormLoad(object sender, System.EventArgs e)
+        {
+            ConsoleManager.Show();
+
+            InitializeDatabase();
         }
     }
 }

@@ -16,3 +16,4 @@ D:\Aleksa\Development\Source\data_bunch\DataBunch\obj\Debug\DataBunch.csproj.Gen
 D:\Aleksa\Development\Source\data_bunch\DataBunch\obj\Debug\DataBunch.csproj.CoreCompileInputs.cache
 D:\Aleksa\Development\Source\data_bunch\DataBunch\obj\Debug\DataBunch.exe
 D:\Aleksa\Development\Source\data_bunch\DataBunch\obj\Debug\DataBunch.pdb
+D:\Aleksa\Development\Source\data_bunch\DataBunch\obj\Debug\DataBunch.ui.forms.WelcomeForm.resources
