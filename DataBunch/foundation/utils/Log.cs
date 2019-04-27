@@ -27,5 +27,17 @@ namespace DataBunch.foundation.utils
 
             Console.ResetColor();
         }
+
+        public static void error(string message)
+        {
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.Write("[FAILURE]");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine(" " + message);
+
+            Console.ResetColor();
+        }
     }
 }

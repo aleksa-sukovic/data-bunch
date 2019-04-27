@@ -1,18 +1,27 @@
 using System;
 using System.Threading;
+using DataBunch.foundation.exceptions;
 
 namespace DataBunch.foundation.utils
 {
-    public class ExceptionHandler
+    public static class ExceptionHandler
     {
         public static void handle(object sender, UnhandledExceptionEventArgs e)
         {
-            Console.WriteLine(((Exception) e.ExceptionObject).Message);
+            if (e.ExceptionObject is BaseException exception) {
+                exception.show();
+            }
+
+            Log.error(((Exception) e.ExceptionObject).Message);
         }
 
         public static void handleThreadException(object sender, ThreadExceptionEventArgs e)
         {
-            Console.WriteLine(e.Exception.Message);
+            if (e.Exception is BaseException exception) {
+                exception?.show();
+            }
+
+            Log.error(e.Exception.Message);
         }
     }
 }

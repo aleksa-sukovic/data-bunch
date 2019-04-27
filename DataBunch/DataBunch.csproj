@@ -49,12 +49,17 @@
     <Compile Include="foundation\db\DbConnector.cs" />
     <Compile Include="foundation\db\DbParams.cs" />
     <Compile Include="foundation\db\DbParam.cs" />
+    <Compile Include="foundation\exceptions\BaseException.cs" />
+    <Compile Include="foundation\exceptions\ItemNotFoundException.cs" />
+    <Compile Include="foundation\exceptions\TransformException.cs" />
     <Compile Include="foundation\facades\DB.cs" />
     <Compile Include="foundation\processors\query\DeleteQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\InsertQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\QueryProcessor.cs" />
     <Compile Include="foundation\processors\query\SearchQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\UpdateQueryProcessor.cs" />
+    <Compile Include="foundation\repositories\BaseRepository.cs" />
+    <Compile Include="foundation\transformers\Transformer.cs" />
     <Compile Include="foundation\utils\ConsoleManager.cs" />
     <Compile Include="foundation\utils\ExceptionHandler.cs" />
     <Compile Include="foundation\utils\Log.cs" />
@@ -66,6 +71,9 @@
     <Compile Include="ui\forms\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="user\models\User.cs" />
+    <Compile Include="user\repositories\UserRepository.cs" />
+    <Compile Include="user\transformers\UserTransformer.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
