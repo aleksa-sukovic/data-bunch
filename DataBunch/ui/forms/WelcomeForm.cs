@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -14,18 +15,18 @@ namespace DataBunch.ui.forms
             InitializeComponent();
         }
 
-        private static void InitializeDatabase()
-        {
-            var dbConnector = new DbConnector();
-
-            dbConnector.connect();
-        }
-
         private void onFormLoad(object sender, System.EventArgs e)
         {
             ConsoleManager.Show();
 
             InitializeDatabase();
+        }
+
+        private static void InitializeDatabase()
+        {
+            var dbConnector = new DbConnector();
+
+            dbConnector.connect();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DataBunch.foundation.processors.query
             var query = constructBaseQuery(tableName) + constructParamNames(valueParams);
             var queryValues = constructParamValues(valueParams);
 
-            lastQuery = query + " VALUES " + queryValues;
+            lastQuery = query + " OUTPUT INSERTED.ID VALUES " + queryValues;
 
             return constructCommand(lastQuery, valueParams);
         }
@@ -39,7 +39,7 @@ namespace DataBunch.foundation.processors.query
             var query = "(";
 
             foreach (var pair in valueParams.get()) {
-                query += "@" + pair.Name + ", ";
+                query += "@" + pair.ID + ", ";
             }
 
             return query.Substring(0, query.Length - 2) + ")";

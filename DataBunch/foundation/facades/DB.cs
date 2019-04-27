@@ -10,35 +10,47 @@ namespace DataBunch.foundation.facades
 {
     public class DB
     {
-        public static void save(string tableName, DbParams valueParams, DbParams searchParams = null)
+        public static void all(string tableName, DbParams searchParams)
         {
-            if (searchParams == null) {
-                create(tableName, valueParams);
+            var queryProcessor = new SearchQueryProcessor();
+            var command = queryProcessor.process(tableName, searchParams);
 
-                return;
-            }
-
-            update(tableName, valueParams, searchParams);
+            Log.info("Searching with query: " + queryProcessor.getLastQuery());
+            command.ExecuteNonQuery();
+            Log.success("Successfully executed query.");
         }
 
-        public static void create(string tableName, DbParams valueParams)
+        public static int save(string tableName, DbParams valueParams, DbParams searchParams = null)
+        {
+            if (searchParams == null) {
+                return create(tableName, valueParams);
+            }
+
+            return update(tableName, valueParams, searchParams);
+        }
+
+        public static int create(string tableName, DbParams valueParams)
         {
             var queryProcessor = new InsertQueryProcessor();
             var command = queryProcessor.process(tableName, valueParams);
 
             Log.info("Inserting with query: " + queryProcessor.getLastQuery());
-            command.ExecuteNonQuery();
-            Log.success("Successfully executed query.");
+            var affectedId = (int) command.ExecuteScalar();
+            Log.success("Successfully executed query. Inserted id => " + affectedId);
+
+            return affectedId;
         }
 
-        public static void update(string tableName, DbParams valueParams, DbParams searchParams)
+        public static int update(string tableName, DbParams valueParams, DbParams searchParams)
         {
             var queryProcessor = new UpdateQueryProcessor();
             var command = queryProcessor.process(tableName, valueParams, searchParams);
 
             Log.info("Updating with query: " + queryProcessor.getLastQuery());
-            command.ExecuteNonQuery();
+            var affectedId = (int) command.ExecuteScalar();
             Log.success("Successfully executed query.");
+
+            return affectedId;
         }
 
         public static void delete(string tableName, DbParams searchParams)

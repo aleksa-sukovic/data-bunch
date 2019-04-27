@@ -10,7 +10,7 @@ namespace DataBunch.foundation.processors.query
     {
         protected string lastQuery;
 
-        protected SqlCommand constructCommand(string query,DbParams valueParams)
+        protected SqlCommand constructCommand(string query, DbParams valueParams)
         {
             var command = new SqlCommand { Connection = DbConnector.getConnection(), CommandText = query };
 

@@ -5,7 +5,8 @@ namespace DataBunch.foundation.utils
 {
     public class DbParam
     {
-        private static long counter;
+        private static long counter = 1;
+        
         public DbParam(string name, object value, SqlDbType type, string opr = null, string boolOpr = null)
         {
             Name = name;

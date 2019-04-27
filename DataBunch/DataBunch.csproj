@@ -53,6 +53,7 @@
     <Compile Include="foundation\processors\query\DeleteQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\InsertQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\QueryProcessor.cs" />
+    <Compile Include="foundation\processors\query\SearchQueryProcessor.cs" />
     <Compile Include="foundation\processors\query\UpdateQueryProcessor.cs" />
     <Compile Include="foundation\utils\ConsoleManager.cs" />
     <Compile Include="foundation\utils\ExceptionHandler.cs" />

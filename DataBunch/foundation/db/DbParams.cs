@@ -8,9 +8,9 @@ namespace DataBunch.foundation.db
     {
         private List<DbParam> dbParams;
 
-        public DbParams(List<DbParam> dbParams = null)
+        public DbParams(DbParam[] dbParams = null)
         {
-            this.dbParams = dbParams ?? new List<DbParam>();
+            this.dbParams = dbParams != null ? new List<DbParam>(dbParams) : new List<DbParam>();
         }
 
         public bool contains(string key)
