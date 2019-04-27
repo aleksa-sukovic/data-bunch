@@ -16,7 +16,7 @@ namespace DataBunch.foundation.processors.query
 
         private string constructBaseQuery(string tableName)
         {
-            return "SELECT * FROM" + tableName + " ";
+            return "SELECT * FROM " + tableName + " ";
         }
     }
 }

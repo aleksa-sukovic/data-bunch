@@ -10,14 +10,16 @@ namespace DataBunch.foundation.facades
 {
     public class DB
     {
-        public static void all(string tableName, DbParams searchParams)
+        public static SqlDataReader all(string tableName, DbParams searchParams)
         {
             var queryProcessor = new SearchQueryProcessor();
             var command = queryProcessor.process(tableName, searchParams);
 
             Log.info("Searching with query: " + queryProcessor.getLastQuery());
-            command.ExecuteNonQuery();
+            var reader = command.ExecuteReader();
             Log.success("Successfully executed query.");
+
+            return reader;
         }
 
         public static int save(string tableName, DbParams valueParams, DbParams searchParams = null)
