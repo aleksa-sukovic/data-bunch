@@ -59,6 +59,7 @@
     <Compile Include="foundation\exceptions\BaseException.cs" />
     <Compile Include="foundation\exceptions\ItemNotFoundException.cs" />
     <Compile Include="foundation\exceptions\TransformException.cs" />
+    <Compile Include="foundation\models\Model.cs" />
     <Compile Include="foundation\repositories\BaseRepository.cs" />
     <Compile Include="foundation\repositories\FluentQuery.cs" />
     <Compile Include="foundation\transformers\Transformer.cs" />

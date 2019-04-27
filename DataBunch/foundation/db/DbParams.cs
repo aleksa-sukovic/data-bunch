@@ -58,5 +58,19 @@ namespace DataBunch.foundation.db
         {
             return this.dbParams;
         }
+
+        public override string ToString()
+        {
+            var output = "[ ";
+
+            foreach (var param in this.dbParams) {
+                output += param.ToString();
+                output += ", ";
+            }
+
+            output = output.Substring(0, output.Length - 2);
+
+            return output + " ]";
+        }
     }
 }

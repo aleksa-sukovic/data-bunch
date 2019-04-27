@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using DataBunch.foundation.db;
-using DataBunch.foundation.utils;
+using DataBunch.foundation.processors.query;
 
-namespace DataBunch.foundation.processors.query
+namespace DataBunch.foundation.db.processors.query
 {
     public class UpdateQueryProcessor: QueryProcessor
     {
@@ -27,7 +24,7 @@ namespace DataBunch.foundation.processors.query
                     continue;
                 }
 
-                query += pair.Name + "=@" + pair.Name + ", ";
+                query += pair.Name + "=@" + pair.ID + ", ";
             }
 
             return query.Substring(0, query.Length - 2);

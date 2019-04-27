@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using DataBunch.foundation.db;
 using DataBunch.foundation.exceptions;
 
 namespace DataBunch.foundation.transformers
@@ -17,6 +18,7 @@ namespace DataBunch.foundation.transformers
 
         protected abstract Model parseData(SqlDataReader reader);
         protected abstract Dictionary<string, SqlDbType> getParamTypeMap();
+        public abstract DbParams getDbParams(Model model);
 
         public Model transform(SqlDataReader reader)
         {

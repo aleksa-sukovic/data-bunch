@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using DataBunch.foundation.db;
+using DataBunch.foundation.db.facades;
 using DataBunch.foundation.exceptions;
-using DataBunch.foundation.facades;
 using DataBunch.foundation.transformers;
 using DataBunch.foundation.utils;
 
@@ -59,6 +59,7 @@ namespace DataBunch.foundation.repositories
                 result.Add(this.transformer.transform(reader));
             }
 
+            reader.Close();
             return result;
         }
 
@@ -71,7 +72,10 @@ namespace DataBunch.foundation.repositories
             }
 
             reader.Read();
-            return this.transformer.transform(reader);
+            var transformed = this.transformer.transform(reader);
+            reader.Close();
+
+            return transformed;
         }
     }
 }

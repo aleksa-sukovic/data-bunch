@@ -1,9 +1,9 @@
 using System.Data.SqlClient;
-using DataBunch.foundation.db;
+using DataBunch.foundation.db.processors.query;
 using DataBunch.foundation.processors.query;
 using DataBunch.foundation.utils;
 
-namespace DataBunch.foundation.facades
+namespace DataBunch.foundation.db.facades
 {
     public class DB
     {
@@ -46,10 +46,10 @@ namespace DataBunch.foundation.facades
             var command = queryProcessor.process(tableName, valueParams, searchParams);
 
             Log.info("Updating with query: " + queryProcessor.getLastQuery());
-            var affectedId = (int) command.ExecuteScalar();
+            command.ExecuteNonQuery();
             Log.success("Successfully executed query.");
 
-            return affectedId;
+            return 0;
         }
 
         public static void delete(string tableName, DbParams searchParams)

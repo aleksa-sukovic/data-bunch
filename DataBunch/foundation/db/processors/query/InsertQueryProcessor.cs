@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using DataBunch.foundation.db;
-using DataBunch.foundation.utils;
+using DataBunch.foundation.processors.query;
 
-namespace DataBunch.foundation.processors.query
+namespace DataBunch.foundation.db.processors.query
 {
     public class InsertQueryProcessor: QueryProcessor
     {

@@ -23,5 +23,10 @@ namespace DataBunch.foundation.utils
         public string BooleanOpr { get; set; }
         public SqlDbType Type { get; set; }
         public string ID { get; }
+
+        public override string ToString()
+        {
+            return "{ ID => " + ID + " Name => " + Name + " Value => " + Value + " Operator => " + Operator + " Type => " + Type + " BooleanOpr => " + BooleanOpr + " }";
+        }
     }
 }

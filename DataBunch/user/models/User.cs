@@ -1,15 +1,21 @@
+using DataBunch.foundation.models;
+
 namespace DataBunch.user.models
 {
-    public class User
+    public class User: Model
     {
-        public User(long id, string name, int age)
+        public User(long id, string name, int age): base(id)
         {
-            this.ID = id;
             this.Name = name;
             this.Age = age;
         }
 
-        public long ID { get; set; }
+        public User(string name, int age)
+        {
+            this.Name = name;
+            this.Age = age;
+        }
+
         public string Name { get; set; }
         public int Age { get; set; }
 

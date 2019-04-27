@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using DataBunch.foundation.db;
 using DataBunch.foundation.transformers;
+using DataBunch.foundation.utils;
 using DataBunch.user.models;
 
 namespace DataBunch.user.transformers
@@ -25,6 +27,14 @@ namespace DataBunch.user.transformers
                 { "age", SqlDbType.Int },
                 { "id", SqlDbType.Int }
             };
+        }
+
+        public override DbParams getDbParams(User model)
+        {
+            return new DbParams(new DbParam[] {
+                new DbParam("name", model.Name, this.getParamType("name")),
+                new DbParam("age", model.Age,  this.getParamType("age")),
+            });
         }
     }
 }
