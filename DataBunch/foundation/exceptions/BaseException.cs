@@ -5,7 +5,7 @@ namespace DataBunch.foundation.exceptions
 {
     public class BaseException: Exception
     {
-        public BaseException(string title, string description, string message = null)
+        public BaseException(string title, string description, string message = ""): base(message)
         {
             this.Title = title;
             this.Description = description;
