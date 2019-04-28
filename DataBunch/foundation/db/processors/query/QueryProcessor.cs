@@ -9,9 +9,9 @@ namespace DataBunch.foundation.db.processors.query
 
         protected SqlCommand constructCommand(string query, DbParams valueParams)
         {
-            var command = new SqlCommand { Connection = DbConnector.ge
-            foreach (var pair in valueParams.get()) {tConnection(), CommandText = query };
+            var command = new SqlCommand { Connection = DbConnector.getConnection(), CommandText = query };
 
+            foreach (var pair in valueParams.get()) {
                 if (pair.Value == null) {
                     continue;
                 }

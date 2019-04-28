@@ -23,7 +23,6 @@ namespace DataBunch.collection.repositories
 
         public override Collection addIncludes(Collection model)
         {
-            Console.WriteLine("Add Includes Collection");
             model.Files = this.fileRepository.query().where("collection_id", "=", model.ID).get();
             model.User = this.userRepository.query().where("id", "=", model.UserID).first(false);
             model.Parent = this.query().where("id", "=", model.ParentID).first(false);
