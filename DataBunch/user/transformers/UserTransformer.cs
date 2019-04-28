@@ -16,7 +16,8 @@ namespace DataBunch.user.transformers
             return new User(
                 (int) reader["id"],
                 (string) reader["name"],
-                (int) reader["age"]
+                (int) reader["age"],
+                (string) reader["privilege"]
             );
         }
 
@@ -25,7 +26,8 @@ namespace DataBunch.user.transformers
             return new Dictionary<string, SqlDbType> {
                 { "name", SqlDbType.VarChar },
                 { "age", SqlDbType.Int },
-                { "id", SqlDbType.Int }
+                { "id", SqlDbType.Int },
+                { "privilege", SqlDbType.VarChar }
             };
         }
 
@@ -34,6 +36,7 @@ namespace DataBunch.user.transformers
             return new DbParams(new DbParam[] {
                 new DbParam("name", model.Name, this.getParamType("name")),
                 new DbParam("age", model.Age,  this.getParamType("age")),
+                new DbParam("privilege", model.Privilege, this.getParamType("privilege")),
             });
         }
     }
