@@ -9,7 +9,6 @@ namespace DataBunch.foundation.exceptions
         {
             this.Title = title;
             this.Description = description;
-            this.BaseMessage = message;
         }
 
         public void show()
@@ -17,7 +16,6 @@ namespace DataBunch.foundation.exceptions
             MessageBox.Show(this.Description, this.Title);
         }
 
-        public string BaseMessage { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }
