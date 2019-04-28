@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using DataBunch.foundation.db.processors.query;
 using DataBunch.foundation.processors.query;
@@ -5,7 +6,7 @@ using DataBunch.foundation.utils;
 
 namespace DataBunch.foundation.db.facades
 {
-    public class DB
+    public static class DB
     {
         public static SqlDataReader all(string tableName, DbParams searchParams)
         {

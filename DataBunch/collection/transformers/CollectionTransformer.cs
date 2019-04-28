@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,13 +14,13 @@ namespace DataBunch.collection.transformers
         protected override Collection parseData(SqlDataReader reader)
         {
             return new Collection(
-                (long) reader["id"],
+                (int) reader["id"],
                 (string) reader["name"],
-                (long) reader["user_id"],
-                (long) reader["parent_id"],
+                (int) reader["user_id"],
+                (int) reader["parent_id"],
                 (string) reader["type"],
-                (string) reader["created_at"],
-                (string) reader["updated_at"],
+                (DateTime) reader["created_at"],
+                (DateTime) reader["updated_at"],
                 (int) reader["size"]
             );
         }
@@ -44,8 +45,6 @@ namespace DataBunch.collection.transformers
                 new DbParam("user_id", model.UserID, this.getParamType("user_id")),
                 new DbParam("type", model.Type, this.getParamType("type")),
                 new DbParam("size", model.Size, this.getParamType("size")),
-                new DbParam("created_at", model.CreatedAt, this.getParamType("created_at")),
-                new DbParam("updated_at", model.UpdatedAt, this.getParamType("updated_at"))
             });
         }
     }

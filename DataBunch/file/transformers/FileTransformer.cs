@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,13 +14,13 @@ namespace DataBunch.file.transformers
         protected override File parseData(SqlDataReader reader)
         {
             return new File(
-                 (long) reader["id"],
+                 (int) reader["id"],
                  (string) reader["path"],
                  (string) reader["name"],
                  (string) reader["type"],
-                 (long) reader["collection_id"],
-                 (string) reader["created_at"],
-                 (string) reader["updated_at"]
+                 (int) reader["collection_id"],
+                 (DateTime) reader["created_at"],
+                 (DateTime) reader["updated_at"]
             );
         }
 
@@ -31,18 +32,18 @@ namespace DataBunch.file.transformers
                 { "type", SqlDbType.VarChar },
                 { "collection_id", SqlDbType.Int },
                 { "created_at", SqlDbType.DateTime },
-                { "updated_at", SqlDbType.DateTime }
+                { "updated_at", SqlDbType.DateTime },
+                { "path", SqlDbType.VarChar }
             };
         }
 
         public override DbParams getDbParams(File model)
         {
             return new DbParams(new DbParam[] {
+                new DbParam("path", model.Path, this.getParamType("path")),
                 new DbParam("name", model.Name, this.getParamType("name")),
                 new DbParam("type", model.Type, this.getParamType("type")),
                 new DbParam("collection_id", model.CollectionID, this.getParamType("collection_id")),
-                new DbParam("created_at", model.CreatedAt, this.getParamType("created_at")),
-                new DbParam("updated_at", model.UpdatedAt, this.getParamType("updated_at"))
             });
         }
     }

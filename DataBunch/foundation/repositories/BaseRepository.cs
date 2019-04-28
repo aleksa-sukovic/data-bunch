@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using DataBunch.foundation.db;
 using DataBunch.foundation.db.facades;
 using DataBunch.foundation.exceptions;
@@ -10,13 +11,12 @@ using DataBunch.foundation.utils;
 
 namespace DataBunch.foundation.repositories
 {
-    public abstract class BaseRepository<Object> where Object: Model
+    public abstract class BaseRepository<T> where T: Model
     {
         protected string tableName = "";
-        protected Transformer<Object> transformer;
-        private readonly FluentQuery<Object> fluentQuery;
+        protected Transformer<T> transformer;
 
-        public List<Object> all(List<QueryParam> queryParams)
+        public List<T> all(List<QueryParam> queryParams, bool withIncludes = true)
         {
             // transform queryParams to DbParams
             var dbParams = new DbParams();
@@ -26,22 +26,24 @@ namespace DataBunch.foundation.repositories
 
             // read data
             var reader = DB.all(this.tableName, dbParams);
-            var result = new List<Object>();
+            var result = new List<T>();
 
             while (reader.Read()) {
-                result.Add(this.transformer.transform(reader));
+                var transformed = this.transformer.transform(reader);
+                transformed = withIncludes ? this.addIncludes(transformed) : transformed;
+                result.Add(transformed);
             }
 
             reader.Close();
             return result;
         }
 
-        public FluentQuery<Object> query()
+        public FluentQuery<T> query()
         {
-            return new FluentQuery<Object>(this.tableName, this.transformer);
+            return new FluentQuery<T>(this.tableName, this.transformer, this);
         }
 
-        public Object one(long id)
+        public T one(long id, bool withIncludes = true)
         {
             var reader = DB.all(this.tableName, new DbParams(new DbParam[] {
                 new DbParam("id", id, this.transformer.getParamType("id")),
@@ -55,10 +57,10 @@ namespace DataBunch.foundation.repositories
             var transformed = transformer.transform(reader);
             reader.Close();
 
-            return transformed;
+            return withIncludes ? this.addIncludes(transformed) : transformed;
         }
 
-        public Object save(Object model)
+        public T save(T model)
         {
             if (model.isNull()) {
                 return this.create(model);
@@ -67,9 +69,9 @@ namespace DataBunch.foundation.repositories
             return this.update(model);
         }
 
-        public List<Object> saveMany(List<Object> values)
+        public List<T> saveMany(List<T> values)
         {
-            var result = new List<Object>();
+            var result = new List<T>();
 
             foreach (var value in values) {
                 result.Add(this.save(value));
@@ -78,16 +80,24 @@ namespace DataBunch.foundation.repositories
             return result;
         }
 
-        public Object create(Object model)
+        public T create(T model)
         {
-            var newId = DB.create(this.tableName, this.transformer.getDbParams(model));
+            // adding timestamps
+            var valueParams = this.transformer.getDbParams(model);
+            valueParams.add(new DbParam("created_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
+            valueParams.add(new DbParam("updated_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
 
-            return this.one(newId);
+            // updating
+            var insertedId = DB.create(this.tableName, valueParams);
+            var saved = this.one(insertedId);
+            this.afterSave(model, saved);
+
+            return saved;
         }
 
-        public List<Object> createMany(List<Object> values)
+        public List<T> createMany(List<T> values)
         {
-            var result = new List<Object>();
+            var result = new List<T>();
 
             foreach (var value in values) {
                 result.Add(this.create(value));
@@ -96,9 +106,9 @@ namespace DataBunch.foundation.repositories
             return result;
         }
 
-        public List<Object> updateMany(List<Object> values)
+        public List<T> updateMany(List<T> values)
         {
-            var result = new List<Object>();
+            var result = new List<T>();
 
             foreach (var value in values) {
                 result.Add(this.update(value));
@@ -107,20 +117,27 @@ namespace DataBunch.foundation.repositories
             return result;
         }
 
-        public Object update(Object model)
+        public T update(T model)
         {
+            // adding update restriciton
             var searchParams = new DbParams(new[] {
                 new DbParam("id", model.ID, this.transformer.getParamType("id")),
             });
 
-            Console.WriteLine(searchParams);
+            // adding timestamps
+            var valueParams = this.transformer.getDbParams(model);
+            valueParams.remove("created_at");
+            valueParams.add(new DbParam("updated_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
 
+            // updating
             DB.update(this.tableName, this.transformer.getDbParams(model), searchParams);
+            var saved = this.one(model.ID);
+            this.afterSave(model, saved);
 
-            return this.one(model.ID);
+            return saved;
         }
 
-        public Object delete(Object model)
+        public T delete(T model)
         {
             var searchParams = new DbParams(new DbParam[] {
                 new DbParam("id", model.ID, this.transformer.getParamType("id")),
@@ -138,6 +155,16 @@ namespace DataBunch.foundation.repositories
             });
 
             DB.delete(this.tableName, searchParams);
+        }
+
+        public virtual T addIncludes(T model)
+        {
+            return model;
+        }
+
+        protected virtual void afterSave(T beforeSave, T afterSave)
+        {
+            //
         }
     }
 }

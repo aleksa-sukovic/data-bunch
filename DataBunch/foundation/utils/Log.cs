@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using DataBunch.foundation.models;
 
 namespace DataBunch.foundation.utils
 {
@@ -34,6 +36,18 @@ namespace DataBunch.foundation.utils
             Console.ForegroundColor = ConsoleColor.Red;
 
             Console.Write("[FAILURE]");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine(" " + message);
+
+            Console.ResetColor();
+        }
+
+        public static void debug(string message)
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.Write("[DEBUG]");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine(" " + message);
 

@@ -28,5 +28,19 @@ namespace DataBunch.foundation.utils
         {
             return "{ ID => " + ID + " Name => " + Name + " Value => " + Value + " Operator => " + Operator + " Type => " + Type + " BooleanOpr => " + BooleanOpr + " }";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) {
+                return false;
+            }
+
+            return obj is DbParam par && par.Name == Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return int.Parse(ID);
+        }
     }
 }

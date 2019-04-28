@@ -1,7 +1,6 @@
 using System.Data.SqlClient;
-using DataBunch.foundation.db;
 
-namespace DataBunch.foundation.processors.query
+namespace DataBunch.foundation.db.processors.query
 {
     public class SearchQueryProcessor: QueryProcessor
     {

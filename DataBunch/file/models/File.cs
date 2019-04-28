@@ -7,47 +7,79 @@ namespace DataBunch.file.models
 {
     public class File: Model
     {
+        private string path;
+        private string name;
+        private string type;
+        private long collectionId;
+        private Collection collection;
+        private DateTime createdAt;
+        private DateTime updatedAt;
+
         public File()
         {
-            this.Path = "";
-            this.Name = "";
-            this.Type = "";
-            this.CollectionID = -1;
-            this.Collection = null;
-            this.CreatedAt = DateTime.Now.ToString(CultureInfo.InvariantCulture);
-            this.UpdatedAt = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            this.path = "";
+            this.name = "";
+            this.type = "";
+            this.collectionId = -1;
+            this.collection = null;
+            this.createdAt = DateTime.Now;
+            this.updatedAt = DateTime.Now;
         }
 
-        public File(long id, string path, string name, string type, long collectionId, string createdAt, string updatedAt,
+        public File(long id, string path, string name, string type, long collectionId, DateTime createdAt, DateTime updatedAt,
             Collection collection = null): base(id)
         {
-            this.Path = path;
-            this.Name = name;
-            this.Type = type;
-            this.CollectionID = collectionId;
-            this.CreatedAt = createdAt;
-            this.UpdatedAt = updatedAt;
-            this.Collection = collection;
+            this.path = path;
+            this.name = name;
+            this.type = type;
+            this.collectionId = collectionId;
+            this.createdAt = createdAt;
+            this.updatedAt = updatedAt;
+            this.collection = collection;
         }
 
-        public string Path { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public long CollectionID { get; set; }
+        public File(string path, string name, string type, long collectionId = 0,
+            Collection collection = null)
+        {
+            this.path = path;
+            this.name = name;
+            this.type = type;
+            this.collectionId = collectionId;
+            this.createdAt = DateTime.Now;
+            this.updatedAt = DateTime.Now;
+            this.collection = collection;
+        }
+
+        public string Path { get => this.path; set => this.path = value; }
+        public string Name { get => this.name; set => this.name = value; }
+        public string Type { get => this.type; set => this.type = value; }
+        public long CollectionID { get => this.collectionId; set => this.collectionId = value; }
+        public DateTime CreatedAt { get => this.createdAt; set => this.createdAt = value; }
+        public DateTime UpdatedAt { get => this.updatedAt; set => this.updatedAt = value; }
 
         public Collection Collection
         {
-            get => this.Collection;
+            get => this.collection;
             set {
                 if (value != null) {
-                    this.CollectionID = value.ID;
+                    this.collectionId = value.ID;
                 }
 
-                this.Collection = value;
+                this.collection = value;
             }
         }
+        public override bool Equals(object obj)
+        {
+            if (obj == null) {
+                return false;
+            }
 
-        public string CreatedAt { get; set; }
-        public string UpdatedAt { get; set; }
+            return obj is File file && file.ID == ID;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int) ID;
+        }
     }
 }
