@@ -31,6 +31,7 @@ namespace DataBunch.collection.transformers
                 { "id", SqlDbType.Int },
                 { "name", SqlDbType.VarChar },
                 { "user_id", SqlDbType.Int },
+                { "parent_id", SqlDbType.Int },
                 { "created_at", SqlDbType.DateTime },
                 { "updated_at", SqlDbType.DateTime },
                 { "type", SqlDbType.VarChar },
@@ -43,6 +44,7 @@ namespace DataBunch.collection.transformers
             return new DbParams(new DbParam[] {
                 new DbParam("name", model.Name, this.getParamType("name")),
                 new DbParam("user_id", model.UserID, this.getParamType("user_id")),
+                new DbParam("parent_id", model.ParentID, this.getParamType("parent_id")), 
                 new DbParam("type", model.Type, this.getParamType("type")),
                 new DbParam("size", model.Size, this.getParamType("size")),
             });

@@ -24,7 +24,8 @@ namespace DataBunch.collection.repositories
         {
             model.Files = this.fileRepository.query().where("collection_id", "=", model.ID).get();
             model.User = this.userRepository.query().where("id", "=", model.UserID).first(false);
-            model.Parent = this.query().where("id", "=", model.ParentId).first(false);
+            model.Parent = this.query().where("id", "=", model.ParentID).first(false);
+            model.Childrens = this.query().where("parent_id", "=", model.ID).get();
 
             return model;
         }

@@ -13,6 +13,7 @@ namespace DataBunch.collection.models
         private string type;
         private int size;
         private List<File> files;
+        private List<Collection> childrens;
         private long userId;
         private User user;
         private long parentId;
@@ -31,7 +32,8 @@ namespace DataBunch.collection.models
             this.updatedAt = DateTime.Now;
             this.type = "txt";
             this.size = 0;
-            this.files = new List<File>();
+            files = new List<File>();
+            childrens = new List<Collection>();
         }
 
         public Collection(long id, string name, long userId, long parentId, string type, DateTime createdAt, DateTime updatedAt,
@@ -46,13 +48,14 @@ namespace DataBunch.collection.models
             this.user = user;
             this.userId = user?.ID ?? userId;
             this.parent = parent;
-            this.files = new List<File>();
+            files = new List<File>();
+            childrens = new List<Collection>();
         }
 
         public Collection(string name, long userId, long parentId, string type, int size = 0, User user = null, Collection parent = null)
         {
             this.name = name;
-            this.ParentId = parentId;
+            this.ParentID = parentId;
             this.type = type;
             this.createdAt = DateTime.Now;
             this.updatedAt = DateTime.Now;
@@ -60,7 +63,8 @@ namespace DataBunch.collection.models
             this.user = user;
             this.userId = user?.ID ?? userId;
             this.parent = parent;
-            this.files = new List<File>();
+            files = new List<File>();
+            childrens = new List<Collection>();
         }
 
         public void addFile(File file)
@@ -76,12 +80,13 @@ namespace DataBunch.collection.models
         }
 
         public string Name { get => this.name; set => this.name = value; }
-        public long ParentId { get => this.parentId; set => this.parentId = value; }
+        public long ParentID { get => this.parentId; set => this.parentId = value; }
         public long UserID { get => this.userId; set => this.userId = userId; }
         public DateTime CreatedAt { get => this.createdAt; set => this.createdAt = value; }
         public DateTime UpdatedAt { get => this.updatedAt; set => this.updatedAt = value; }
         public string Type { get => this.type; set => this.type = value; }
         public int Size { get => this.size; set => this.size = value; }
+        public List<Collection> Childrens { get => this.childrens; set => this.childrens = value; }
 
         public User User
         {
