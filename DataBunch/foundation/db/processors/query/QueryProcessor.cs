@@ -1,6 +1,5 @@
 using System.Data;
 using System.Data.SqlClient;
-using DataBunch.foundation.utils;
 
 namespace DataBunch.foundation.db.processors.query
 {
@@ -10,9 +9,13 @@ namespace DataBunch.foundation.db.processors.query
 
         protected SqlCommand constructCommand(string query, DbParams valueParams)
         {
-            var command = new SqlCommand { Connection = DbConnector.getConnection(), CommandText = query };
+            var command = new SqlCommand { Connection = DbConnector.ge
+            foreach (var pair in valueParams.get()) {tConnection(), CommandText = query };
 
-            foreach (var pair in valueParams.get()) {
+                if (pair.Value == null) {
+                    continue;
+                }
+
                 command.Parameters.AddWithValue(pair.ID, pair.Type);
                 command.Parameters[pair.ID].Value = pair.Value;
             }
@@ -35,31 +38,20 @@ namespace DataBunch.foundation.db.processors.query
                 }
 
                 query += pair.Name + " " + pair.Operator + " ";
-
-                if (pair.Type == SqlDbType.VarChar || pair.Type == SqlDbType.Char || pair.Type == SqlDbType.NChar ||
-                    pair.Type == SqlDbType.NVarChar) {
-                    query += "'" + pair.Value + "' ";
-                } else {
-                    query += pair.Value + " ";
-                }
+                query += isStringType(pair.Type) ? "'" + pair.Value + "' " : pair.Value + " ";
             }
 
             return query.Substring(0, query.Length - 1);
         }
 
-        protected string constructSearchParamValue(DbParam param)
-        {
-            if (param.Type == SqlDbType.VarChar || param.Type == SqlDbType.Char || param.Type == SqlDbType.NChar ||
-                param.Type == SqlDbType.NVarChar) {
-                return "'" + param.Value + "' ";
-            }
-
-            return param.Value + " ";
-        }
-
         public string getLastQuery()
         {
             return this.lastQuery;
+        }
+
+        private bool isStringType(SqlDbType type)
+        {
+            return type == SqlDbType.VarChar || type == SqlDbType.Char || type == SqlDbType.NChar || type == SqlDbType.NVarChar;
         }
     }
 }

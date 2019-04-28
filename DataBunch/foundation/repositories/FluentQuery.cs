@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Data;
 using DataBunch.foundation.db;
 using DataBunch.foundation.db.facades;
 using DataBunch.foundation.exceptions;
@@ -35,6 +37,20 @@ namespace DataBunch.foundation.repositories
         public FluentQuery<T> orWhere(string column, string opr, object value)
         {
             this.query.add(new DbParam(column, value, this.transformer.getParamType(column), opr, "OR"));
+
+            return this;
+        }
+
+        public FluentQuery<T> whereExists(string innerCommand)
+        {
+            this.query.add(new DbParam("EXISTS (" + innerCommand+ ")", null, SqlDbType.Int, "", "AND"));
+
+            return this;
+        }
+
+        public FluentQuery<T> orWhereExists(string innerCommand)
+        {
+            this.query.add(new DbParam("EXISTS (" + innerCommand+ ")", null, SqlDbType.Int, "", "OR"));
 
             return this;
         }

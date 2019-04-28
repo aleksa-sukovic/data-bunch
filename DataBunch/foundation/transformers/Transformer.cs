@@ -33,11 +33,7 @@ namespace DataBunch.foundation.transformers
         {
             var exists = this.paramTypeMap.TryGetValue(param, out var type);
 
-            if (!exists) {
-                throw new TransformException("Parameter {" + param + "} does not have matching type.");
-            }
-
-            return type;
+            return !exists ? SqlDbType.Int : type;
         }
     }
 }
