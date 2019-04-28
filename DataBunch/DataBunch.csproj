@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="collection\models\Collection.cs" />
+    <Compile Include="collection\repositories\CollectionRepository.cs" />
+    <Compile Include="collection\transformers\CollectionTransformer.cs" />
+    <Compile Include="file\models\File.cs" />
+    <Compile Include="file\repositories\FileRepository.cs" />
+    <Compile Include="file\transformers\FileTransformer.cs" />
     <Compile Include="foundation\db\DbConnector.cs" />
     <Compile Include="foundation\db\DbParams.cs" />
     <Compile Include="foundation\db\DbParam.cs" />
@@ -107,7 +113,7 @@
     <Content Include="foundation\interfaces\.gitkeep" />
     <Content Include="foundation\models\.gitkeep" />
     <Content Include="foundation\repositories\.gitkeep" />
-    <Content Include="data_bunch\.gitkeep" />
+    <Content Include="collection\.gitkeep" />
     <Content Include="file\.gitkeep" />
     <Content Include="user\.gitkeep" />
   </ItemGroup>
