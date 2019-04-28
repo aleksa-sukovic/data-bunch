@@ -30,55 +30,50 @@ namespace DataBunch.foundation.utils
 
         public static void Show()
         {
-            //#if DEBUG
-            if (!HasConsole) {
-                AllocConsole();
-                InvalidateOutAndError();
+            if (HasConsole) {
+                return;
             }
 
-            //#endif
+            AllocConsole();
+            invalidateOutAndError();
         }
 
-        /// <summary>
-        /// If the process has a console attached to it, it will be detached and no longer visible. Writing to the System.Console is still possible, but no output will be shown.
-        /// </summary>
         public static void Hide()
         {
-            //#if DEBUG
-            if (HasConsole) {
-                SetOutAndErrorNull();
-                FreeConsole();
+            if (!HasConsole) {
+                return;
             }
 
-            //#endif
+            setOutAndErrorNull();
+            FreeConsole();
         }
 
         public static void Toggle()
         {
             if (HasConsole) {
                 Hide();
+
+                return;
             }
-            else {
-                Show();
-            }
+
+            Show();
         }
 
-        static void InvalidateOutAndError()
+        private static void invalidateOutAndError()
         {
-            Type type = typeof(System.Console);
+            var type = typeof(System.Console);
 
-            System.Reflection.FieldInfo _out = type.GetField("_out",
+            var _out = type.GetField("_out",
                 System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
 
-            System.Reflection.FieldInfo _error = type.GetField("_error",
+            var _error = type.GetField("_error",
                 System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
 
-            System.Reflection.MethodInfo _InitializeStdOutError = type.GetMethod("InitializeStdOutError",
+            var _InitializeStdOutError = type.GetMethod("InitializeStdOutError",
                 System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
 
             Debug.Assert(_out != null);
             Debug.Assert(_error != null);
-
             Debug.Assert(_InitializeStdOutError != null);
 
             _out.SetValue(null, null);
@@ -87,7 +82,7 @@ namespace DataBunch.foundation.utils
             _InitializeStdOutError.Invoke(null, new object[] {true});
         }
 
-        static void SetOutAndErrorNull()
+        private static void setOutAndErrorNull()
         {
             Console.SetOut(TextWriter.Null);
             Console.SetError(TextWriter.Null);
