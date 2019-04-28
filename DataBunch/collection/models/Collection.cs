@@ -13,7 +13,7 @@ namespace DataBunch.collection.models
         private string type;
         private int size;
         private List<File> files;
-        private List<Collection> childrens;
+        private List<Collection> children;
         private long userId;
         private User user;
         private long parentId;
@@ -33,7 +33,7 @@ namespace DataBunch.collection.models
             this.type = "txt";
             this.size = 0;
             files = new List<File>();
-            childrens = new List<Collection>();
+            children = new List<Collection>();
         }
 
         public Collection(long id, string name, long userId, long parentId, string type, DateTime createdAt, DateTime updatedAt,
@@ -49,7 +49,7 @@ namespace DataBunch.collection.models
             this.userId = user?.ID ?? userId;
             this.parent = parent;
             files = new List<File>();
-            childrens = new List<Collection>();
+            children = new List<Collection>();
         }
 
         public Collection(string name, long userId, long parentId, string type, int size = 0, User user = null, Collection parent = null)
@@ -64,7 +64,7 @@ namespace DataBunch.collection.models
             this.userId = user?.ID ?? userId;
             this.parent = parent;
             files = new List<File>();
-            childrens = new List<Collection>();
+            children = new List<Collection>();
         }
 
         public void addFile(File file)
@@ -86,7 +86,7 @@ namespace DataBunch.collection.models
         public DateTime UpdatedAt { get => this.updatedAt; set => this.updatedAt = value; }
         public string Type { get => this.type; set => this.type = value; }
         public int Size { get => this.size; set => this.size = value; }
-        public List<Collection> Childrens { get => this.childrens; set => this.childrens = value; }
+        public List<Collection> Children { get => this.children; set => this.children = value; }
 
         public User User
         {
