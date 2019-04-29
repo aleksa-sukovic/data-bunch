@@ -65,6 +65,7 @@
     <Compile Include="app\foundation\exceptions\BaseException.cs" />
     <Compile Include="app\foundation\exceptions\ItemNotFoundException.cs" />
     <Compile Include="app\foundation\exceptions\TransformException.cs" />
+    <Compile Include="app\foundation\exceptions\UnauthorizedException.cs" />
     <Compile Include="app\foundation\models\Model.cs" />
     <Compile Include="app\foundation\repositories\BaseRepository.cs" />
     <Compile Include="app\foundation\repositories\FluentQuery.cs" />
@@ -72,11 +73,16 @@
     <Compile Include="app\foundation\utils\ConsoleManager.cs" />
     <Compile Include="app\foundation\utils\ExceptionHandler.cs" />
     <Compile Include="app\foundation\utils\Log.cs" />
+    <Compile Include="app\policies\handlers\PolicyHandler.cs" />
+    <Compile Include="app\policies\models\Policy.cs" />
+    <Compile Include="app\policies\repositories\PolicyRepository.cs" />
+    <Compile Include="app\policies\transformers\PolicyTransformer.cs" />
     <Compile Include="app\ui\forms\Welcome.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="app\ui\forms\WelcomeForm.cs" />
     <Compile Include="app\user\models\User.cs" />
+    <Compile Include="app\user\policies\UserPolicy.cs" />
     <Compile Include="app\user\repositories\UserRepository.cs" />
     <Compile Include="app\user\transformers\UserTransformer.cs" />
     <Compile Include="Program.cs" />
@@ -114,9 +120,6 @@
     <Content Include="app\foundation\models\.gitkeep" />
     <Content Include="app\foundation\repositories\.gitkeep" />
     <Content Include="app\user\.gitkeep" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
