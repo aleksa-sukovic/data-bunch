@@ -1,5 +1,5 @@
 using DataBunch.app.policies.handlers;
-using DataBunch.user.models;
+using DataBunch.app.user.models;
 
 namespace DataBunch.app.user.policies
 {

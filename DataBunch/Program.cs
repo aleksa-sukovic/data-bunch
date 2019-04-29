@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Windows.Forms;
+using DataBunch.app.ui.forms;
 using DataBunch.foundation.utils;
 
 namespace DataBunch
@@ -17,7 +18,7 @@ namespace DataBunch
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(ExceptionHandler.handle);
 
-            Application.Run(new ui.forms.WelcomeForm());
+            Application.Run(new WelcomeForm());
         }
     }
 }

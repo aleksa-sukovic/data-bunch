@@ -1,10 +1,10 @@
 using System;
+using DataBunch.app.user.repositories;
 using DataBunch.collection.models;
 using DataBunch.collection.transformers;
 using DataBunch.file.repositories;
 using DataBunch.foundation.models;
 using DataBunch.foundation.repositories;
-using DataBunch.user.repositories;
 
 namespace DataBunch.collection.repositories
 {

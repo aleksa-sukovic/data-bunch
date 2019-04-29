@@ -1,7 +1,10 @@
 namespace DataBunch.app.sessions.services
 {
-    public class Auth
+    public static class Auth
     {
-        
+        public static void logIn(string userName, string password)
+        {
+
+        }
     }
 }

@@ -1,27 +1,33 @@
 using System.Collections.Generic;
+using DataBunch.app.foundation.utils;
 using DataBunch.collection.models;
 using DataBunch.foundation.models;
 
-namespace DataBunch.user.models
+namespace DataBunch.app.user.models
 {
     public class User: Model
     {
         private List<Collection> collections;
+        private string password;
 
-        public User(long id, string name, int age, string privilege): base(id)
+        public User(long id, string username, string password, string name, int age, string privilege): base(id)
         {
-            this.Name = name;
-            this.Age = age;
-            this.Privilege = privilege;
-            this.collections = new List<Collection>();
+            Username = username;
+            this.password = password;
+            Name = name;
+            Age = age;
+            Privilege = privilege;
+            collections = new List<Collection>();
         }
 
-        public User(string name, int age, string privilege)
+        public User(string username, string password, string name, int age, string privilege)
         {
-            this.Name = name;
-            this.Age = age;
-            this.Privilege = privilege;
-            this.collections = new List<Collection>();
+            Username = username;
+            this.password = Hash.make(password);
+            Name = name;
+            Age = age;
+            Privilege = privilege;
+            collections = new List<Collection>();
         }
 
         public bool isAdmin()
@@ -35,6 +41,14 @@ namespace DataBunch.user.models
         }
 
         public string Name { get; set; }
+        public string Username { get; set; }
+
+        public string Password
+        {
+            get => this.password;
+            set => this.password = Hash.make(value);
+        }
+
         public int Age { get; set; }
         public string Privilege { get; set; }
         public List<Collection> Collections

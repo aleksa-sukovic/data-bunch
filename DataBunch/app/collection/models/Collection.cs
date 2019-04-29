@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using DataBunch.app.user.models;
 using DataBunch.file.models;
 using DataBunch.foundation.models;
-using DataBunch.user.models;
 
 namespace DataBunch.collection.models
 {

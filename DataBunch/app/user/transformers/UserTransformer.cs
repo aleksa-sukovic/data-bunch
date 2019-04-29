@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using DataBunch.app.user.models;
 using DataBunch.foundation.db;
 using DataBunch.foundation.transformers;
 using DataBunch.foundation.utils;
-using DataBunch.user.models;
 
-namespace DataBunch.user.transformers
+namespace DataBunch.app.user.transformers
 {
     public class UserTransformer: Transformer<User>
     {
@@ -15,7 +15,9 @@ namespace DataBunch.user.transformers
         {
             return new User(
                 (int) reader["id"],
-                (string) reader["name"],
+                (string) reader["username"],
+                (string) reader["password"],
+                Convert.ToString(reader["name"]),
                 (int) reader["age"],
                 (string) reader["privilege"]
             );
@@ -24,6 +26,8 @@ namespace DataBunch.user.transformers
         protected override Dictionary<string, SqlDbType> getParamTypeMap()
         {
             return new Dictionary<string, SqlDbType> {
+                { "username", SqlDbType.VarChar },
+                { "password", SqlDbType.VarChar },
                 { "name", SqlDbType.VarChar },
                 { "age", SqlDbType.Int },
                 { "id", SqlDbType.Int },
@@ -33,10 +37,12 @@ namespace DataBunch.user.transformers
 
         public override DbParams getDbParams(User model)
         {
-            return new DbParams(new DbParam[] {
+            return new DbParams(new[] {
                 new DbParam("name", model.Name, this.getParamType("name")),
                 new DbParam("age", model.Age,  this.getParamType("age")),
                 new DbParam("privilege", model.Privilege, this.getParamType("privilege")),
+                new DbParam("username", model.Username, this.getParamType("username")),
+                new DbParam("password", model.Password, this.getParamType("password"))
             });
         }
     }

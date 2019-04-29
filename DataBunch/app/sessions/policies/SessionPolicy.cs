@@ -1,6 +1,6 @@
 using DataBunch.app.policies.handlers;
 using DataBunch.app.sessions.models;
-using DataBunch.user.models;
+using DataBunch.app.user.models;
 
 namespace DataBunch.app.sessions.policies
 {

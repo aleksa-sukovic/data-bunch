@@ -1,7 +1,7 @@
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.policies.repositories;
+using DataBunch.app.user.models;
 using DataBunch.foundation.models;
-using DataBunch.user.models;
 
 namespace DataBunch.app.policies.handlers
 {

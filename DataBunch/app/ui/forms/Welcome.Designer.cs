@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DataBunch.ui.forms
+namespace DataBunch.app.ui.forms
 {
     partial class WelcomeForm: Form
     {
