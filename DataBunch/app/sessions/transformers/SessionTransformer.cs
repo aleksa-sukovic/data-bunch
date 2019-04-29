@@ -17,6 +17,7 @@ namespace DataBunch.app.sessions.transformers
                 (int) reader["id"],
                 (int) reader["user_id"],
                 (string) reader["action"],
+                ((int)reader["active"]) == 1,
                 (DateTime) reader["created_at"],
                 (DateTime) reader["updated_at"]
             );
@@ -28,6 +29,7 @@ namespace DataBunch.app.sessions.transformers
                 { "id", SqlDbType.Int },
                 { "user_id", SqlDbType.Int },
                 { "action", SqlDbType.VarChar },
+                { "active", SqlDbType.Bit },
                 { "created_at", SqlDbType.DateTime },
                 { "updated_at", SqlDbType.DateTime }
             };
@@ -37,7 +39,8 @@ namespace DataBunch.app.sessions.transformers
         {
             return new DbParams(new [] {
                 new DbParam("user_id", model.UserID, this.getParamType("user_id")),
-                new DbParam("action", model.Action, this.getParamType("action"))
+                new DbParam("action", model.Action, this.getParamType("action")),
+                new DbParam("active", model.Active ? 1 : 0, this.getParamType("active")),
             });
         }
     }
