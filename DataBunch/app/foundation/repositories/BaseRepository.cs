@@ -6,10 +6,11 @@ using DataBunch.foundation.db;
 using DataBunch.foundation.db.facades;
 using DataBunch.foundation.exceptions;
 using DataBunch.foundation.models;
+using DataBunch.foundation.repositories;
 using DataBunch.foundation.transformers;
 using DataBunch.foundation.utils;
 
-namespace DataBunch.foundation.repositories
+namespace DataBunch.app.foundation.repositories
 {
     public abstract class BaseRepository<T> where T: Model
     {
@@ -88,6 +89,7 @@ namespace DataBunch.foundation.repositories
             valueParams.add(new DbParam("updated_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
 
             // updating
+            this.beforeSave(model);
             var insertedId = DB.create(this.tableName, valueParams);
             var saved = this.one(insertedId);
             this.afterSave(model, saved);
@@ -130,6 +132,7 @@ namespace DataBunch.foundation.repositories
             valueParams.add(new DbParam("updated_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
 
             // updating
+            this.beforeSave(model);
             DB.update(this.tableName, this.transformer.getDbParams(model), searchParams);
             var saved = this.one(model.ID);
             this.afterSave(model, saved);

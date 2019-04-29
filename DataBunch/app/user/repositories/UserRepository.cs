@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DataBunch.app.foundation.exceptions;
+using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.models;
 using DataBunch.app.user.transformers;
 using DataBunch.collection.repositories;

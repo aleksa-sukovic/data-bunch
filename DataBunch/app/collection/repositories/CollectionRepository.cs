@@ -1,4 +1,5 @@
 using System;
+using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.repositories;
 using DataBunch.collection.models;
 using DataBunch.collection.transformers;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using DataBunch.app.foundation.repositories;
 using DataBunch.foundation.db;
 using DataBunch.foundation.db.facades;
 using DataBunch.foundation.exceptions;
