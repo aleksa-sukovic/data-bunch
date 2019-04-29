@@ -46,43 +46,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="collection\models\Collection.cs" />
-    <Compile Include="collection\repositories\CollectionRepository.cs" />
-    <Compile Include="collection\transformers\CollectionTransformer.cs" />
-    <Compile Include="file\models\File.cs" />
-    <Compile Include="file\repositories\FileRepository.cs" />
-    <Compile Include="file\transformers\FileTransformer.cs" />
-    <Compile Include="foundation\db\DbConnector.cs" />
-    <Compile Include="foundation\db\DbParams.cs" />
-    <Compile Include="foundation\db\DbParam.cs" />
-    <Compile Include="foundation\db\facades\DB.cs" />
-    <Compile Include="foundation\db\processors\query\DeleteQueryProcessor.cs" />
-    <Compile Include="foundation\db\processors\query\InsertQueryProcessor.cs" />
-    <Compile Include="foundation\db\processors\query\QueryProcessor.cs" />
-    <Compile Include="foundation\db\processors\query\SearchQueryProcessor.cs" />
-    <Compile Include="foundation\db\processors\query\UpdateQueryProcessor.cs" />
-    <Compile Include="foundation\db\QueryParam.cs" />
-    <Compile Include="foundation\exceptions\BaseException.cs" />
-    <Compile Include="foundation\exceptions\ItemNotFoundException.cs" />
-    <Compile Include="foundation\exceptions\TransformException.cs" />
-    <Compile Include="foundation\models\Model.cs" />
-    <Compile Include="foundation\repositories\BaseRepository.cs" />
-    <Compile Include="foundation\repositories\FluentQuery.cs" />
-    <Compile Include="foundation\transformers\Transformer.cs" />
-    <Compile Include="foundation\utils\ConsoleManager.cs" />
-    <Compile Include="foundation\utils\ExceptionHandler.cs" />
-    <Compile Include="foundation\utils\Log.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ui\forms\Welcome.Designer.cs">
+    <Compile Include="app\collection\models\Collection.cs" />
+    <Compile Include="app\collection\repositories\CollectionRepository.cs" />
+    <Compile Include="app\collection\transformers\CollectionTransformer.cs" />
+    <Compile Include="app\file\models\File.cs" />
+    <Compile Include="app\file\repositories\FileRepository.cs" />
+    <Compile Include="app\file\transformers\FileTransformer.cs" />
+    <Compile Include="app\foundation\db\DbConnector.cs" />
+    <Compile Include="app\foundation\db\DbParam.cs" />
+    <Compile Include="app\foundation\db\DbParams.cs" />
+    <Compile Include="app\foundation\db\facades\DB.cs" />
+    <Compile Include="app\foundation\db\processors\query\DeleteQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\InsertQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\QueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\SearchQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\UpdateQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\QueryParam.cs" />
+    <Compile Include="app\foundation\exceptions\BaseException.cs" />
+    <Compile Include="app\foundation\exceptions\ItemNotFoundException.cs" />
+    <Compile Include="app\foundation\exceptions\TransformException.cs" />
+    <Compile Include="app\foundation\models\Model.cs" />
+    <Compile Include="app\foundation\repositories\BaseRepository.cs" />
+    <Compile Include="app\foundation\repositories\FluentQuery.cs" />
+    <Compile Include="app\foundation\transformers\Transformer.cs" />
+    <Compile Include="app\foundation\utils\ConsoleManager.cs" />
+    <Compile Include="app\foundation\utils\ExceptionHandler.cs" />
+    <Compile Include="app\foundation\utils\Log.cs" />
+    <Compile Include="app\ui\forms\Welcome.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ui\forms\WelcomeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="user\models\User.cs" />
-    <Compile Include="user\repositories\UserRepository.cs" />
-    <Compile Include="user\transformers\UserTransformer.cs" />
+    <Compile Include="app\ui\forms\WelcomeForm.cs" />
+    <Compile Include="app\user\models\User.cs" />
+    <Compile Include="app\user\repositories\UserRepository.cs" />
+    <Compile Include="app\user\transformers\UserTransformer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="app\ui\forms\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,9 +93,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ui\forms\WelcomeForm.resx">
-      <DependentUpon>WelcomeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,13 +107,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="foundation\db\facades\.gitkeep" />
-    <Content Include="foundation\interfaces\.gitkeep" />
-    <Content Include="foundation\models\.gitkeep" />
-    <Content Include="foundation\repositories\.gitkeep" />
-    <Content Include="collection\.gitkeep" />
-    <Content Include="file\.gitkeep" />
-    <Content Include="user\.gitkeep" />
+    <Content Include="app\collection\.gitkeep" />
+    <Content Include="app\file\.gitkeep" />
+    <Content Include="app\foundation\db\facades\.gitkeep" />
+    <Content Include="app\foundation\interfaces\.gitkeep" />
+    <Content Include="app\foundation\models\.gitkeep" />
+    <Content Include="app\foundation\repositories\.gitkeep" />
+    <Content Include="app\user\.gitkeep" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
