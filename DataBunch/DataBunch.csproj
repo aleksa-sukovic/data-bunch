@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\collection\factories\CollectionFactory.cs" />
     <Compile Include="app\collection\models\Collection.cs" />
     <Compile Include="app\collection\policies\CollectionPolicy.cs" />
     <Compile Include="app\collection\repositories\CollectionRepository.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="app\foundation\exceptions\AuthException.cs" />
     <Compile Include="app\foundation\exceptions\BaseException.cs" />
     <Compile Include="app\foundation\exceptions\ItemNotFoundException.cs" />
+    <Compile Include="app\foundation\exceptions\StorageException.cs" />
     <Compile Include="app\foundation\exceptions\TransformException.cs" />
     <Compile Include="app\foundation\exceptions\UnauthorizedException.cs" />
     <Compile Include="app\foundation\exceptions\ValidationException.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="app\foundation\utils\ExceptionHandler.cs" />
     <Compile Include="app\foundation\utils\Hash.cs" />
     <Compile Include="app\foundation\utils\Log.cs" />
+    <Compile Include="app\foundation\utils\Storage.cs" />
     <Compile Include="app\policies\handlers\PolicyHandler.cs" />
     <Compile Include="app\policies\models\Policy.cs" />
     <Compile Include="app\policies\policies\PolicyPolicy.cs" />
