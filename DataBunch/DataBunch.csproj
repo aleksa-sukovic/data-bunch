@@ -77,6 +77,10 @@
     <Compile Include="app\policies\models\Policy.cs" />
     <Compile Include="app\policies\repositories\PolicyRepository.cs" />
     <Compile Include="app\policies\transformers\PolicyTransformer.cs" />
+    <Compile Include="app\sessions\models\Session.cs" />
+    <Compile Include="app\sessions\policies\SessionPolicy.cs" />
+    <Compile Include="app\sessions\repositories\SessionRepository.cs" />
+    <Compile Include="app\sessions\transformers\SessionTransformer.cs" />
     <Compile Include="app\ui\forms\Welcome.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>

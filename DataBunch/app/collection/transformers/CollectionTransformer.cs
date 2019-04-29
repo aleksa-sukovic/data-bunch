@@ -41,7 +41,7 @@ namespace DataBunch.collection.transformers
 
         public override DbParams getDbParams(Collection model)
         {
-            return new DbParams(new DbParam[] {
+            return new DbParams(new[] {
                 new DbParam("name", model.Name, this.getParamType("name")),
                 new DbParam("user_id", model.UserID, this.getParamType("user_id")),
                 new DbParam("parent_id", model.ParentID, this.getParamType("parent_id")), 
