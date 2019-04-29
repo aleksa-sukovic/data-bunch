@@ -20,9 +20,9 @@ namespace DataBunch.app.user.repositories
             this.policy = new UserPolicy();
         }
 
-        public User findByUsername(string username)
+        public User findByUsername(string username, bool throwException = true)
         {
-            return query().where("username", "=", username).first();
+            return query().where("username", "=", username).first(throwException);
         }
 
         protected override void beforeSave(User item)

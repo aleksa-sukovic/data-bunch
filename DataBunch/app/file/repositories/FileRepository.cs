@@ -1,5 +1,6 @@
 using DataBunch.app.collection.repositories;
 using DataBunch.app.file.models;
+using DataBunch.app.file.policies;
 using DataBunch.app.file.transformers;
 using DataBunch.app.foundation.repositories;
 
@@ -13,6 +14,7 @@ namespace DataBunch.app.file.repositories
         {
             this.tableName = "files";
             this.transformer = new FileTransformer();
+            this.policy = new FilePolicy();
         }
 
         public override File addIncludes(File model)

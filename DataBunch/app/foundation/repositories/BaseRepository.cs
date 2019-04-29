@@ -19,7 +19,9 @@ namespace DataBunch.app.foundation.repositories
 
         public List<T> all(List<QueryParam> queryParams, bool withIncludes = true)
         {
-            policy.checkList(typeof(T));
+            if (!policy.checkList(typeof(T))) {
+                throw new UnauthorizedException("You do not have permission to list requested resources.");
+            }
 
             // transform queryParams to DbParams
             var dbParams = new DbParams();
@@ -48,7 +50,9 @@ namespace DataBunch.app.foundation.repositories
 
         public T one(long id, bool withIncludes = true)
         {
-            policy.checkShow(id);
+            if (!policy.checkShow(id)) {
+                throw new UnauthorizedException("You do not have permission to view requested resource.");
+            }
 
             var reader = DB.all(this.tableName, new DbParams(new DbParam[] {
                 new DbParam("id", id, this.transformer.getParamType("id")),
@@ -87,7 +91,9 @@ namespace DataBunch.app.foundation.repositories
 
         public T create(T model)
         {
-            policy.checkCreate(typeof(T));
+            if (!policy.checkCreate(typeof(T))) {
+                throw new UnauthorizedException("You do not have permission to create resources of type '" + typeof(T) + "'");
+            }
 
             // adding timestamps
             var valueParams = this.transformer.getDbParams(model);
@@ -127,7 +133,9 @@ namespace DataBunch.app.foundation.repositories
 
         public T update(T model)
         {
-            policy.checkUpdate(model.ID);
+            if (!policy.checkUpdate(model.ID)) {
+                throw new UnauthorizedException("You do not have permission to update this resource.");
+            }
 
             // adding update restriciton
             var searchParams = new DbParams(new[] {
@@ -150,7 +158,9 @@ namespace DataBunch.app.foundation.repositories
 
         public T delete(T model)
         {
-            policy.checkDelete(model.ID);
+            if (!policy.checkDelete(model.ID)) {
+                throw new UnauthorizedException("You do not have permission to delete this resource");
+            }
 
             var searchParams = new DbParams(new DbParam[] {
                 new DbParam("id", model.ID, this.transformer.getParamType("id")),
@@ -163,7 +173,9 @@ namespace DataBunch.app.foundation.repositories
 
         public void deleteById(long id)
         {
-            policy.checkDelete(id);
+            if (!policy.checkDelete(id)) {
+                throw new UnauthorizedException("You do not have permission to delete this resource");
+            }
 
             var searchParams = new DbParams(new DbParam[] {
                 new DbParam("id", id, this.transformer.getParamType("id")),

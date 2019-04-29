@@ -9,13 +9,7 @@ namespace DataBunch.app.policies.handlers
 {
     public abstract class PolicyHandler<T> where T: Model
     {
-        private readonly PolicyRepository policyRepository;
         protected string type;
-
-        protected PolicyHandler()
-        {
-            this.policyRepository = new PolicyRepository();
-        }
 
         public virtual bool checkCreate(Type t, User user = null, bool throwException = true)
         {
@@ -48,8 +42,8 @@ namespace DataBunch.app.policies.handlers
                 return true;
             }
 
-            var found = this.policyRepository.query()
-                .where("user_id", "=", user.ID)
+            var found = new PolicyRepository().query()
+                .where("user_id", "=", user?.ID ?? 0)
                 .where("target_id", "=", targetId)
                 .where("type", "=", type)
                 .first(false);

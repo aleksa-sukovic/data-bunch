@@ -8,6 +8,11 @@ namespace DataBunch.app.collection.policies
 {
     public class CollectionPolicy: PolicyHandler<Collection>
     {
+        public CollectionPolicy()
+        {
+            this.type = "collection";
+        }
+
         protected override bool before(User user, long targetId)
         {
             return user != null && user.isAdmin();

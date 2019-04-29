@@ -26,7 +26,11 @@ namespace DataBunch.app.sessions.services
         {
             disableActiveSession();
 
-            var user = getUserRepository().findByUsername(userName);
+            var user = getUserRepository().findByUsername(userName, false);
+            if (user == null) {
+                throw new AuthException("User with username '" + userName + "' does not exists.");
+            }
+
             if (!Hash.check(user.Password, password)) {
                 throw new AuthException();
             }
