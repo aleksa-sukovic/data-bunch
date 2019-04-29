@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app\collection\models\Collection.cs" />
+    <Compile Include="app\collection\policies\CollectionPolicy.cs" />
     <Compile Include="app\collection\repositories\CollectionRepository.cs" />
     <Compile Include="app\collection\transformers\CollectionTransformer.cs" />
     <Compile Include="app\file\models\File.cs" />
+    <Compile Include="app\file\policies\FilePolicy.cs" />
     <Compile Include="app\file\repositories\FileRepository.cs" />
     <Compile Include="app\file\transformers\FileTransformer.cs" />
     <Compile Include="app\foundation\db\DbConnector.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="app\foundation\utils\Log.cs" />
     <Compile Include="app\policies\handlers\PolicyHandler.cs" />
     <Compile Include="app\policies\models\Policy.cs" />
+    <Compile Include="app\policies\policies\PolicyPolicy.cs" />
     <Compile Include="app\policies\repositories\PolicyRepository.cs" />
     <Compile Include="app\policies\transformers\PolicyTransformer.cs" />
     <Compile Include="app\sessions\models\Session.cs" />
@@ -121,13 +124,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\collection\.gitkeep" />
-    <Content Include="app\file\.gitkeep" />
     <Content Include="app\foundation\db\facades\.gitkeep" />
     <Content Include="app\foundation\interfaces\.gitkeep" />
     <Content Include="app\foundation\models\.gitkeep" />
     <Content Include="app\foundation\repositories\.gitkeep" />
-    <Content Include="app\user\.gitkeep" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

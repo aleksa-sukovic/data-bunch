@@ -1,8 +1,8 @@
 namespace DataBunch.foundation.models
 {
-    public abstract class Model
+    public class Model
     {
-        protected Model(long id = -1)
+        public Model(long id = -1)
         {
             this.ID = id;
         }

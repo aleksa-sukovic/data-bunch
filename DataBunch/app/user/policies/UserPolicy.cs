@@ -10,9 +10,9 @@ namespace DataBunch.app.user.policies
             this.type = "user";
         }
 
-        protected override bool before(User user, User target)
+        protected override bool before(User user, long targetId)
         {
-            return user.isAdmin() || user.ID == target.ID;
+            return user != null && (user.isAdmin() || user.ID == targetId);
         }
     }
 }

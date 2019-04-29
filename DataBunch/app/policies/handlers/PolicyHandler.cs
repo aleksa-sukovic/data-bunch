@@ -1,5 +1,7 @@
+using System;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.policies.repositories;
+using DataBunch.app.sessions.services;
 using DataBunch.app.user.models;
 using DataBunch.foundation.models;
 
@@ -15,15 +17,40 @@ namespace DataBunch.app.policies.handlers
             this.policyRepository = new PolicyRepository();
         }
 
-        public bool check(User user, T target, bool throwException = true)
+        public virtual bool checkCreate(Type t, User user = null, bool throwException = true)
         {
-            if (before(user, target)) {
+            return true;
+        }
+
+        public virtual bool checkShow(long targetId, User user = null, bool throwException = true)
+        {
+            return doCheck(targetId, user, throwException);
+        }
+
+        public virtual bool checkList(Type t, User user = null, bool throwException = true)
+        {
+            return before(parseUser(user), 0);
+        }
+
+        public virtual bool checkUpdate(long targetId, User user = null, bool throwException = true)
+        {
+            return doCheck(targetId, user, throwException);
+        }
+
+        public virtual bool checkDelete(long targetId, User user = null, bool throwException = true)
+        {
+            return doCheck(targetId, user, throwException);
+        }
+
+        private bool doCheck(long targetId, User user, bool throwException = true)
+        {
+            if (before(user, targetId)) {
                 return true;
             }
 
             var found = this.policyRepository.query()
                 .where("user_id", "=", user.ID)
-                .where("target_id", "=", target.ID)
+                .where("target_id", "=", targetId)
                 .where("type", "=", type)
                 .first(false);
 
@@ -34,9 +61,18 @@ namespace DataBunch.app.policies.handlers
             return found != null;
         }
 
-        protected virtual bool before(User user, T target)
+        protected virtual bool before(User user, long targetId)
         {
             return false;
+        }
+
+        protected User parseUser(User user = null, bool throwException = true)
+        {
+            if (user == null && !Auth.isLoggedIn() && throwException) {
+                throw new UnauthorizedException("Please log in.");
+            }
+
+            return user ?? Auth.getUser();
         }
     }
 }

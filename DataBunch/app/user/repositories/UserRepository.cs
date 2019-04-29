@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.models;
+using DataBunch.app.user.policies;
 using DataBunch.app.user.transformers;
 using DataBunch.collection.repositories;
 using DataBunch.foundation.db;
-using DataBunch.foundation.repositories;
 
 namespace DataBunch.app.user.repositories
 {
@@ -17,6 +17,7 @@ namespace DataBunch.app.user.repositories
         {
             this.tableName = "users";
             this.transformer = new UserTransformer();
+            this.policy = new UserPolicy();
         }
 
         public User findByUsername(string username)

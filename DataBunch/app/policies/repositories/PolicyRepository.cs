@@ -1,7 +1,7 @@
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.policies.models;
+using DataBunch.app.policies.policies;
 using DataBunch.app.policies.transformers;
-using DataBunch.foundation.repositories;
 
 namespace DataBunch.app.policies.repositories
 {
@@ -11,6 +11,7 @@ namespace DataBunch.app.policies.repositories
         {
             this.tableName = "policies";
             this.transformer = new PolicyTransformer();
+            this.policy = new PolicyPolicy();
         }
     }
 }

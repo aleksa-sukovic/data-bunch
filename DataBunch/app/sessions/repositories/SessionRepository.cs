@@ -1,6 +1,7 @@
 using System;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.sessions.models;
+using DataBunch.app.sessions.policies;
 using DataBunch.app.sessions.transformers;
 using DataBunch.app.user.repositories;
 using DataBunch.foundation.repositories;
@@ -16,6 +17,7 @@ namespace DataBunch.app.sessions.repositories
             this.tableName = "sessions";
             this.transformer = new SessionTransformer();
             this.userRepository = new UserRepository();
+            this.policy = new SessionPolicy();
         }
 
         public override Session addIncludes(Session model)

@@ -6,9 +6,9 @@ namespace DataBunch.app.sessions.policies
 {
     public class SessionPolicy: PolicyHandler<Session>
     {
-        protected override bool before(User user, Session target)
+        protected override bool before(User user, long targetId)
         {
-            return true;
+            return user != null && user.isAdmin();
         }
     }
 }

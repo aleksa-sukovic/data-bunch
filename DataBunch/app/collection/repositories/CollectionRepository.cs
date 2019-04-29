@@ -1,4 +1,5 @@
 using System;
+using DataBunch.app.collection.policies;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.repositories;
 using DataBunch.collection.models;
@@ -18,6 +19,7 @@ namespace DataBunch.collection.repositories
         {
             this.tableName = "collections";
             this.transformer = new CollectionTransformer();
+            this.policy = new CollectionPolicy();
             this.fileRepository = new FileRepository();
             this.userRepository = new UserRepository();
         }

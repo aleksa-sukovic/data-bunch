@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using DataBunch.app.policies.handlers;
 using DataBunch.foundation.db;
 using DataBunch.foundation.db.facades;
 using DataBunch.foundation.exceptions;
@@ -16,9 +17,12 @@ namespace DataBunch.app.foundation.repositories
     {
         protected string tableName = "";
         protected Transformer<T> transformer;
+        protected PolicyHandler<T> policy;
 
         public List<T> all(List<QueryParam> queryParams, bool withIncludes = true)
         {
+            policy.checkList(typeof(T));
+
             // transform queryParams to DbParams
             var dbParams = new DbParams();
             foreach (var param in queryParams) {
@@ -26,7 +30,7 @@ namespace DataBunch.app.foundation.repositories
             }
 
             // read data
-            var reader = DB.all(this.tableName, dbParams);
+            var reader = DB.all(this.tableName, manipulateParams(dbParams));
             var result = new List<T>();
 
             while (reader.Read()) {
@@ -46,6 +50,8 @@ namespace DataBunch.app.foundation.repositories
 
         public T one(long id, bool withIncludes = true)
         {
+            policy.checkShow(id);
+
             var reader = DB.all(this.tableName, new DbParams(new DbParam[] {
                 new DbParam("id", id, this.transformer.getParamType("id")),
             }));
@@ -83,6 +89,8 @@ namespace DataBunch.app.foundation.repositories
 
         public T create(T model)
         {
+            policy.checkCreate(typeof(T));
+
             // adding timestamps
             var valueParams = this.transformer.getDbParams(model);
             valueParams.add(new DbParam("created_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
@@ -121,6 +129,8 @@ namespace DataBunch.app.foundation.repositories
 
         public T update(T model)
         {
+            policy.checkUpdate(model.ID);
+
             // adding update restriciton
             var searchParams = new DbParams(new[] {
                 new DbParam("id", model.ID, this.transformer.getParamType("id")),
@@ -142,6 +152,8 @@ namespace DataBunch.app.foundation.repositories
 
         public T delete(T model)
         {
+            policy.checkDelete(model.ID);
+
             var searchParams = new DbParams(new DbParam[] {
                 new DbParam("id", model.ID, this.transformer.getParamType("id")),
             });
@@ -153,6 +165,8 @@ namespace DataBunch.app.foundation.repositories
 
         public void deleteById(long id)
         {
+            policy.checkDelete(id);
+
             var searchParams = new DbParams(new DbParam[] {
                 new DbParam("id", id, this.transformer.getParamType("id")),
             });
@@ -173,6 +187,11 @@ namespace DataBunch.app.foundation.repositories
         protected virtual void afterSave(T beforeSave, T afterSave)
         {
             //
+        }
+
+        protected virtual DbParams manipulateParams(DbParams dbParams)
+        {
+            return dbParams;
         }
 
         public Transformer<T> getTransformer()
