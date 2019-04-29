@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using DataBunch.foundation.db;
-using DataBunch.foundation.exceptions;
+using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.exceptions;
 
-namespace DataBunch.foundation.transformers
+namespace DataBunch.app.foundation.transformers
 {
     public abstract class Transformer<Model>
     {

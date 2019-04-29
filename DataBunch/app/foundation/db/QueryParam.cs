@@ -1,4 +1,4 @@
-namespace DataBunch.foundation.db
+namespace DataBunch.app.foundation.db
 {
     public class QueryParam
     {

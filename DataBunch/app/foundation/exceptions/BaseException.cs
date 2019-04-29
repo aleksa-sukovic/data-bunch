@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DataBunch.foundation.exceptions
+namespace DataBunch.app.foundation.exceptions
 {
     public class BaseException: Exception
     {

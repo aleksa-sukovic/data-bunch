@@ -1,8 +1,7 @@
-using System;
 using System.Data.SqlClient;
-using DataBunch.foundation.utils;
+using DataBunch.app.foundation.utils;
 
-namespace DataBunch.foundation.db
+namespace DataBunch.app.foundation.db
 {
     public class DbConnector
     {

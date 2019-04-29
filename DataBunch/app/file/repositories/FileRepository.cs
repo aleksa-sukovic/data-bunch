@@ -1,10 +1,9 @@
+using DataBunch.app.collection.repositories;
+using DataBunch.app.file.models;
+using DataBunch.app.file.transformers;
 using DataBunch.app.foundation.repositories;
-using DataBunch.collection.repositories;
-using DataBunch.file.models;
-using DataBunch.file.transformers;
-using DataBunch.foundation.repositories;
 
-namespace DataBunch.file.repositories
+namespace DataBunch.app.file.repositories
 {
     public class FileRepository: BaseRepository<File>
     {

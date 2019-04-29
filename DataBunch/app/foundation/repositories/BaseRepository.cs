@@ -2,14 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.db.facades;
+using DataBunch.app.foundation.exceptions;
+using DataBunch.app.foundation.models;
+using DataBunch.app.foundation.transformers;
 using DataBunch.app.policies.handlers;
-using DataBunch.foundation.db;
-using DataBunch.foundation.db.facades;
-using DataBunch.foundation.exceptions;
-using DataBunch.foundation.models;
-using DataBunch.foundation.repositories;
-using DataBunch.foundation.transformers;
-using DataBunch.foundation.utils;
 
 namespace DataBunch.app.foundation.repositories
 {

@@ -1,6 +1,6 @@
 using System;
+using DataBunch.app.foundation.models;
 using DataBunch.app.user.models;
-using DataBunch.foundation.models;
 
 namespace DataBunch.app.sessions.models
 {

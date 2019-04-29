@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
-using DataBunch.foundation.exceptions;
+using DataBunch.app.foundation.exceptions;
 
-namespace DataBunch.foundation.utils
+namespace DataBunch.app.foundation.utils
 {
     public static class ExceptionHandler
     {
@@ -12,7 +12,6 @@ namespace DataBunch.foundation.utils
                 exception.show();
             }
 
-            Console.WriteLine(e.ExceptionObject);
             Log.error(((Exception) e.ExceptionObject).Message);
         }
 
@@ -22,7 +21,6 @@ namespace DataBunch.foundation.utils
                 exception?.show();
             }
 
-            Console.WriteLine(e.Exception);
             Log.error(e.Exception.Message);
         }
     }

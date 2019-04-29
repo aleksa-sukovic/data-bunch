@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using DataBunch.file.models;
-using DataBunch.foundation.db;
-using DataBunch.foundation.transformers;
-using DataBunch.foundation.utils;
+using DataBunch.app.file.models;
+using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.transformers;
 
-namespace DataBunch.file.transformers
+namespace DataBunch.app.file.transformers
 {
     public class FileTransformer: Transformer<File>
     {

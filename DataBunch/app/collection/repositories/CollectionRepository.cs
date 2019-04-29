@@ -1,14 +1,11 @@
-using System;
+using DataBunch.app.collection.models;
 using DataBunch.app.collection.policies;
+using DataBunch.app.collection.transformers;
+using DataBunch.app.file.repositories;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.repositories;
-using DataBunch.collection.models;
-using DataBunch.collection.transformers;
-using DataBunch.file.repositories;
-using DataBunch.foundation.models;
-using DataBunch.foundation.repositories;
 
-namespace DataBunch.collection.repositories
+namespace DataBunch.app.collection.repositories
 {
     public class CollectionRepository: BaseRepository<Collection>
     {

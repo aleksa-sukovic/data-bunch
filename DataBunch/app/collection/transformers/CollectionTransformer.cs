@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using DataBunch.collection.models;
-using DataBunch.foundation.db;
-using DataBunch.foundation.transformers;
-using DataBunch.foundation.utils;
+using DataBunch.app.collection.models;
+using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.transformers;
 
-namespace DataBunch.collection.transformers
+namespace DataBunch.app.collection.transformers
 {
     public class CollectionTransformer: Transformer<Collection>
     {

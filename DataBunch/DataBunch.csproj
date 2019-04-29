@@ -123,11 +123,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="app\foundation\db\facades\.gitkeep" />
-    <Content Include="app\foundation\interfaces\.gitkeep" />
-    <Content Include="app\foundation\models\.gitkeep" />
-    <Content Include="app\foundation\repositories\.gitkeep" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

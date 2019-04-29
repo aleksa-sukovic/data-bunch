@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using DataBunch.foundation.utils;
 
-namespace DataBunch.foundation.db
+namespace DataBunch.app.foundation.db
 {
     public class DbParams
     {

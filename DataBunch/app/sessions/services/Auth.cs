@@ -1,4 +1,3 @@
-using System;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.utils;
 using DataBunch.app.sessions.models;

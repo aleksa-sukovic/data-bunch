@@ -1,8 +1,8 @@
 using System;
+using DataBunch.app.collection.models;
+using DataBunch.app.collection.repositories;
 using DataBunch.app.policies.handlers;
 using DataBunch.app.user.models;
-using DataBunch.collection.models;
-using DataBunch.collection.repositories;
 
 namespace DataBunch.app.collection.policies
 {

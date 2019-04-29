@@ -1,10 +1,8 @@
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using DataBunch.foundation.db.processors.query;
-using DataBunch.foundation.processors.query;
-using DataBunch.foundation.utils;
+using DataBunch.app.foundation.db.processors.query;
+using DataBunch.app.foundation.utils;
 
-namespace DataBunch.foundation.db.facades
+namespace DataBunch.app.foundation.db.facades
 {
     public static class DB
     {

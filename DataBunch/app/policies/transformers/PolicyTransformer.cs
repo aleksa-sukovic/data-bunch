@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.transformers;
 using DataBunch.app.policies.models;
-using DataBunch.foundation.db;
-using DataBunch.foundation.transformers;
-using DataBunch.foundation.utils;
 
 namespace DataBunch.app.policies.transformers
 {

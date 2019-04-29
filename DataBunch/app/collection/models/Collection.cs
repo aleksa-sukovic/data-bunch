@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+using DataBunch.app.file.models;
+using DataBunch.app.foundation.models;
 using DataBunch.app.user.models;
-using DataBunch.file.models;
-using DataBunch.foundation.models;
 
-namespace DataBunch.collection.models
+namespace DataBunch.app.collection.models
 {
     public class Collection: Model
     {
@@ -81,7 +80,7 @@ namespace DataBunch.collection.models
 
         public string Name { get => this.name; set => this.name = value; }
         public long ParentID { get => this.parentId; set => this.parentId = value; }
-        public long UserID { get => this.userId; set => this.userId = userId; }
+        public long UserID { get => this.userId; set => this.UserID = userId; }
         public DateTime CreatedAt { get => this.createdAt; set => this.createdAt = value; }
         public DateTime UpdatedAt { get => this.updatedAt; set => this.updatedAt = value; }
         public string Type { get => this.type; set => this.type = value; }

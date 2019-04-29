@@ -1,4 +1,4 @@
-namespace DataBunch.foundation.models
+namespace DataBunch.app.foundation.models
 {
     public class Model
     {

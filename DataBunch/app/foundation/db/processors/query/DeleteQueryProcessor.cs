@@ -1,11 +1,6 @@
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using DataBunch.foundation.db;
-using DataBunch.foundation.db.processors.query;
-using DataBunch.foundation.utils;
 
-namespace DataBunch.foundation.processors.query
+namespace DataBunch.app.foundation.db.processors.query
 {
     public class DeleteQueryProcessor: QueryProcessor
     {

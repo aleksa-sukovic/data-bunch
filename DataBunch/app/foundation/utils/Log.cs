@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using DataBunch.foundation.models;
 
-namespace DataBunch.foundation.utils
+namespace DataBunch.app.foundation.utils
 {
     public static class Log
     {

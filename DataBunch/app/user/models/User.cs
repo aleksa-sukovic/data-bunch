@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using DataBunch.app.collection.models;
+using DataBunch.app.foundation.models;
 using DataBunch.app.foundation.utils;
-using DataBunch.collection.models;
-using DataBunch.foundation.models;
 
 namespace DataBunch.app.user.models
 {

@@ -1,6 +1,5 @@
 using System.Windows.Forms;
-using DataBunch.app.sessions.services;
-using DataBunch.foundation.utils;
+using DataBunch.app.foundation.utils;
 
 namespace DataBunch.app.ui.forms
 {
@@ -14,10 +13,6 @@ namespace DataBunch.app.ui.forms
         private void onFormLoad(object sender, System.EventArgs e)
         {
             ConsoleManager.Show();
-
-            Auth.init();
-
-            Auth.logOut();
         }
     }
 }

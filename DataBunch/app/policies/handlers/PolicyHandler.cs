@@ -1,9 +1,9 @@
 using System;
 using DataBunch.app.foundation.exceptions;
+using DataBunch.app.foundation.models;
 using DataBunch.app.policies.repositories;
 using DataBunch.app.sessions.services;
 using DataBunch.app.user.models;
-using DataBunch.foundation.models;
 
 namespace DataBunch.app.policies.handlers
 {

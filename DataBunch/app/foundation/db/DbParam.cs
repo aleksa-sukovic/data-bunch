@@ -1,7 +1,6 @@
-using System;
 using System.Data;
 
-namespace DataBunch.foundation.utils
+namespace DataBunch.app.foundation.db
 {
     public class DbParam
     {

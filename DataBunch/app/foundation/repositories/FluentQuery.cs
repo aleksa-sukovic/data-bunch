@@ -1,15 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
-using DataBunch.app.foundation.repositories;
-using DataBunch.foundation.db;
-using DataBunch.foundation.db.facades;
-using DataBunch.foundation.exceptions;
-using DataBunch.foundation.models;
-using DataBunch.foundation.transformers;
-using DataBunch.foundation.utils;
+using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.db.facades;
+using DataBunch.app.foundation.exceptions;
+using DataBunch.app.foundation.models;
+using DataBunch.app.foundation.transformers;
+using DataBunch.app.foundation.utils;
 
-namespace DataBunch.foundation.repositories
+namespace DataBunch.app.foundation.repositories
 {
     public class FluentQuery<T> where T: Model
     {

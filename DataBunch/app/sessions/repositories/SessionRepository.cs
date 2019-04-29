@@ -4,7 +4,6 @@ using DataBunch.app.sessions.models;
 using DataBunch.app.sessions.policies;
 using DataBunch.app.sessions.transformers;
 using DataBunch.app.user.repositories;
-using DataBunch.foundation.repositories;
 
 namespace DataBunch.app.sessions.repositories
 {

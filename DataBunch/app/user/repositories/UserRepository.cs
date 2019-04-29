@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using DataBunch.app.collection.repositories;
+using DataBunch.app.foundation.db;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.models;
 using DataBunch.app.user.policies;
 using DataBunch.app.user.transformers;
-using DataBunch.collection.repositories;
-using DataBunch.foundation.db;
 
 namespace DataBunch.app.user.repositories
 {

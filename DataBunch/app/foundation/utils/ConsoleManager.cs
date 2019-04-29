@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace DataBunch.foundation.utils
+namespace DataBunch.app.foundation.utils
 {
     [SuppressUnmanagedCodeSecurity]
     public static class ConsoleManager

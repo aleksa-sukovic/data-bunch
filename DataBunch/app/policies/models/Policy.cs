@@ -1,5 +1,5 @@
 using System;
-using DataBunch.foundation.models;
+using DataBunch.app.foundation.models;
 
 namespace DataBunch.app.policies.models
 {
