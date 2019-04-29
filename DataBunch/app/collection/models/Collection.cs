@@ -51,7 +51,7 @@ namespace DataBunch.app.collection.models
             children = new List<Collection>();
         }
 
-        public Collection(string name, long userId, long parentId, string type, int size = 0, User user = null, Collection parent = null)
+        public Collection(string name, long userId, long parentId, string type = "no-files", int size = 0, User user = null, Collection parent = null)
         {
             this.name = name;
             this.ParentID = parentId;
@@ -70,12 +70,14 @@ namespace DataBunch.app.collection.models
         {
             this.Files.Add(file);
             this.Size = this.Files.Count;
+            this.type = this.Size != 0 ? this.Files.ToArray()[0].Type : "no-files";
         }
 
         public void removeFile(File file)
         {
             this.Files.Remove(file);
             this.Size = this.Files.Count;
+            this.type = this.Size != 0 ? this.Files.ToArray()[0].Type : "no-files";
         }
 
         public string Name { get => this.name; set => this.name = value; }

@@ -45,10 +45,6 @@ namespace DataBunch.app.collection.repositories
 
         private void saveChildren(Collection beforeSave, Collection afterSave)
         {
-            if (beforeSave.Children == null) {
-                return;
-            }
-
             beforeSave.Children.ForEach(child => child.ParentID = afterSave.ID);
             this.saveMany(beforeSave.Children);
         }

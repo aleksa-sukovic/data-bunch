@@ -96,12 +96,12 @@ namespace DataBunch.app.foundation.repositories
             }
 
             // adding timestamps
+            this.beforeSave(model);
             var valueParams = this.transformer.getDbParams(model);
             valueParams.add(new DbParam("created_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
             valueParams.add(new DbParam("updated_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
 
             // updating
-            this.beforeSave(model);
             var insertedId = DB.create(this.tableName, valueParams);
             var saved = this.one(insertedId);
             this.afterSave(model, saved);
@@ -143,12 +143,12 @@ namespace DataBunch.app.foundation.repositories
             });
 
             // adding timestamps
+            this.beforeSave(model);
             var valueParams = this.transformer.getDbParams(model);
             valueParams.remove("created_at");
             valueParams.add(new DbParam("updated_at", DateTime.Now.ToString(CultureInfo.InvariantCulture), SqlDbType.DateTime));
 
             // updating
-            this.beforeSave(model);
             DB.update(this.tableName, this.transformer.getDbParams(model), searchParams);
             var saved = this.one(model.ID);
             this.afterSave(model, saved);
