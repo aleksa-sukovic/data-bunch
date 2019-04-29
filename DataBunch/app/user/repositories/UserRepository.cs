@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DataBunch.app.foundation.exceptions;
 using DataBunch.app.user.models;
 using DataBunch.app.user.transformers;
 using DataBunch.collection.repositories;
@@ -15,6 +16,20 @@ namespace DataBunch.app.user.repositories
         {
             this.tableName = "users";
             this.transformer = new UserTransformer();
+        }
+
+        public User findByUsername(string username)
+        {
+            return query().where("username", "=", username).first();
+        }
+
+        protected override void beforeSave(User item)
+        {
+            var existingUsername = query().where("username", "=", item.Username).first(false);
+
+            if (existingUsername != null) {
+                throw new ValidationException("User with username '" + item.Username + "' already exists!");
+            }
         }
 
         public override User addIncludes(User model)

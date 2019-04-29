@@ -58,7 +58,7 @@ namespace DataBunch.app.user.models
         }
         public override string ToString()
         {
-            return "User: ID => " + ID + " Name => " + Name + " Age => " + Age;
+            return "{ ID => " + ID + " Name => " + Name + " Age => " + Age + " }";
         }
     }
 }

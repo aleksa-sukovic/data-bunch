@@ -17,7 +17,7 @@ namespace DataBunch.app.sessions.transformers
                 (int) reader["id"],
                 (int) reader["user_id"],
                 (string) reader["action"],
-                ((int)reader["active"]) == 1,
+                (bool) reader["active"],
                 (DateTime) reader["created_at"],
                 (DateTime) reader["updated_at"]
             );

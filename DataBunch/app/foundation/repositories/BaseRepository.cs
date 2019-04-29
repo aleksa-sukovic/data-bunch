@@ -162,9 +162,19 @@ namespace DataBunch.foundation.repositories
             return model;
         }
 
+        protected virtual void beforeSave(T item)
+        {
+            //
+        }
+
         protected virtual void afterSave(T beforeSave, T afterSave)
         {
             //
+        }
+
+        public Transformer<T> getTransformer()
+        {
+            return this.transformer;
         }
     }
 }

@@ -34,6 +34,17 @@ namespace DataBunch.app.sessions.models
             Active = active;
         }
 
+        public Session(Session session)
+        {
+            ID = session.ID;
+            UserID = session.UserID;
+            User = session.User;
+            Action = session.Action;
+            Active = session.Active;
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+        }
+
         public long UserID { get; set; }
         public string Action { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -49,6 +60,11 @@ namespace DataBunch.app.sessions.models
 
                 user = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return "{ ID => " + ID + ", UserID => " + UserID + ", Action => " + Action + ", Active => " + Active + " }";
         }
     }
 }

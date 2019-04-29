@@ -1,3 +1,4 @@
+using System;
 using DataBunch.app.sessions.models;
 using DataBunch.app.sessions.transformers;
 using DataBunch.app.user.repositories;
@@ -18,9 +19,14 @@ namespace DataBunch.app.sessions.repositories
 
         public override Session addIncludes(Session model)
         {
-            model.User = userRepository.query().where("id", "=", model.ID).first(false);
+            model.User = userRepository.query().where("id", "=", model.UserID).first(false);
 
             return model;
+        }
+
+        public Session getActiveSession()
+        {
+            return query().where("active", "=", 1).withIncludes().first(false);
         }
     }
 }
