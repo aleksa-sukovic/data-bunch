@@ -23,11 +23,16 @@ namespace DataBunch.app.collection.factories
 
         public static Collection createFromZip(string path, string name)
         {
-            if (!System.IO.File.Exists(path)) {
+            if (!Auth.isLoggedIn()) {
+                throw new AuthException("You must be logged in to create collection.");
+            }
+
+            try {
+                ZipFile.ExtractToDirectory(path, Storage.PATH + "/" + name);
+            } catch (Exception exception) {
                 throw new StorageException("Please provide valid zip archive.");
             }
 
-            ZipFile.ExtractToDirectory(path, Storage.PATH + "/" + name);
             return initializeCollection(new DirectoryInfo(Storage.PATH + "/" + name), name);
         }
 
