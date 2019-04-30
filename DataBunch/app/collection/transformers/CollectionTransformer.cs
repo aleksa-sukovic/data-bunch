@@ -15,6 +15,7 @@ namespace DataBunch.app.collection.transformers
             return new Collection(
                 (int) reader["id"],
                 (string) reader["name"],
+                (string) reader["path"],
                 (int) reader["user_id"],
                 (int) reader["parent_id"],
                 (string) reader["type"],
@@ -29,6 +30,7 @@ namespace DataBunch.app.collection.transformers
             return new Dictionary<string, SqlDbType> {
                 { "id", SqlDbType.Int },
                 { "name", SqlDbType.VarChar },
+                { "path", SqlDbType.VarChar },
                 { "user_id", SqlDbType.Int },
                 { "parent_id", SqlDbType.Int },
                 { "created_at", SqlDbType.DateTime },
@@ -42,6 +44,7 @@ namespace DataBunch.app.collection.transformers
         {
             return new DbParams(new[] {
                 new DbParam("name", model.Name, this.getParamType("name")),
+                new DbParam("path", model.Path, this.getParamType("path")),
                 new DbParam("user_id", model.UserID, this.getParamType("user_id")),
                 new DbParam("parent_id", model.ParentID, this.getParamType("parent_id")), 
                 new DbParam("type", model.Type, this.getParamType("type")),

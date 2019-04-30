@@ -8,59 +8,54 @@ namespace DataBunch.app.collection.models
 {
     public class Collection: Model
     {
-        private string name;
-        private string type;
-        private int size;
         private List<File> files;
         private List<Collection> children;
-        private long userId;
         private User user;
-        private long parentId;
         private Collection parent;
-        private DateTime createdAt;
-        private DateTime updatedAt;
 
         public Collection()
         {
-            this.name = "";
-            this.userId = -1;
-            this.user = null;
-            this.parentId = -1;
-            this.parent = null;
-            this.createdAt = DateTime.Now;
-            this.updatedAt = DateTime.Now;
-            this.type = "txt";
-            this.size = 0;
+            Name = "";
+            Path = "";
+            UserID = -1;
+            ParentID = -1;
+            parent = null;
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+            Type = "txt";
+            Size = 0;
             files = new List<File>();
             children = new List<Collection>();
         }
 
-        public Collection(long id, string name, long userId, long parentId, string type, DateTime createdAt, DateTime updatedAt,
+        public Collection(long id, string name, string path, long userId, long parentId, string type, DateTime createdAt, DateTime updatedAt,
             int size = 0, User user = null, Collection parent = null): base(id)
         {
-            this.name = name;
-            this.parentId = parentId;
-            this.type = type;
-            this.createdAt = createdAt;
-            this.updatedAt = updatedAt;
-            this.size = size;
+            Name = name;
+            Path = path;
+            ParentID = parentId;
+            Type = type;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
+            Size = size;
             this.user = user;
-            this.userId = user?.ID ?? userId;
             this.parent = parent;
+            UserID = user?.ID ?? userId;
             files = new List<File>();
             children = new List<Collection>();
         }
 
-        public Collection(string name, long userId, long parentId, string type = "no-files", int size = 0, User user = null, Collection parent = null)
+        public Collection(string name, string path, long userId, long parentId, string type = "no-files", int size = 0, User user = null, Collection parent = null)
         {
-            this.name = name;
-            this.ParentID = parentId;
-            this.type = type;
-            this.createdAt = DateTime.Now;
-            this.updatedAt = DateTime.Now;
-            this.size = size;
+            Name = name;
+            Path = path;
+            ParentID = parentId;
+            Type = type;
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+            Size = size;
             this.user = user;
-            this.userId = user?.ID ?? userId;
+            UserID = user?.ID ?? userId;
             this.parent = parent;
             files = new List<File>();
             children = new List<Collection>();
@@ -68,48 +63,49 @@ namespace DataBunch.app.collection.models
 
         public void addFile(File file)
         {
-            this.Files.Add(file);
-            this.Size = this.Files.Count;
-            this.type = this.Size != 0 ? this.Files.ToArray()[0].Type : "no-files";
+            Files.Add(file);
+            Size = Files.Count;
+            Type = Size != 0 ? Files.ToArray()[0].Type : "no-files";
         }
 
         public void removeFile(File file)
         {
-            this.Files.Remove(file);
-            this.Size = this.Files.Count;
-            this.type = this.Size != 0 ? this.Files.ToArray()[0].Type : "no-files";
+            Files.Remove(file);
+            Size = Files.Count;
+            Type = Size != 0 ? Files.ToArray()[0].Type : "no-files";
         }
 
-        public string Name { get => this.name; set => this.name = value; }
-        public long ParentID { get => this.parentId; set => this.parentId = value; }
-        public long UserID { get => this.userId; set => this.UserID = userId; }
-        public DateTime CreatedAt { get => this.createdAt; set => this.createdAt = value; }
-        public DateTime UpdatedAt { get => this.updatedAt; set => this.updatedAt = value; }
-        public string Type { get => this.type; set => this.type = value; }
-        public int Size { get => this.size; set => this.size = value; }
-        public List<Collection> Children { get => this.children; set => this.children = value; }
+        public string Name { get; set; }
+        public long ParentID { get; set; }
+        public long UserID { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public string Type { get; set; }
+        public int Size { get; set; }
+        public string Path { get; set; }
+        public List<Collection> Children { get => children; set => children = value; }
 
         public User User
         {
-            get => this.user;
+            get => user;
             set {
                 if (value != null) {
-                    this.userId = value.ID;
+                    UserID = value.ID;
                 }
 
-                this.user = value;
+                user = value;
             }
         }
 
         public Collection Parent
         {
-            get => this.parent;
+            get => parent;
             set {
                 if (value != null) {
-                    this.parentId = value.ID;
+                    ParentID = value.ID;
                 }
 
-                this.parent = value;
+                parent = value;
             }
         }
 
@@ -117,8 +113,8 @@ namespace DataBunch.app.collection.models
         {
             get => this.files;
             set {
-                this.files = value;
-                this.Size = value?.Count ?? 0;
+                files = value;
+                Size = value?.Count ?? 0;
             }
         }
 
@@ -138,13 +134,13 @@ namespace DataBunch.app.collection.models
 
         public override string ToString()
         {
-            var output = "{ Name => " + Name + " Type => " + Type + " Size => " + Size + " Files => [";
+            var output = "{ Name => " + Name + " Type => " + Type + " Size => " + Size + " Path => " + Path + " Files => [";
 
             foreach (var file in Files) {
                 output += "{ " + file.Name + " }, ";
             }
 
-            return output.Substring(0, output.Length - 2) + "]";
+            return output.Substring(0, output.Length - 2) + "}";
         }
     }
 }

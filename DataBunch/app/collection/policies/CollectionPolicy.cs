@@ -34,7 +34,7 @@ namespace DataBunch.app.collection.policies
 
             var collection = new CollectionRepository().query().where("user_id", "=", user?.ID ?? 0).first(false);
 
-            return user != null && collection != null && user.ID == collection.UserID;
+            return (user != null && collection != null && user.ID == collection.UserID) || doCheck(targetId, user, throwException);
         }
 
         public override bool checkDelete(long targetId, User user = null, bool throwException = true)
@@ -43,7 +43,7 @@ namespace DataBunch.app.collection.policies
 
             var collection = new CollectionRepository().query().where("user_id", "=", user?.ID ?? 0).first(false);
 
-            return user != null && collection != null && user.ID == collection.UserID;
+            return (user != null && collection != null && user.ID == collection.UserID) || doCheck(targetId, user, throwException);
         }
 
         public override bool checkShow(long targetId, User user = null, bool throwException = true)
@@ -52,7 +52,7 @@ namespace DataBunch.app.collection.policies
 
             var collection = new CollectionRepository().query().where("user_id", "=", user?.ID ?? 0).first(false);
 
-            return user != null && collection != null && user.ID == collection.UserID;
+            return (user != null && collection != null && user.ID == collection.UserID) || doCheck(targetId, user, throwException);
         }
     }
 }

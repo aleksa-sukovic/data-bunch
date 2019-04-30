@@ -36,7 +36,7 @@ namespace DataBunch.app.policies.handlers
             return doCheck(targetId, user, throwException);
         }
 
-        private bool doCheck(long targetId, User user, bool throwException = true)
+        protected bool doCheck(long targetId, User user, bool throwException = true)
         {
             if (before(user, targetId)) {
                 return true;

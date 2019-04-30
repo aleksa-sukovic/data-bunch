@@ -12,7 +12,7 @@ namespace DataBunch.app.foundation.models
             return ID == -1;
         }
 
-        public long ID { get; set; }
+        public long ID { get; }
 
         public override string ToString()
         {

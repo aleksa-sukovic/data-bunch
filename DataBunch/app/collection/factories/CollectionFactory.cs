@@ -42,7 +42,7 @@ namespace DataBunch.app.collection.factories
                 throw new StorageException("Collection can be initialized only from folder containing same file types\n" + directory.FullName);
             }
 
-            var collection = new Collection(name ?? directory.Name, Auth.getUser().ID, 0);
+            var collection = new Collection(name ?? directory.Name, directory.FullName,Auth.getUser().ID, 0);
 
             foreach (var file in directory.GetFiles()) {
                 collection.addFile(new File(file.FullName, file.Name, file.Extension.Substring(1)));
