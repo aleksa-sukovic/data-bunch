@@ -19,9 +19,9 @@ namespace DataBunch.app.file.repositories
 
         public override File addIncludes(File model)
         {
-            this.collectionRepository = new CollectionRepository();
+            collectionRepository = new CollectionRepository();
 
-            model.Collection = this.collectionRepository.query().where("id", "=", model.CollectionID).first(false);
+            model.Collection = collectionRepository.query().where("id", "=", model.CollectionID).first(false);
 
             return model;
         }

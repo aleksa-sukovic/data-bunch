@@ -8,7 +8,7 @@ namespace DataBunch.app.file.policies
     {
         public FilePolicy()
         {
-            this.type = "file";
+            type = "file";
         }
 
         protected override bool before(User user, long targetId)
