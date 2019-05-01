@@ -28,12 +28,28 @@ namespace DataBunch.app.collection.factories
             }
 
             try {
+                if (Directory.Exists(Storage.PATH + "/" + name)) {
+                    Directory.Delete(Storage.PATH + "/" + name, true);
+                }
+
                 ZipFile.ExtractToDirectory(path, Storage.PATH + "/" + name);
             } catch (Exception exception) {
-                throw new StorageException("Please provide valid zip archive.");
+                throw new StorageException("Please provide valid zip archive." + exception.Message);
             }
 
             return initializeCollection(new DirectoryInfo(Storage.PATH + "/" + name), name);
+        }
+
+        public static void exportToZip(Collection collection, string destination, string name = null)
+        {
+            try {
+                name = name ?? collection.Name;
+                destination += "/" + name;
+
+                ZipFile.CreateFromDirectory(collection.Path, destination + ".zip");
+            } catch (Exception exception) {
+                throw new StorageException(exception.Message);
+            }
         }
 
         private static Collection initializeCollection(DirectoryInfo directory, string name = null)
