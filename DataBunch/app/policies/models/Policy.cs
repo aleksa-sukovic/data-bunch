@@ -14,7 +14,7 @@ namespace DataBunch.app.policies.models
             this.UpdatedAt = DateTime.Now;
         }
 
-        public Policy(int id, int userId, int targetId, string type, DateTime createdAt, DateTime updatedAt): base(id)
+        public Policy(int id, long userId, long targetId, string type, DateTime createdAt, DateTime updatedAt): base(id)
         {
             this.UserID = userId;
             this.TargetID = targetId;
@@ -23,7 +23,7 @@ namespace DataBunch.app.policies.models
             this.UpdatedAt = updatedAt;
         }
 
-        public Policy(int userId, int targetId, string type)
+        public Policy(long userId, long targetId, string type)
         {
             this.UserID = userId;
             this.TargetID = targetId;
@@ -32,8 +32,8 @@ namespace DataBunch.app.policies.models
             this.UpdatedAt = DateTime.Now;
         }
 
-        public int UserID { get; set; }
-        public int TargetID { get; set; }
+        public long UserID { get; set; }
+        public long TargetID { get; set; }
         public string Type { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
