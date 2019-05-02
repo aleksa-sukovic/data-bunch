@@ -168,6 +168,8 @@ namespace DataBunch.app.foundation.repositories
 
             DB.delete(this.tableName, searchParams);
 
+            this.afterDelete(model);
+
             return model;
         }
 
@@ -195,6 +197,11 @@ namespace DataBunch.app.foundation.repositories
         }
 
         protected virtual void afterSave(T beforeSave, T afterSave)
+        {
+            //
+        }
+
+        protected virtual void afterDelete(T model)
         {
             //
         }
