@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+using System.IO;
+using DataBunch.app.collection.factories;
 using DataBunch.app.collection.models;
 using DataBunch.app.collection.policies;
 using DataBunch.app.collection.transformers;
 using DataBunch.app.file.repositories;
+using DataBunch.app.foundation.db;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.user.repositories;
 
@@ -47,6 +51,51 @@ namespace DataBunch.app.collection.repositories
         {
             beforeSave.Children.ForEach(child => child.ParentID = afterSave.ID);
             this.saveMany(beforeSave.Children);
+        }
+
+        public Collection createFromDirectory(string path, string name)
+        {
+            var collection = CollectionFactory.createFromDirectory(path, name);
+
+            return save(collection);
+        }
+
+        public Collection createFromZip(string path, string name)
+        {
+            var collection = CollectionFactory.createFromZip(path, name);
+
+            return save(collection);
+        }
+
+        public void exportToZip(Collection collection, string destination, string archiveName)
+        {
+            CollectionFactory.exportToZip(collection, destination, archiveName);
+        }
+
+        public Collection merge(Collection first, Collection second, string name)
+        {
+            var collection = save(CollectionFactory.merge(first, second, name));
+
+            mergeCleanup();
+
+            return collection;
+        }
+
+        private void mergeCleanup()
+        {
+            var allCollections = all(new List<QueryParam>());
+
+            foreach (var collection in allCollections) {
+                if (!Directory.Exists(collection.Path)) {
+                    delete(collection);
+                }
+
+                foreach (var file in collection.Files) {
+                    if (!File.Exists(file.Path)) {
+                        fileRepository.delete(file);
+                    }
+                }
+            }
         }
     }
 }

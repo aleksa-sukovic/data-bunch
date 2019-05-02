@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app\collection\factories\CollectionFactory.cs" />
+    <Compile Include="app\collection\factories\CollectionMergeFactory.cs" />
     <Compile Include="app\collection\models\Collection.cs" />
     <Compile Include="app\collection\policies\CollectionPolicy.cs" />
     <Compile Include="app\collection\repositories\CollectionRepository.cs" />

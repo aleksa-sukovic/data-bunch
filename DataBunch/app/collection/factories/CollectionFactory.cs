@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 using DataBunch.app.collection.models;
+using DataBunch.app.collection.repositories;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.utils;
 using DataBunch.app.sessions.services;
@@ -28,9 +29,7 @@ namespace DataBunch.app.collection.factories
             }
 
             try {
-                if (Directory.Exists(Storage.PATH + "/" + name)) {
-                    Directory.Delete(Storage.PATH + "/" + name, true);
-                }
+                Storage.deleteDirectory(Storage.PATH + "/" + name);
 
                 ZipFile.ExtractToDirectory(path, Storage.PATH + "/" + name);
             } catch (Exception exception) {
@@ -50,6 +49,19 @@ namespace DataBunch.app.collection.factories
             } catch (Exception exception) {
                 throw new StorageException(exception.Message);
             }
+        }
+
+        public static Collection merge(Collection first, Collection second, string name)
+        {
+            if (first.Type != second.Type) {
+                throw new ValidationException("Collection types must match before you can merge them.");
+            }
+
+            if (!Auth.isLoggedIn()) {
+                throw new AuthException("You must be logged in to create collection.");
+            }
+
+            return CollectionMergeFactory.merge(first, second, name);
         }
 
         private static Collection initializeCollection(DirectoryInfo directory, string name = null)
