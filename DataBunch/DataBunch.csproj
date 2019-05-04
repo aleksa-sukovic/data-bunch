@@ -141,6 +141,21 @@
     <Compile Include="app\user\transformers\UserTransformer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="app\ui\controls\auth\AuthControl.resx">
+      <DependentUpon>AuthControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\collections\CollectionsControl.resx">
+      <DependentUpon>CollectionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\files\FilesControl.resx">
+      <DependentUpon>FilesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\policies\PoliciesControl.resx">
+      <DependentUpon>PoliciesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\users\UsersControl.resx">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="app\ui\forms\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>

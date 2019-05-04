@@ -51,7 +51,7 @@ namespace DataBunch.app.ui.forms
             usersPanelButton.Tag = UsersControl.ID;
         }
 
-        private void initializeForm()
+        public void initializeForm()
         {
             if (!Auth.isLoggedIn()) {
                 sidebarButtons.hideAll();

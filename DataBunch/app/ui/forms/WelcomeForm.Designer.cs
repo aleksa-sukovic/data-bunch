@@ -28,8 +28,7 @@ namespace DataBunch.app.ui.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(WelcomeForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeForm));
             this.sidebar = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,17 +44,17 @@ namespace DataBunch.app.ui.forms
             this.closeButton = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.headerTitle = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.logoPanel.SuspendLayout();
             this.header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar
             // 
-            this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))), ((int) (((byte) (90)))),
-                ((int) (((byte) (100)))));
+            this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.usersPanelButton);
             this.sidebar.Controls.Add(this.policiesPanelButton);
@@ -65,31 +64,26 @@ namespace DataBunch.app.ui.forms
             this.sidebar.Controls.Add(this.logoPanel);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
-            this.sidebar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(222, 680);
+            this.sidebar.Size = new System.Drawing.Size(190, 589);
             this.sidebar.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))), ((int) (((byte) (62)))),
-                ((int) (((byte) (69)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 625);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Location = new System.Drawing.Point(0, 541);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 55);
+            this.panel1.Size = new System.Drawing.Size(190, 48);
             this.panel1.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 9.75F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(66, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(57, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 0;
@@ -97,10 +91,8 @@ namespace DataBunch.app.ui.forms
             // 
             // usersPanelButton
             // 
-            this.usersPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.usersPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
+            this.usersPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.usersPanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.usersPanelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.usersPanelButton.BorderRadius = 0;
             this.usersPanelButton.ButtonText = "             Users";
@@ -108,8 +100,7 @@ namespace DataBunch.app.ui.forms
             this.usersPanelButton.DisabledColor = System.Drawing.Color.Gray;
             this.usersPanelButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersPanelButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.usersPanelButton.Iconimage =
-                ((System.Drawing.Image) (resources.GetObject("usersPanelButton.Iconimage")));
+            this.usersPanelButton.Iconimage = ((System.Drawing.Image)(resources.GetObject("usersPanelButton.Iconimage")));
             this.usersPanelButton.Iconimage_right = null;
             this.usersPanelButton.Iconimage_right_Selected = null;
             this.usersPanelButton.Iconimage_Selected = null;
@@ -120,30 +111,23 @@ namespace DataBunch.app.ui.forms
             this.usersPanelButton.IconVisible = false;
             this.usersPanelButton.IconZoom = 90D;
             this.usersPanelButton.IsTab = true;
-            this.usersPanelButton.Location = new System.Drawing.Point(0, 307);
-            this.usersPanelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.usersPanelButton.Location = new System.Drawing.Point(0, 267);
             this.usersPanelButton.Name = "usersPanelButton";
-            this.usersPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
-            this.usersPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.usersPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))),
-                ((int) (((byte) (152)))), ((int) (((byte) (0)))));
+            this.usersPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.usersPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.usersPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.usersPanelButton.selected = false;
-            this.usersPanelButton.Size = new System.Drawing.Size(222, 55);
+            this.usersPanelButton.Size = new System.Drawing.Size(190, 48);
             this.usersPanelButton.TabIndex = 7;
             this.usersPanelButton.Text = "             Users";
             this.usersPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usersPanelButton.Textcolor = System.Drawing.Color.White;
-            this.usersPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.usersPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // policiesPanelButton
             // 
-            this.policiesPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.policiesPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
+            this.policiesPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.policiesPanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.policiesPanelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.policiesPanelButton.BorderRadius = 0;
             this.policiesPanelButton.ButtonText = "            Policies";
@@ -151,8 +135,7 @@ namespace DataBunch.app.ui.forms
             this.policiesPanelButton.DisabledColor = System.Drawing.Color.Gray;
             this.policiesPanelButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.policiesPanelButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.policiesPanelButton.Iconimage =
-                ((System.Drawing.Image) (resources.GetObject("policiesPanelButton.Iconimage")));
+            this.policiesPanelButton.Iconimage = ((System.Drawing.Image)(resources.GetObject("policiesPanelButton.Iconimage")));
             this.policiesPanelButton.Iconimage_right = null;
             this.policiesPanelButton.Iconimage_right_Selected = null;
             this.policiesPanelButton.Iconimage_Selected = null;
@@ -163,30 +146,23 @@ namespace DataBunch.app.ui.forms
             this.policiesPanelButton.IconVisible = false;
             this.policiesPanelButton.IconZoom = 90D;
             this.policiesPanelButton.IsTab = true;
-            this.policiesPanelButton.Location = new System.Drawing.Point(0, 252);
-            this.policiesPanelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.policiesPanelButton.Location = new System.Drawing.Point(0, 219);
             this.policiesPanelButton.Name = "policiesPanelButton";
-            this.policiesPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
-            this.policiesPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.policiesPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))),
-                ((int) (((byte) (152)))), ((int) (((byte) (0)))));
+            this.policiesPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.policiesPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.policiesPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.policiesPanelButton.selected = false;
-            this.policiesPanelButton.Size = new System.Drawing.Size(222, 55);
+            this.policiesPanelButton.Size = new System.Drawing.Size(190, 48);
             this.policiesPanelButton.TabIndex = 6;
             this.policiesPanelButton.Text = "            Policies";
             this.policiesPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.policiesPanelButton.Textcolor = System.Drawing.Color.White;
-            this.policiesPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.policiesPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // filesPanelButton
             // 
-            this.filesPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.filesPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
+            this.filesPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.filesPanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.filesPanelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.filesPanelButton.BorderRadius = 0;
             this.filesPanelButton.ButtonText = "              Files";
@@ -194,8 +170,7 @@ namespace DataBunch.app.ui.forms
             this.filesPanelButton.DisabledColor = System.Drawing.Color.Gray;
             this.filesPanelButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.filesPanelButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.filesPanelButton.Iconimage =
-                ((System.Drawing.Image) (resources.GetObject("filesPanelButton.Iconimage")));
+            this.filesPanelButton.Iconimage = ((System.Drawing.Image)(resources.GetObject("filesPanelButton.Iconimage")));
             this.filesPanelButton.Iconimage_right = null;
             this.filesPanelButton.Iconimage_right_Selected = null;
             this.filesPanelButton.Iconimage_Selected = null;
@@ -206,30 +181,23 @@ namespace DataBunch.app.ui.forms
             this.filesPanelButton.IconVisible = false;
             this.filesPanelButton.IconZoom = 90D;
             this.filesPanelButton.IsTab = true;
-            this.filesPanelButton.Location = new System.Drawing.Point(0, 197);
-            this.filesPanelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.filesPanelButton.Location = new System.Drawing.Point(0, 171);
             this.filesPanelButton.Name = "filesPanelButton";
-            this.filesPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
-            this.filesPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.filesPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))),
-                ((int) (((byte) (152)))), ((int) (((byte) (0)))));
+            this.filesPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.filesPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.filesPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.filesPanelButton.selected = false;
-            this.filesPanelButton.Size = new System.Drawing.Size(222, 55);
+            this.filesPanelButton.Size = new System.Drawing.Size(190, 48);
             this.filesPanelButton.TabIndex = 5;
             this.filesPanelButton.Text = "              Files";
             this.filesPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.filesPanelButton.Textcolor = System.Drawing.Color.White;
-            this.filesPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.filesPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // collectionsPanelButton
             // 
-            this.collectionsPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.collectionsPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
+            this.collectionsPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.collectionsPanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.collectionsPanelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.collectionsPanelButton.BorderRadius = 0;
             this.collectionsPanelButton.ButtonText = "          Collections";
@@ -237,8 +205,7 @@ namespace DataBunch.app.ui.forms
             this.collectionsPanelButton.DisabledColor = System.Drawing.Color.Gray;
             this.collectionsPanelButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.collectionsPanelButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.collectionsPanelButton.Iconimage =
-                ((System.Drawing.Image) (resources.GetObject("collectionsPanelButton.Iconimage")));
+            this.collectionsPanelButton.Iconimage = ((System.Drawing.Image)(resources.GetObject("collectionsPanelButton.Iconimage")));
             this.collectionsPanelButton.Iconimage_right = null;
             this.collectionsPanelButton.Iconimage_right_Selected = null;
             this.collectionsPanelButton.Iconimage_Selected = null;
@@ -249,30 +216,23 @@ namespace DataBunch.app.ui.forms
             this.collectionsPanelButton.IconVisible = false;
             this.collectionsPanelButton.IconZoom = 90D;
             this.collectionsPanelButton.IsTab = true;
-            this.collectionsPanelButton.Location = new System.Drawing.Point(0, 142);
-            this.collectionsPanelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.collectionsPanelButton.Location = new System.Drawing.Point(0, 123);
             this.collectionsPanelButton.Name = "collectionsPanelButton";
-            this.collectionsPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
-            this.collectionsPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.collectionsPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))),
-                ((int) (((byte) (152)))), ((int) (((byte) (0)))));
+            this.collectionsPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.collectionsPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.collectionsPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.collectionsPanelButton.selected = false;
-            this.collectionsPanelButton.Size = new System.Drawing.Size(222, 55);
+            this.collectionsPanelButton.Size = new System.Drawing.Size(190, 48);
             this.collectionsPanelButton.TabIndex = 4;
             this.collectionsPanelButton.Text = "          Collections";
             this.collectionsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.collectionsPanelButton.Textcolor = System.Drawing.Color.White;
-            this.collectionsPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.collectionsPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // authPanelButton
             // 
-            this.authPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.authPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
+            this.authPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.authPanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.authPanelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.authPanelButton.BorderRadius = 0;
             this.authPanelButton.ButtonText = "              Auth";
@@ -280,8 +240,7 @@ namespace DataBunch.app.ui.forms
             this.authPanelButton.DisabledColor = System.Drawing.Color.Gray;
             this.authPanelButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.authPanelButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.authPanelButton.Iconimage =
-                ((System.Drawing.Image) (resources.GetObject("authPanelButton.Iconimage")));
+            this.authPanelButton.Iconimage = ((System.Drawing.Image)(resources.GetObject("authPanelButton.Iconimage")));
             this.authPanelButton.Iconimage_right = null;
             this.authPanelButton.Iconimage_right_Selected = null;
             this.authPanelButton.Iconimage_Selected = null;
@@ -292,34 +251,27 @@ namespace DataBunch.app.ui.forms
             this.authPanelButton.IconVisible = false;
             this.authPanelButton.IconZoom = 90D;
             this.authPanelButton.IsTab = true;
-            this.authPanelButton.Location = new System.Drawing.Point(0, 87);
-            this.authPanelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.authPanelButton.Location = new System.Drawing.Point(0, 75);
             this.authPanelButton.Name = "authPanelButton";
-            this.authPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
-                ((int) (((byte) (90)))), ((int) (((byte) (100)))));
-            this.authPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
-                ((int) (((byte) (62)))), ((int) (((byte) (69)))));
-            this.authPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))),
-                ((int) (((byte) (152)))), ((int) (((byte) (0)))));
+            this.authPanelButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.authPanelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
+            this.authPanelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.authPanelButton.selected = false;
-            this.authPanelButton.Size = new System.Drawing.Size(222, 55);
+            this.authPanelButton.Size = new System.Drawing.Size(190, 48);
             this.authPanelButton.TabIndex = 3;
             this.authPanelButton.Text = "              Auth";
             this.authPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.authPanelButton.Textcolor = System.Drawing.Color.White;
-            this.authPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.authPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // logoPanel
             // 
-            this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (152)))),
-                ((int) (((byte) (0)))));
+            this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.logoPanel.Controls.Add(this.label1);
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(222, 87);
+            this.logoPanel.Size = new System.Drawing.Size(190, 75);
             this.logoPanel.TabIndex = 2;
             this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onMouseDown);
             this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.onMouseMove);
@@ -327,11 +279,9 @@ namespace DataBunch.app.ui.forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(38, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(33, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 30);
             this.label1.TabIndex = 0;
@@ -345,10 +295,9 @@ namespace DataBunch.app.ui.forms
             this.header.Controls.Add(this.pictureBox1);
             this.header.Controls.Add(this.headerTitle);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.header.Location = new System.Drawing.Point(222, 0);
-            this.header.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.header.Location = new System.Drawing.Point(190, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(805, 87);
+            this.header.Size = new System.Drawing.Size(690, 75);
             this.header.TabIndex = 1;
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onMouseDown);
             this.header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.onMouseMove);
@@ -357,10 +306,8 @@ namespace DataBunch.app.ui.forms
             // 
             this.minimiseButton.AutoSize = true;
             this.minimiseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimiseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.minimiseButton.Location = new System.Drawing.Point(744, 10);
-            this.minimiseButton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.minimiseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimiseButton.Location = new System.Drawing.Point(638, 9);
             this.minimiseButton.Name = "minimiseButton";
             this.minimiseButton.Size = new System.Drawing.Size(14, 20);
             this.minimiseButton.TabIndex = 4;
@@ -371,10 +318,8 @@ namespace DataBunch.app.ui.forms
             // 
             this.closeButton.AutoSize = true;
             this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.closeButton.Location = new System.Drawing.Point(768, 10);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(658, 9);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(20, 20);
             this.closeButton.TabIndex = 3;
@@ -386,10 +331,9 @@ namespace DataBunch.app.ui.forms
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::DataBunch.Properties.Resources.home;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 33);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 23);
+            this.pictureBox1.Size = new System.Drawing.Size(19, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -397,25 +341,31 @@ namespace DataBunch.app.ui.forms
             // headerTitle
             // 
             this.headerTitle.AutoSize = true;
-            this.headerTitle.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 15F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.headerTitle.Location = new System.Drawing.Point(51, 27);
-            this.headerTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.headerTitle.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headerTitle.Location = new System.Drawing.Point(44, 23);
             this.headerTitle.Name = "headerTitle";
             this.headerTitle.Size = new System.Drawing.Size(135, 28);
             this.headerTitle.TabIndex = 1;
             this.headerTitle.Text = "Authentication";
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(190, 75);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(690, 514);
+            this.panel2.TabIndex = 2;
+            // 
             // WelcomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1027, 680);
+            this.ClientSize = new System.Drawing.Size(880, 589);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.header);
             this.Controls.Add(this.sidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "WelcomeForm";
             this.Text = " ";
             this.Load += new System.EventHandler(this.onLoad);
@@ -428,8 +378,9 @@ namespace DataBunch.app.ui.forms
             this.logoPanel.PerformLayout();
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -449,5 +400,6 @@ namespace DataBunch.app.ui.forms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label closeButton;
+        private System.Windows.Forms.Panel panel2;
     }
 }
