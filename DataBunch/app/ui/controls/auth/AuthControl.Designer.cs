@@ -183,7 +183,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(234, 150);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(229, 150);
             this.bunifuCustomLabel3.Margin = new System.Windows.Forms.Padding(20);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(83, 21);
@@ -194,7 +194,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.profileUsernameField.AutoSize = true;
             this.profileUsernameField.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileUsernameField.Location = new System.Drawing.Point(340, 154);
+            this.profileUsernameField.Location = new System.Drawing.Point(335, 154);
             this.profileUsernameField.Name = "profileUsernameField";
             this.profileUsernameField.Size = new System.Drawing.Size(91, 17);
             this.profileUsernameField.TabIndex = 12;
@@ -204,7 +204,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.profilePrivilegeField.AutoSize = true;
             this.profilePrivilegeField.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profilePrivilegeField.Location = new System.Drawing.Point(340, 324);
+            this.profilePrivilegeField.Location = new System.Drawing.Point(335, 337);
             this.profilePrivilegeField.Name = "profilePrivilegeField";
             this.profilePrivilegeField.Size = new System.Drawing.Size(44, 17);
             this.profilePrivilegeField.TabIndex = 18;
@@ -215,7 +215,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(234, 198);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(229, 211);
             this.bunifuCustomLabel4.Margin = new System.Windows.Forms.Padding(20);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(81, 21);
@@ -226,7 +226,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.bunifuCustomLabel7.AutoSize = true;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(234, 320);
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(229, 333);
             this.bunifuCustomLabel7.Margin = new System.Windows.Forms.Padding(20);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(73, 21);
@@ -237,7 +237,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.profileFullNameField.AutoSize = true;
             this.profileFullNameField.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileFullNameField.Location = new System.Drawing.Point(338, 202);
+            this.profileFullNameField.Location = new System.Drawing.Point(333, 215);
             this.profileFullNameField.Name = "profileFullNameField";
             this.profileFullNameField.Size = new System.Drawing.Size(92, 17);
             this.profileFullNameField.TabIndex = 14;
@@ -247,7 +247,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.profileAgeField.AutoSize = true;
             this.profileAgeField.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileAgeField.Location = new System.Drawing.Point(338, 262);
+            this.profileAgeField.Location = new System.Drawing.Point(333, 275);
             this.profileAgeField.Name = "profileAgeField";
             this.profileAgeField.Size = new System.Drawing.Size(22, 17);
             this.profileAgeField.TabIndex = 16;
@@ -258,7 +258,7 @@ namespace DataBunch.app.ui.controls.auth
             // 
             this.bunifuCustomLabel6.AutoSize = true;
             this.bunifuCustomLabel6.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(234, 259);
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(229, 272);
             this.bunifuCustomLabel6.Margin = new System.Windows.Forms.Padding(20);
             this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
             this.bunifuCustomLabel6.Size = new System.Drawing.Size(40, 21);
