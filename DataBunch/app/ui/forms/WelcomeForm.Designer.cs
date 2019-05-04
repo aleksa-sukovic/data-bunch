@@ -29,7 +29,7 @@ namespace DataBunch.app.ui.forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(DataBunch.app.ui.forms.WelcomeForm));
+                new System.ComponentModel.ComponentResourceManager(typeof(WelcomeForm));
             this.sidebar = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +51,9 @@ namespace DataBunch.app.ui.forms
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // sidebar
+            // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))), ((int) (((byte) (90)))),
                 ((int) (((byte) (100)))));
             this.sidebar.Controls.Add(this.panel1);
@@ -66,6 +69,9 @@ namespace DataBunch.app.ui.forms
             this.sidebar.Name = "sidebar";
             this.sidebar.Size = new System.Drawing.Size(222, 680);
             this.sidebar.TabIndex = 0;
+            // 
+            // panel1
+            // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))), ((int) (((byte) (62)))),
                 ((int) (((byte) (69)))));
             this.panel1.Controls.Add(this.label2);
@@ -75,16 +81,22 @@ namespace DataBunch.app.ui.forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(222, 55);
             this.panel1.TabIndex = 8;
+            // 
+            // label2
+            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 9.75F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(67, 19);
+            this.label2.Location = new System.Drawing.Point(66, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "© EA 2019";
+            // 
+            // usersPanelButton
+            // 
             this.usersPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
                 ((int) (((byte) (62)))), ((int) (((byte) (69)))));
             this.usersPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
@@ -125,7 +137,9 @@ namespace DataBunch.app.ui.forms
             this.usersPanelButton.Textcolor = System.Drawing.Color.White;
             this.usersPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.usersPanelButton.Click += new System.EventHandler(this.switchPanel);
+            // 
+            // policiesPanelButton
+            // 
             this.policiesPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
                 ((int) (((byte) (62)))), ((int) (((byte) (69)))));
             this.policiesPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
@@ -166,7 +180,9 @@ namespace DataBunch.app.ui.forms
             this.policiesPanelButton.Textcolor = System.Drawing.Color.White;
             this.policiesPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.policiesPanelButton.Click += new System.EventHandler(this.switchPanel);
+            // 
+            // filesPanelButton
+            // 
             this.filesPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
                 ((int) (((byte) (62)))), ((int) (((byte) (69)))));
             this.filesPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
@@ -207,7 +223,9 @@ namespace DataBunch.app.ui.forms
             this.filesPanelButton.Textcolor = System.Drawing.Color.White;
             this.filesPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.filesPanelButton.Click += new System.EventHandler(this.switchPanel);
+            // 
+            // collectionsPanelButton
+            // 
             this.collectionsPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
                 ((int) (((byte) (62)))), ((int) (((byte) (69)))));
             this.collectionsPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
@@ -248,7 +266,9 @@ namespace DataBunch.app.ui.forms
             this.collectionsPanelButton.Textcolor = System.Drawing.Color.White;
             this.collectionsPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.collectionsPanelButton.Click += new System.EventHandler(this.switchPanel);
+            // 
+            // authPanelButton
+            // 
             this.authPanelButton.Activecolor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))),
                 ((int) (((byte) (62)))), ((int) (((byte) (69)))));
             this.authPanelButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (69)))),
@@ -289,7 +309,9 @@ namespace DataBunch.app.ui.forms
             this.authPanelButton.Textcolor = System.Drawing.Color.White;
             this.authPanelButton.TextFont = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.authPanelButton.Click += new System.EventHandler(this.switchPanel);
+            // 
+            // logoPanel
+            // 
             this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (152)))),
                 ((int) (((byte) (0)))));
             this.logoPanel.Controls.Add(this.label1);
@@ -301,6 +323,9 @@ namespace DataBunch.app.ui.forms
             this.logoPanel.TabIndex = 2;
             this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onMouseDown);
             this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.onMouseMove);
+            // 
+            // label1
+            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -311,6 +336,9 @@ namespace DataBunch.app.ui.forms
             this.label1.Size = new System.Drawing.Size(123, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Data Bunch";
+            // 
+            // header
+            // 
             this.header.BackColor = System.Drawing.Color.White;
             this.header.Controls.Add(this.minimiseButton);
             this.header.Controls.Add(this.closeButton);
@@ -324,6 +352,9 @@ namespace DataBunch.app.ui.forms
             this.header.TabIndex = 1;
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onMouseDown);
             this.header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.onMouseMove);
+            // 
+            // minimiseButton
+            // 
             this.minimiseButton.AutoSize = true;
             this.minimiseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimiseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
@@ -335,6 +366,9 @@ namespace DataBunch.app.ui.forms
             this.minimiseButton.TabIndex = 4;
             this.minimiseButton.Text = "-";
             this.minimiseButton.Click += new System.EventHandler(this.onMinimiseClick);
+            // 
+            // closeButton
+            // 
             this.closeButton.AutoSize = true;
             this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
@@ -346,6 +380,9 @@ namespace DataBunch.app.ui.forms
             this.closeButton.TabIndex = 3;
             this.closeButton.Text = "X";
             this.closeButton.Click += new System.EventHandler(this.onExitClick);
+            // 
+            // pictureBox1
+            // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::DataBunch.Properties.Resources.home;
@@ -356,6 +393,9 @@ namespace DataBunch.app.ui.forms
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // headerTitle
+            // 
             this.headerTitle.AutoSize = true;
             this.headerTitle.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 15F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -365,6 +405,9 @@ namespace DataBunch.app.ui.forms
             this.headerTitle.Size = new System.Drawing.Size(135, 28);
             this.headerTitle.TabIndex = 1;
             this.headerTitle.Text = "Authentication";
+            // 
+            // WelcomeForm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;

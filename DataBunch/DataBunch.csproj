@@ -97,12 +97,44 @@
     <Compile Include="app\sessions\repositories\SessionRepository.cs" />
     <Compile Include="app\sessions\services\Auth.cs" />
     <Compile Include="app\sessions\transformers\SessionTransformer.cs" />
+    <Compile Include="app\ui\controls\auth\AuthControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\auth\AuthControl.Designer.cs">
+      <DependentUpon>AuthControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsControl.Designer.cs">
+      <DependentUpon>CollectionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\files\FilesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\files\FilesControl.Designer.cs">
+      <DependentUpon>FilesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesControl.Designer.cs">
+      <DependentUpon>PoliciesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersControl.Designer.cs">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="app\ui\forms\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="app\ui\forms\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="app\ui\services\ControlSwitcher.cs" />
+    <Compile Include="app\ui\services\SidebarButtons.cs" />
     <Compile Include="app\user\models\User.cs" />
     <Compile Include="app\user\policies\UserPolicy.cs" />
     <Compile Include="app\user\repositories\UserRepository.cs" />

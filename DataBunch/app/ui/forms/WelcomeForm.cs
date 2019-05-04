@@ -1,19 +1,32 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
 using DataBunch.app.foundation.utils;
 using DataBunch.app.sessions.services;
+using DataBunch.app.ui.controls.auth;
+using DataBunch.app.ui.controls.collections;
+using DataBunch.app.ui.controls.files;
+using DataBunch.app.ui.controls.policies;
+using DataBunch.app.ui.controls.users;
+using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.forms
 {
-    public partial class WelcomeForm : Form
+    public partial class WelcomeForm : Form, SidebarButtons.FormWithSidebar
     {
         private Point lastPoint;
+        private ControlSwitcher controlSwitcher;
+        private readonly SidebarButtons sidebarButtons;
 
         public WelcomeForm()
         {
             InitializeComponent();
+            controlSwitcher = new ControlSwitcher(this);
+            sidebarButtons = new SidebarButtons(new List<BunifuFlatButton> {
+                authPanelButton, collectionsPanelButton, filesPanelButton, policiesPanelButton, usersPanelButton
+            }, this);
         }
 
         private void onLoad(object sender, EventArgs e)
@@ -21,38 +34,33 @@ namespace DataBunch.app.ui.forms
             ConsoleManager.Show();
             Auth.init();
 
+            initializeButtons();
             initializeForm();
+
+            sidebarButtons.turnOn(AuthControl.ID);
+            controlSwitcher.switchToPanel(AuthControl.ID);
+            headerTitle.Text = controlSwitcher.getLabel(AuthControl.ID);
+        }
+
+        private void initializeButtons()
+        {
+            authPanelButton.Tag = AuthControl.ID;
+            collectionsPanelButton.Tag = CollectionsControl.ID;
+            filesPanelButton.Tag = FilesControl.ID;
+            policiesPanelButton.Tag = PoliciesControl.ID;
+            usersPanelButton.Tag = UsersControl.ID;
         }
 
         private void initializeForm()
         {
             if (!Auth.isLoggedIn()) {
-                initializeNotLoggedIn();
+                sidebarButtons.hideAll();
+                sidebarButtons.show(AuthControl.ID);
 
                 return;
             }
 
-            initializeLoggedIn();
-        }
-
-        private void initializeNotLoggedIn()
-        {
-            collectionsPanelButton.Visible = false;
-            filesPanelButton.Visible = false;
-            policiesPanelButton.Visible = false;
-            usersPanelButton.Visible = false;
-
-            authPanelButton.selected = true;
-            headerTitle.Text = authPanelButton.Text.Trim();
-            navigateToPanel("Auth");
-        }
-
-        private void initializeLoggedIn()
-        {
-            collectionsPanelButton.selected = true;
-            headerTitle.Text = collectionsPanelButton.Text.Trim();
-
-            navigateToPanel("Collections");
+            sidebarButtons.showAll();
         }
 
         private void onMouseDown(object sender, MouseEventArgs e)
@@ -78,30 +86,11 @@ namespace DataBunch.app.ui.forms
             Close();
         }
 
-        private void switchPanel(object sender, EventArgs e)
+        public void onSidebarButtonClick(string tag)
         {
-            toggleButtons(sender);
-
-            var button = (BunifuFlatButton) sender;
-
-            headerTitle.Text = button.Text.Trim();
-            navigateToPanel(button.Text);
-        }
-
-        private void toggleButtons(object sender)
-        {
-            authPanelButton.selected = false;
-            collectionsPanelButton.selected = false;
-            filesPanelButton.selected = false;
-            policiesPanelButton.selected = false;
-            usersPanelButton.selected = false;
-
-            ((BunifuFlatButton)sender).selected = true;
-        }
-
-        private void navigateToPanel(object panel)
-        {
-            Log.debug("Navigate to panel => " + panel.ToString().Trim());
+            sidebarButtons.turnOn(tag);
+            controlSwitcher.switchToPanel(tag);
+            headerTitle.Text = controlSwitcher.getLabel(tag);
         }
     }
 }
