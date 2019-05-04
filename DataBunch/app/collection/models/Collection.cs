@@ -142,5 +142,13 @@ namespace DataBunch.app.collection.models
 
             return output.Substring(0, output.Length - 2) + "}";
         }
+
+        public string[] ToArray()
+        {
+            return new string[]
+            {
+                Name, Type, User?.Name ?? UserID.ToString(), Path
+            };
+        }
     }
 }
