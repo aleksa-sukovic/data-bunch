@@ -3,6 +3,7 @@ using DataBunch.app.file.models;
 using DataBunch.app.file.policies;
 using DataBunch.app.file.transformers;
 using DataBunch.app.foundation.repositories;
+using DataBunch.app.foundation.utils;
 
 namespace DataBunch.app.file.repositories
 {
@@ -24,6 +25,11 @@ namespace DataBunch.app.file.repositories
             model.Collection = collectionRepository.query().where("id", "=", model.CollectionID).first(false);
 
             return model;
+        }
+
+        protected override void afterDelete(File model)
+        {
+            Storage.deleteFile(model.Path);
         }
     }
 }

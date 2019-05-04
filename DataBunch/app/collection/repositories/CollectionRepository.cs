@@ -7,6 +7,7 @@ using DataBunch.app.collection.transformers;
 using DataBunch.app.file.repositories;
 using DataBunch.app.foundation.db;
 using DataBunch.app.foundation.repositories;
+using DataBunch.app.foundation.utils;
 using DataBunch.app.user.repositories;
 
 namespace DataBunch.app.collection.repositories
@@ -51,6 +52,11 @@ namespace DataBunch.app.collection.repositories
         {
             beforeSave.Children.ForEach(child => child.ParentID = afterSave.ID);
             this.saveMany(beforeSave.Children);
+        }
+
+        protected override void afterDelete(Collection model)
+        {
+            Storage.deleteDirectory(model.Path);
         }
 
         public Collection createFromDirectory(string path, string name)
