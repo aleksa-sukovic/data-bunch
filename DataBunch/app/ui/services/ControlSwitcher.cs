@@ -38,6 +38,7 @@ namespace DataBunch.app.ui.services
         {
             if (form.Controls.Contains(control)) {
                 control.BringToFront();
+                control.Refresh();
 
                 return;
             }

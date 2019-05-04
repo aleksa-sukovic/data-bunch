@@ -110,6 +110,12 @@
     <Compile Include="app\ui\controls\collections\CollectionsControl.Designer.cs">
       <DependentUpon>CollectionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsDetailsDialog.Designer.cs">
+      <DependentUpon>CollectionsDetailsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="app\ui\controls\files\FilesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +141,7 @@
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="app\ui\services\ControlSwitcher.cs" />
+    <Compile Include="app\ui\services\DialogInterface.cs" />
     <Compile Include="app\ui\services\SidebarButtons.cs" />
     <Compile Include="app\user\models\User.cs" />
     <Compile Include="app\user\policies\UserPolicy.cs" />
@@ -147,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\ui\controls\collections\CollectionsControl.resx">
       <DependentUpon>CollectionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\collections\CollectionsDetailsDialog.resx">
+      <DependentUpon>CollectionsDetailsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\ui\controls\files\FilesControl.resx">
       <DependentUpon>FilesControl.cs</DependentUpon>
@@ -185,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

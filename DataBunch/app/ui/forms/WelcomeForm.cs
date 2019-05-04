@@ -17,7 +17,7 @@ namespace DataBunch.app.ui.forms
     public partial class WelcomeForm : Form, SidebarButtons.FormWithSidebar
     {
         private Point lastPoint;
-        private ControlSwitcher controlSwitcher;
+        private readonly ControlSwitcher controlSwitcher;
         private readonly SidebarButtons sidebarButtons;
 
         public WelcomeForm()

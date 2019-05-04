@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DataBunch.app.collection.models;
 using DataBunch.app.collection.repositories;
 using DataBunch.app.foundation.db;
 using DataBunch.app.foundation.utils;
+using DataBunch.app.ui.services;
 using Microsoft.VisualBasic;
+using Collection = DataBunch.app.collection.models.Collection;
 
 namespace DataBunch.app.ui.controls.collections
 {
-    public partial class CollectionsControl : UserControl
+    public partial class CollectionsControl : UserControl, DialogInterface
     {
         private static CollectionsControl instance;
         private const string id = "collections-control";
@@ -22,6 +25,7 @@ namespace DataBunch.app.ui.controls.collections
         private CollectionsControl()
         {
             InitializeComponent();
+            collectionRepository = new CollectionRepository();
 
             loadData();
 
@@ -33,7 +37,6 @@ namespace DataBunch.app.ui.controls.collections
         private void loadData()
         {
             listView.Items.Clear();
-            collectionRepository = new CollectionRepository();
             var collections = collectionRepository.all(new List<QueryParam>());
 
             foreach (var collection in collections) {
@@ -56,7 +59,9 @@ namespace DataBunch.app.ui.controls.collections
                 return;
             }
 
-            Console.WriteLine("Edit => " + listView.SelectedItems[0].Text);
+            var dialog = new CollectionsDetailsDialog(collectionRepository.one(long.Parse(listView.SelectedItems[0].Text)), this);
+
+            dialog.Show(this);
         }
 
         private void onDeleteButtonClick(object sender, EventArgs e)
@@ -104,7 +109,14 @@ namespace DataBunch.app.ui.controls.collections
 
         private void onCreateButton(object sender, EventArgs e)
         {
+            var dialog = new CollectionsDetailsDialog(new Collection(), this);
 
+            dialog.Show(this);
+        }
+
+        public void onDialogClose()
+        {
+            loadData();
         }
     }
 }
