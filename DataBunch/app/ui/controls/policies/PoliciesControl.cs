@@ -1,8 +1,9 @@
 using System.Windows.Forms;
+using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.policies
 {
-    public partial class PoliciesControl : UserControl
+    public partial class PoliciesControl : UserControl, Refreshable
     {
         private static PoliciesControl instance;
         private const string id = "policies-control";
@@ -14,6 +15,11 @@ namespace DataBunch.app.ui.controls.policies
         public PoliciesControl()
         {
             InitializeComponent();
+        }
+
+        public void refresh()
+        {
+            //
         }
     }
 }

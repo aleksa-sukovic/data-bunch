@@ -2,10 +2,11 @@ using System;
 using System.Windows.Forms;
 using DataBunch.app.sessions.services;
 using DataBunch.app.ui.forms;
+using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.auth
 {
-    public partial class AuthControl : UserControl
+    public partial class AuthControl : UserControl, Refreshable
     {
         private static AuthControl instance;
         private const string id = "auth-control";
@@ -67,6 +68,11 @@ namespace DataBunch.app.ui.controls.auth
             profileFullNameField.Text = user.Name;
             profileAgeField.Text = user.Age.ToString();
             profilePrivilegeField.Text = user.Privilege;
+        }
+
+        public void refresh()
+        {
+            refreshControls();
         }
     }
 }

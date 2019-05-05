@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="app\ui\services\ControlSwitcher.cs" />
     <Compile Include="app\ui\services\DialogInterface.cs" />
+    <Compile Include="app\ui\services\Refreshable.cs" />
     <Compile Include="app\ui\services\SidebarButtons.cs" />
     <Compile Include="app\user\models\User.cs" />
     <Compile Include="app\user\policies\UserPolicy.cs" />

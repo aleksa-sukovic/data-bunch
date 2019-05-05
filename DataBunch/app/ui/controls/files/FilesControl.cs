@@ -1,8 +1,9 @@
 using System.Windows.Forms;
+using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.files
 {
-    public partial class FilesControl : UserControl
+    public partial class FilesControl : UserControl, Refreshable
     {
         private static FilesControl instance;
         private const string id = "files-control";
@@ -15,6 +16,11 @@ namespace DataBunch.app.ui.controls.files
         public FilesControl()
         {
             InitializeComponent();
+        }
+
+        public void refresh()
+        {
+            //
         }
     }
 }

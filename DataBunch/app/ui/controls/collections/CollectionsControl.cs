@@ -11,7 +11,7 @@ using Collection = DataBunch.app.collection.models.Collection;
 
 namespace DataBunch.app.ui.controls.collections
 {
-    public partial class CollectionsControl : UserControl, DialogInterface
+    public partial class CollectionsControl : UserControl, DialogInterface, Refreshable
     {
         private static CollectionsControl instance;
         private const string id = "collections-control";
@@ -120,6 +120,12 @@ namespace DataBunch.app.ui.controls.collections
             foreach (ColumnHeader col in listView.Columns) {
                 col.Width = listView.Items.Count > 0 ? -1 : -2;
             }
+        }
+
+        public void refresh()
+        {
+            Console.WriteLine("Refresgh");
+            loadData();
         }
     }
 }

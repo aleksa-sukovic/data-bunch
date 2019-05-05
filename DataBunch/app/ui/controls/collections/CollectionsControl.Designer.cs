@@ -45,6 +45,7 @@ namespace DataBunch.app.ui.controls.collections
             // 
             // listView
             // 
+            this.listView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.collectionId,
             this.name,
@@ -54,10 +55,11 @@ namespace DataBunch.app.ui.controls.collections
             this.listView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
+            this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView.Location = new System.Drawing.Point(25, 25);
-            this.listView.Margin = new System.Windows.Forms.Padding(25, 25, 25, 25);
+            this.listView.Margin = new System.Windows.Forms.Padding(25);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(523, 464);
+            this.listView.Size = new System.Drawing.Size(526, 464);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
