@@ -40,13 +40,12 @@ namespace DataBunch.app.collection.repositories
 
         protected override void beforeSave(Collection item)
         {
-            item = addIncludes(item);
-
             if (string.IsNullOrEmpty(item.Type) && item.Files.Count > 0) {
                 item.Type = item.Files[0].Type;
             }
 
             if (item.ParentID != 0 && !item.isNull()) {
+                item = addIncludes(item);
                 checkParentId(item, item.ParentID);
                 updateCollectionPaths(item, item.ParentID);
             }
