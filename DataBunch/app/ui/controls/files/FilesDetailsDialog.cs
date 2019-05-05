@@ -40,6 +40,7 @@ namespace DataBunch.app.ui.controls.files
         {
             nameField.Text = item.Name;
             pathField.Text = item.Path;
+            typeField.Text = item.Type;
         }
 
         private void initializeCollectionsDropdown()
@@ -75,11 +76,13 @@ namespace DataBunch.app.ui.controls.files
                 return;
             }
 
-            item.Name = nameField.Text;
-            item.CollectionID = getSelectedCollection()?.ID ?? 0;
-            item = setItemPath();
+            var collection = getSelectedCollection();
 
+            item.Name = nameField.Text;
+            item.CollectionID = collection?.ID ?? 0;
+            item = setItemPath(item, collection);
             item = repository.save(item);
+
             exitDialog();
         }
 
@@ -89,34 +92,37 @@ namespace DataBunch.app.ui.controls.files
                 throw new ValidationException("Name field must contain at least 2 characters.");
             }
 
+            if (pathField.Text.Length < 2) {
+                throw new ValidationException("Please select path to a file.");
+            }
+
             return true;
         }
 
-        private File setItemPath()
+        private File setItemPath(File file, Collection collection)
         {
-            var collection = getSelectedCollection();
-            var oldPath = item.Path;
-            item.Path = getFilePath();
+            var oldPath = file.Path;
+            var newPath = getFilePath(collection);
+            file.Path = newPath;
 
-            if (oldPath == item.Path || collection?.Type == "no-files") {
-                return item;
+            if (oldPath == newPath || collection?.Type == "no-files") {
+                return file;
             }
 
-            if (repository.getFileType(item) != collection?.Type) {
+            if (repository.getFileType(file) != collection?.Type) {
                 exitDialog();
 
                 throw new ValidationException("You can not move this file to collection of different type.");
             }
 
-            Storage.copyFile(pathField.Text, item.Path);
+            Storage.copyFile(pathField.Text, newPath);
             Storage.deleteFile(oldPath);
 
-            return item;
+            return file;
         }
 
-        private string getFilePath()
+        private string getFilePath(Collection collection)
         {
-            var collection = getSelectedCollection();
             var sourceFilePath = pathField.Text;
 
             // find filename from page (paths are separated using '/' or '\')
@@ -136,7 +142,6 @@ namespace DataBunch.app.ui.controls.files
             }
 
             var fileDialog = new OpenFileDialog {Filter = "File (*." + extension + ")|*." + extension};
-
             if (fileDialog.ShowDialog(this) == DialogResult.OK) {
                 pathField.Text = fileDialog.FileName;
             }

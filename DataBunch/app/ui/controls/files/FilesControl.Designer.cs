@@ -40,6 +40,7 @@ namespace DataBunch.app.ui.controls.files
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +59,8 @@ namespace DataBunch.app.ui.controls.files
             this.fileId,
             this.name,
             this.type,
-            this.collection});
+            this.collection,
+            this.path});
             this.listView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
@@ -198,6 +200,10 @@ namespace DataBunch.app.ui.controls.files
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Click += new System.EventHandler(this.onCreateButton);
             // 
+            // path
+            // 
+            this.path.Text = "Path";
+            // 
             // FilesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +231,7 @@ namespace DataBunch.app.ui.controls.files
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
+        private System.Windows.Forms.ColumnHeader path;
     }
 }
 

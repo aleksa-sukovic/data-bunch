@@ -77,7 +77,7 @@ namespace DataBunch.app.file.models
 
         public override string[] ToArray()
         {
-            return new string[] { Name, Type, Collection?.Name ?? CollectionID.ToString() };
+            return new string[] { Name, Type, Collection?.Name ?? CollectionID.ToString(), Path };
         }
     }
 }
