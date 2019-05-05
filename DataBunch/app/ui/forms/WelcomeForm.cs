@@ -37,9 +37,9 @@ namespace DataBunch.app.ui.forms
             initializeButtons();
             initializeForm();
 
-            sidebarButtons.turnOn(AuthControl.ID);
-            controlSwitcher.switchToPanel(AuthControl.ID);
-            headerTitle.Text = controlSwitcher.getLabel(AuthControl.ID);
+            if (Auth.isLoggedIn()) {
+                navigateToPanel(CollectionsControl.ID);
+            }
         }
 
         private void initializeButtons()
@@ -87,6 +87,11 @@ namespace DataBunch.app.ui.forms
         }
 
         public void onSidebarButtonClick(string tag)
+        {
+            navigateToPanel(tag);
+        }
+
+        private void navigateToPanel(string tag)
         {
             sidebarButtons.turnOn(tag);
             controlSwitcher.switchToPanel(tag);

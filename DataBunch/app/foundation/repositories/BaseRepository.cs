@@ -179,11 +179,7 @@ namespace DataBunch.app.foundation.repositories
                 throw new UnauthorizedException("You do not have permission to delete this resource");
             }
 
-            var searchParams = new DbParams(new DbParam[] {
-                new DbParam("id", id, this.transformer.getParamType("id")),
-            });
-
-            DB.delete(this.tableName, searchParams);
+            delete(query().where("id", "=", id).first());
         }
 
         public virtual T addIncludes(T model)

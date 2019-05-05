@@ -57,18 +57,28 @@ namespace DataBunch.app.collection.repositories
         protected override void afterDelete(Collection model)
         {
             Storage.deleteDirectory(model.Path);
+
+            var files = fileRepository.query().where("collection_id", "=", model.ID).get();
+
+            foreach (var file in files) {
+                fileRepository.delete(file);
+            }
         }
 
-        public Collection createFromDirectory(string path, string name)
+        public Collection createFromDirectory(string path, string name, long parentId = 0)
         {
             var collection = CollectionFactory.createFromDirectory(path, name);
+
+            collection.ParentID = 0;
 
             return save(collection);
         }
 
-        public Collection createFromZip(string path, string name)
+        public Collection createFromZip(string path, string name, long parentId = 0)
         {
             var collection = CollectionFactory.createFromZip(path, name);
+
+            collection.ParentID = parentId;
 
             return save(collection);
         }

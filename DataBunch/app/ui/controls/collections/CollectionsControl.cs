@@ -16,7 +16,7 @@ namespace DataBunch.app.ui.controls.collections
         private static CollectionsControl instance;
         private const string id = "collections-control";
         private const string label = "Collections";
-        private CollectionRepository collectionRepository;
+        private readonly CollectionRepository collectionRepository;
 
         public static CollectionsControl Instance => instance ?? (instance = new CollectionsControl());
         public static string Label => label;
@@ -28,10 +28,6 @@ namespace DataBunch.app.ui.controls.collections
             collectionRepository = new CollectionRepository();
 
             loadData();
-
-            foreach (ColumnHeader col in listView.Columns) {
-                col.Width = -1;
-            }
         }
 
         private void loadData()
@@ -49,7 +45,7 @@ namespace DataBunch.app.ui.controls.collections
                 listView.Items.Add(item);
             }
 
-            listView.Refresh();
+            resizeListView();
         }
 
         private void onEditButtonClick(object sender, EventArgs e)
@@ -117,6 +113,13 @@ namespace DataBunch.app.ui.controls.collections
         public void onDialogClose()
         {
             loadData();
+        }
+
+        private void resizeListView()
+        {
+            foreach (ColumnHeader col in listView.Columns) {
+                col.Width = listView.Items.Count > 0 ? -1 : -2;
+            }
         }
     }
 }
