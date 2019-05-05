@@ -74,5 +74,10 @@ namespace DataBunch.app.file.models
         {
             return (int) ID;
         }
+
+        public override string[] ToArray()
+        {
+            return new string[] { Name, Type, Collection?.Name ?? CollectionID.ToString() };
+        }
     }
 }

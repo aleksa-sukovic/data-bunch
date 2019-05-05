@@ -36,6 +36,13 @@ namespace DataBunch.app.collection.repositories
             return model;
         }
 
+        protected override void beforeSave(Collection item)
+        {
+            if (string.IsNullOrEmpty(item.Type) && item.Files.Count > 0) {
+                item.Type = item.Files[0].Type;
+            }
+        }
+
         protected override void afterSave(Collection beforeSave, Collection afterSave)
         {
             saveFiles(beforeSave, afterSave);

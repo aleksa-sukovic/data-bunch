@@ -48,7 +48,7 @@ namespace DataBunch.app.foundation.repositories
             return new FluentQuery<T>(this.tableName, this.transformer, this);
         }
 
-        public T one(long id, bool withIncludes = true)
+        public T one(long id, bool withIncludes = true, bool throwException = true)
         {
             if (!policy.checkShow(id)) {
                 throw new UnauthorizedException("You do not have permission to view requested resource.");
@@ -58,7 +58,7 @@ namespace DataBunch.app.foundation.repositories
                 new DbParam("id", id, this.transformer.getParamType("id")),
             }));
 
-            if (!reader.HasRows) {
+            if (!reader.HasRows && throwException) {
                 throw new ItemNotFoundException();
             }
 

@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using DataBunch.app.collection.models;
 using DataBunch.app.collection.repositories;
 using DataBunch.app.foundation.db;
-using DataBunch.app.foundation.utils;
 using DataBunch.app.ui.services;
 using Microsoft.VisualBasic;
 using Collection = DataBunch.app.collection.models.Collection;
@@ -27,10 +25,10 @@ namespace DataBunch.app.ui.controls.collections
             InitializeComponent();
             collectionRepository = new CollectionRepository();
 
-            loadData();
+            refresh();
         }
 
-        private void loadData()
+        public void refresh()
         {
             listView.Items.Clear();
             var collections = collectionRepository.all(new List<QueryParam>());
@@ -80,11 +78,10 @@ namespace DataBunch.app.ui.controls.collections
                     continue;
                 }
 
-                Log.error("Delete => " + colId);
                 collectionRepository.deleteById(colId);
             }
 
-            loadData();
+            refresh();
         }
 
         private void onMergeClick(object sender, EventArgs e)
@@ -100,7 +97,7 @@ namespace DataBunch.app.ui.controls.collections
             var second = collectionRepository.one(long.Parse(listView.SelectedItems[1].Text));
 
             collectionRepository.merge(first, second, collectionName);
-            loadData();
+            refresh();
         }
 
         private void onCreateButton(object sender, EventArgs e)
@@ -112,7 +109,7 @@ namespace DataBunch.app.ui.controls.collections
 
         public void onDialogClose()
         {
-            loadData();
+            refresh();
         }
 
         private void resizeListView()
@@ -120,12 +117,6 @@ namespace DataBunch.app.ui.controls.collections
             foreach (ColumnHeader col in listView.Columns) {
                 col.Width = listView.Items.Count > 0 ? -1 : -2;
             }
-        }
-
-        public void refresh()
-        {
-            Console.WriteLine("Refresgh");
-            loadData();
         }
     }
 }

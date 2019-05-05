@@ -18,5 +18,10 @@ namespace DataBunch.app.foundation.models
         {
             return "Model: ID => " + ID;
         }
+
+        public virtual string[] ToArray()
+        {
+            return new string[ID];
+        }
     }
 }

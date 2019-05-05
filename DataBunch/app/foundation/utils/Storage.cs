@@ -53,7 +53,7 @@ namespace DataBunch.app.foundation.utils
                 throw new StorageException("File does not exists.");
             }
 
-            File.Copy(source, destination);
+            File.Copy(source, destination, true);
         }
 
         public static void deleteFile(string path)

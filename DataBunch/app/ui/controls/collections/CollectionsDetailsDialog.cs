@@ -19,8 +19,8 @@ namespace DataBunch.app.ui.controls.collections
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.collection = collection;
             collectionRepository = new CollectionRepository();
+            this.collection = collectionRepository.addIncludes(collection);
             this.dialogInterface = dialogInterface;
 
             initialize();
@@ -47,7 +47,7 @@ namespace DataBunch.app.ui.controls.collections
 
             var index = -1;
             if (!collection.isNull()) {
-                index = items.FindIndex(item => item.Name == collection.Parent.Name);
+                index = items.FindIndex(item => item.Name == collection.Parent?.Name);
             } else if (collection.isNull() && items.Count > 0) {
                 index = 0;
             }

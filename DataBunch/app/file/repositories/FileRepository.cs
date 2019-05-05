@@ -1,3 +1,4 @@
+using System;
 using DataBunch.app.collection.repositories;
 using DataBunch.app.file.models;
 using DataBunch.app.file.policies;
@@ -27,9 +28,25 @@ namespace DataBunch.app.file.repositories
             return model;
         }
 
+        protected override void beforeSave(File item)
+        {
+            if (string.IsNullOrEmpty(item.Type)) {
+                item.Type = getFileType(item);
+            }
+        }
+
         protected override void afterDelete(File model)
         {
             Storage.deleteFile(model.Path);
+        }
+
+        public string getFileType(File file)
+        {
+            if (string.IsNullOrEmpty(file.Path)) {
+                return "";
+            }
+
+            return file.Path.Substring(file.Path.LastIndexOf(".", StringComparison.Ordinal) + 1);
         }
     }
 }
