@@ -12,7 +12,6 @@ namespace DataBunch.app.foundation.utils
                 exception.show();
             }
 
-            Console.WriteLine(e.ExceptionObject);
             Log.error(((Exception) e.ExceptionObject).Message);
         }
 
@@ -22,7 +21,6 @@ namespace DataBunch.app.foundation.utils
                 exception?.show();
             }
 
-            Console.WriteLine(e.Exception);
             Log.error(e.Exception.Message);
         }
     }
