@@ -1,12 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using DataBunch.app.sessions.services;
 using DataBunch.app.ui.forms;
 using DataBunch.app.ui.services;
+using DataBunch.app.user.models;
 
 namespace DataBunch.app.ui.controls.auth
 {
-    public partial class AuthControl : UserControl, Refreshable
+    public partial class AuthControl : UserControl, Refreshable<User>
     {
         private static AuthControl instance;
         private const string id = "auth-control";
@@ -70,7 +72,7 @@ namespace DataBunch.app.ui.controls.auth
             profilePrivilegeField.Text = user.Privilege;
         }
 
-        public void refresh()
+        public void refresh(List<User> toShow = null)
         {
             refreshControls();
         }

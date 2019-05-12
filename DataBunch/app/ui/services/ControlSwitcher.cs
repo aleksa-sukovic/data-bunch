@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
+using DataBunch.app.foundation.models;
 using DataBunch.app.ui.controls.auth;
 using DataBunch.app.ui.controls.collections;
 using DataBunch.app.ui.controls.files;
@@ -39,9 +40,8 @@ namespace DataBunch.app.ui.services
             if (form.Controls.Contains(control)) {
                 control.BringToFront();
 
-                if (control is Refreshable r) {
-                    r.refresh();
-                }
+                var refreshable = control as Refreshable<Model>;
+                refreshable?.refresh();
 
                 return;
             }

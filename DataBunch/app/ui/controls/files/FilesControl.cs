@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DataBunch.app.collection.repositories;
 using DataBunch.app.file.models;
 using DataBunch.app.file.repositories;
 using DataBunch.app.foundation.db;
+using DataBunch.app.foundation.exceptions;
 using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.files
 {
-    public partial class FilesControl : UserControl, Refreshable, DialogInterface
+    public partial class FilesControl : UserControl, Refreshable<File>, DialogInterface
     {
         private static FilesControl instance;
         private const string id = "files-control";
@@ -21,16 +23,18 @@ namespace DataBunch.app.ui.controls.files
 
         private FilesControl()
         {
-            InitializeComponent();
             repository = new FileRepository();
+
+            InitializeComponent();
+            initializeCollectionsDropdown();
 
             refresh();
         }
 
-        public void refresh()
+        public void refresh(List<File> toShow = null)
         {
             listView.Items.Clear();
-            var files = repository.all(new List<QueryParam>());
+            var files = toShow ?? repository.all(new List<QueryParam>());
 
             foreach (var file in files) {
                 var item = new ListViewItem(file.ID.ToString());
@@ -100,6 +104,39 @@ namespace DataBunch.app.ui.controls.files
         public void onDialogClose()
         {
             refresh();
+        }
+
+        private void initializeCollectionsDropdown()
+        {
+            var items = new CollectionRepository().query().get();
+
+            if (items.Count < 1) {
+                collectionsDropdown.Visible = false;
+            }
+
+            foreach (var i in items) {
+                collectionsDropdown.AddItem(i.Name);
+            }
+
+            collectionsDropdown.AddItem("Show all");
+            collectionsDropdown.selectedIndex = items.Count;
+        }
+
+        private void onCollectionFilter(object sender, EventArgs e)
+        {
+            if (collectionsDropdown.selectedValue == "Show all") {
+                Console.WriteLine("Show all");
+                refresh();
+
+                return;
+            }
+
+            var col = new CollectionRepository().query().where("name", "=", collectionsDropdown.selectedValue)
+                .first();
+
+            refresh(
+                repository.query().where("collection_id", "=", col.ID).get()
+                );
         }
     }
 }

@@ -37,10 +37,12 @@ namespace DataBunch.app.ui.controls.files
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.collection = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.collectionsDropdown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -65,10 +67,10 @@ namespace DataBunch.app.ui.controls.files
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView.Location = new System.Drawing.Point(25, 25);
+            this.listView.Location = new System.Drawing.Point(25, 86);
             this.listView.Margin = new System.Windows.Forms.Padding(25);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(526, 464);
+            this.listView.Size = new System.Drawing.Size(526, 403);
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -88,6 +90,10 @@ namespace DataBunch.app.ui.controls.files
             // collection
             // 
             this.collection.Text = "Collection";
+            // 
+            // path
+            // 
+            this.path.Text = "Path";
             // 
             // bunifuFlatButton2
             // 
@@ -111,7 +117,7 @@ namespace DataBunch.app.ui.controls.files
             this.bunifuFlatButton2.IconVisible = false;
             this.bunifuFlatButton2.IconZoom = 90D;
             this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(567, 131);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(567, 192);
             this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
@@ -148,7 +154,7 @@ namespace DataBunch.app.ui.controls.files
             this.bunifuFlatButton1.IconVisible = false;
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(567, 78);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(567, 139);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
@@ -185,7 +191,7 @@ namespace DataBunch.app.ui.controls.files
             this.bunifuFlatButton4.IconVisible = false;
             this.bunifuFlatButton4.IconZoom = 90D;
             this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(567, 25);
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(567, 86);
             this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
             this.bunifuFlatButton4.Name = "bunifuFlatButton4";
             this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
@@ -200,14 +206,39 @@ namespace DataBunch.app.ui.controls.files
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Click += new System.EventHandler(this.onCreateButton);
             // 
-            // path
+            // collectionsDropdown
             // 
-            this.path.Text = "Path";
+            this.collectionsDropdown.BackColor = System.Drawing.Color.Transparent;
+            this.collectionsDropdown.BorderRadius = 3;
+            this.collectionsDropdown.ForeColor = System.Drawing.Color.White;
+            this.collectionsDropdown.Items = new string[0];
+            this.collectionsDropdown.Location = new System.Drawing.Point(334, 25);
+            this.collectionsDropdown.Margin = new System.Windows.Forms.Padding(1);
+            this.collectionsDropdown.Name = "collectionsDropdown";
+            this.collectionsDropdown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
+            this.collectionsDropdown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.collectionsDropdown.selectedIndex = -1;
+            this.collectionsDropdown.Size = new System.Drawing.Size(217, 35);
+            this.collectionsDropdown.TabIndex = 15;
+            this.collectionsDropdown.onItemSelected += new System.EventHandler(this.onCollectionFilter);
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(20, 25);
+            this.bunifuCustomLabel3.Margin = new System.Windows.Forms.Padding(20);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(44, 21);
+            this.bunifuCustomLabel3.TabIndex = 16;
+            this.bunifuCustomLabel3.Text = "Filter";
             // 
             // FilesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bunifuCustomLabel3);
+            this.Controls.Add(this.collectionsDropdown);
             this.Controls.Add(this.bunifuFlatButton4);
             this.Controls.Add(this.bunifuFlatButton1);
             this.Controls.Add(this.bunifuFlatButton2);
@@ -232,6 +263,8 @@ namespace DataBunch.app.ui.controls.files
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
         private System.Windows.Forms.ColumnHeader path;
+        private Bunifu.Framework.UI.BunifuDropdown collectionsDropdown;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
     }
 }
 
