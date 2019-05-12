@@ -4,13 +4,14 @@ using System.Windows.Forms;
 using DataBunch.app.foundation.models;
 using DataBunch.app.foundation.utils;
 using DataBunch.app.sessions.services;
+using DataBunch.app.ui.controls.users;
 using DataBunch.app.ui.forms;
 using DataBunch.app.ui.services;
 using DataBunch.app.user.models;
 
 namespace DataBunch.app.ui.controls.auth
 {
-    public partial class AuthControl : UserControl, Refreshable
+    public partial class AuthControl : UserControl, Refreshable, DialogInterface
     {
         private static AuthControl instance;
         private const string id = "auth-control";
@@ -77,6 +78,18 @@ namespace DataBunch.app.ui.controls.auth
         public void refresh()
         {
             refreshControls();
+        }
+
+        private void onEditProfile(object sender, EventArgs e)
+        {
+            var dialog = new UsersDetailsDialog(Auth.getUser(), this);
+
+            dialog.Show(this);
+        }
+
+        public void onDialogClose()
+        {
+            refresh();
         }
     }
 }

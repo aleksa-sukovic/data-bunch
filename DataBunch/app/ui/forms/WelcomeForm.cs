@@ -38,9 +38,7 @@ namespace DataBunch.app.ui.forms
             initializeButtons();
             initializeForm();
 
-            if (Auth.isLoggedIn()) {
-                navigateToPanel(CollectionsControl.ID);
-            }
+            navigateToPanel(Auth.isLoggedIn() ? CollectionsControl.ID : AuthControl.ID);
         }
 
         private void initializeButtons()

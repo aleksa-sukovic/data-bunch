@@ -56,8 +56,8 @@ namespace DataBunch.app.policies.repositories
 
         public override Policy addIncludes(Policy model)
         {
-            model.User = new UserRepository().query().where("id", "=", model.UserID).first();
-            model.Collection = new CollectionRepository().query().where("id", "=", model.TargetID).first();
+            model.User = new UserRepository().query().where("id", "=", model.UserID).first(false);
+            model.Collection = new CollectionRepository().query().where("id", "=", model.TargetID).first(false);
 
             return model;
         }

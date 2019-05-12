@@ -29,7 +29,7 @@ namespace DataBunch.app.user.repositories
         {
             var existingUsername = query().where("username", "=", item.Username).first(false);
 
-            if (existingUsername != null) {
+            if (existingUsername != null && item.ID != existingUsername.ID) {
                 throw new ValidationException("User with username '" + item.Username + "' already exists!");
             }
         }

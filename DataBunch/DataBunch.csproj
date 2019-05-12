@@ -146,6 +146,12 @@
     <Compile Include="app\ui\controls\users\UsersControl.Designer.cs">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="app\ui\controls\users\UsersDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersDetailsDialog.Designer.cs">
+      <DependentUpon>UsersDetailsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="app\ui\forms\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\ui\controls\users\UsersControl.resx">
       <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\users\UsersDetailsDialog.resx">
+      <DependentUpon>UsersDetailsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\ui\forms\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
