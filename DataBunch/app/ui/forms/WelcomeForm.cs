@@ -40,6 +40,8 @@ namespace DataBunch.app.ui.forms
             if (Auth.isLoggedIn()) {
                 navigateToPanel(CollectionsControl.ID);
             }
+
+            Log.error(Auth.getUser().Collections.Count.ToString());
         }
 
         private void initializeButtons()

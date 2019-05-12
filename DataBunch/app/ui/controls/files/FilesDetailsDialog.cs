@@ -6,6 +6,7 @@ using DataBunch.app.file.models;
 using DataBunch.app.file.repositories;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.utils;
+using DataBunch.app.sessions.services;
 using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.files
@@ -45,7 +46,7 @@ namespace DataBunch.app.ui.controls.files
 
         private void initializeCollectionsDropdown()
         {
-            var items = new CollectionRepository().query().get();
+            var items = new CollectionRepository().query().forUser(Auth.getUser()).get();
 
             if (items.Count < 1) {
                 throw new ValidationException("You cannot create files without existing collection.");

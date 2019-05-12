@@ -6,6 +6,7 @@ using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.models;
 using DataBunch.app.foundation.transformers;
 using DataBunch.app.foundation.utils;
+using DataBunch.app.user.models;
 
 namespace DataBunch.app.foundation.repositories
 {
@@ -66,6 +67,16 @@ namespace DataBunch.app.foundation.repositories
             this.query.add(new DbParam(column, value, this.transformer.getParamType(column), "LIKE", "OR"));
 
             return this;
+        }
+
+        public FluentQuery<T> forUser(User user)
+        {
+            if (user.isAdmin()) {
+                return this;
+            }
+
+            return where("user_id", "=", user.ID)
+                .orWhereExists("SELECT * FROM policies P WHERE P.target_id = BASE_TABLE.id AND P.user_id=" + user.ID);
         }
 
         public FluentQuery<T> withIncludes()

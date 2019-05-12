@@ -6,6 +6,7 @@ using DataBunch.app.file.models;
 using DataBunch.app.file.repositories;
 using DataBunch.app.foundation.db;
 using DataBunch.app.foundation.exceptions;
+using DataBunch.app.sessions.services;
 using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.files
@@ -108,7 +109,7 @@ namespace DataBunch.app.ui.controls.files
 
         private void initializeCollectionsDropdown()
         {
-            var items = new CollectionRepository().query().get();
+            var items = new CollectionRepository().query().forUser(Auth.getUser()).get();
 
             if (items.Count < 1) {
                 collectionsDropdown.Visible = false;
@@ -134,9 +135,7 @@ namespace DataBunch.app.ui.controls.files
             var col = new CollectionRepository().query().where("name", "=", collectionsDropdown.selectedValue)
                 .first();
 
-            refresh(
-                repository.query().where("collection_id", "=", col.ID).get()
-                );
+            refresh(repository.query().where("collection_id", "=", col.ID).get());
         }
     }
 }

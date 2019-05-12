@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DataBunch.app.foundation.models;
+using DataBunch.app.foundation.utils;
 using DataBunch.app.sessions.services;
 using DataBunch.app.ui.forms;
 using DataBunch.app.ui.services;

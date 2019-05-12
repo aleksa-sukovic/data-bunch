@@ -38,12 +38,7 @@ namespace DataBunch.app.ui.services
         private void enablePanel(UserControl control)
         {
             if (form.Controls.Contains(control)) {
-                control.BringToFront();
-
-                var refreshable = control as Refreshable<Model>;
-                refreshable?.refresh();
-
-                return;
+                form.Controls.Remove(control);
             }
 
             form.Controls.Add(control);

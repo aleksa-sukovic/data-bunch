@@ -44,7 +44,7 @@ namespace DataBunch.app.ui.controls.policies
 
         private void initializeCollectionsDropdown()
         {
-            var items = new CollectionRepository().query().get();
+            var items = new CollectionRepository().query().forUser(Auth.getUser()).get();
 
             if (items.Count < 1) {
                 throw new ValidationException("You cannot create policy without existing collection.");

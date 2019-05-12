@@ -38,6 +38,7 @@ namespace DataBunch.app.ui.controls.collections
         private void initializeDropdown()
         {
             var items = collectionRepository.query()
+                .forUser(Auth.getUser())
                 .where("id", "!=", collection.ID).withIncludes()
                 .get();
 

@@ -10,6 +10,7 @@ using DataBunch.app.foundation.db;
 using DataBunch.app.foundation.exceptions;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.foundation.utils;
+using DataBunch.app.user.models;
 using DataBunch.app.user.repositories;
 
 namespace DataBunch.app.collection.repositories

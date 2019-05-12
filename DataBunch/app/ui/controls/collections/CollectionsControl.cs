@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DataBunch.app.collection.repositories;
 using DataBunch.app.foundation.db;
+using DataBunch.app.sessions.services;
 using DataBunch.app.ui.services;
 using Microsoft.VisualBasic;
 using Collection = DataBunch.app.collection.models.Collection;
@@ -31,7 +32,7 @@ namespace DataBunch.app.ui.controls.collections
         public void refresh(List<Collection> toShow = null)
         {
             listView.Items.Clear();
-            var collections = collectionRepository.all(new List<QueryParam>());
+            var collections = Auth.getUser().Collections;
 
             foreach (var collection in collections) {
                 var item = new ListViewItem(collection.ID.ToString());
