@@ -18,7 +18,7 @@ namespace DataBunch.app.policies.handlers
 
         public virtual bool checkShow(long targetId, User user = null, bool throwException = true)
         {
-            return doCheck(targetId, user, throwException);
+            return before(parseUser(user), targetId) || doCheck(targetId, user, throwException);
         }
 
         public virtual bool checkList(Type t, User user = null, bool throwException = true)
@@ -28,12 +28,12 @@ namespace DataBunch.app.policies.handlers
 
         public virtual bool checkUpdate(long targetId, User user = null, bool throwException = true)
         {
-            return doCheck(targetId, user, throwException);
+            return before(parseUser(user), targetId) || doCheck(targetId, user, throwException);
         }
 
         public virtual bool checkDelete(long targetId, User user = null, bool throwException = true)
         {
-            return doCheck(targetId, user, throwException);
+            return before(parseUser(user), targetId) || doCheck(targetId, user, throwException);
         }
 
         protected bool doCheck(long targetId, User user, bool throwException = true)

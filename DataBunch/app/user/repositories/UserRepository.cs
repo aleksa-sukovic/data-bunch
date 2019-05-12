@@ -53,7 +53,7 @@ namespace DataBunch.app.user.repositories
 
             model.Collections = this.collectionRepository.query()
                 .where("user_id", "=", model.ID)
-                .orWhereExists("SELECT * FROM policies P WHERE P.collection_id = id AND P.user_id=" + model.ID)
+                .orWhereExists("SELECT * FROM policies P WHERE P.target_id = id AND P.user_id=" + model.ID)
                 .get();
         }
     }

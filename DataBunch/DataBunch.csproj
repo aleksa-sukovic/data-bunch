@@ -134,6 +134,12 @@
     <Compile Include="app\ui\controls\policies\PoliciesControl.Designer.cs">
       <DependentUpon>PoliciesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesDetailsDialog.Designer.cs">
+      <DependentUpon>PoliciesDetailsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="app\ui\controls\users\UsersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\ui\controls\policies\PoliciesControl.resx">
       <DependentUpon>PoliciesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\policies\PoliciesDetailsDialog.resx">
+      <DependentUpon>PoliciesDetailsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\ui\controls\users\UsersControl.resx">
       <DependentUpon>UsersControl.cs</DependentUpon>
