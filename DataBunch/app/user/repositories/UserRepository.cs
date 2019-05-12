@@ -29,7 +29,7 @@ namespace DataBunch.app.user.repositories
         {
             var existingUsername = query().where("username", "=", item.Username).first(false);
 
-            if (existingUsername != null) {
+            if (existingUsername != null && item.ID != existingUsername.ID) {
                 throw new ValidationException("User with username '" + item.Username + "' already exists!");
             }
         }
@@ -53,7 +53,7 @@ namespace DataBunch.app.user.repositories
 
             model.Collections = this.collectionRepository.query()
                 .where("user_id", "=", model.ID)
-                .orWhereExists("SELECT * FROM policies P WHERE P.collection_id = id AND P.user_id=" + model.ID)
+                .orWhereExists("SELECT * FROM policies P WHERE P.target_id = BASE_TABLE.id AND P.user_id=" + model.ID)
                 .get();
         }
     }

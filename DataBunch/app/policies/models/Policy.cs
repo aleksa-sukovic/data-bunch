@@ -1,5 +1,7 @@
 using System;
+using DataBunch.app.collection.models;
 using DataBunch.app.foundation.models;
+using DataBunch.app.user.models;
 
 namespace DataBunch.app.policies.models
 {
@@ -35,12 +37,19 @@ namespace DataBunch.app.policies.models
         public long UserID { get; set; }
         public long TargetID { get; set; }
         public string Type { get; set; }
+        public User User { get; set; }
+        public Collection Collection { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
         public override string ToString()
         {
             return "{ ID => " + ID + ", UserID => " + UserID + ", TargetID => " + TargetID + ", Type => " + Type + " }";
+        }
+
+        public override string[] ToArray()
+        {
+            return new string[] { User?.Name ?? UserID.ToString(), Collection?.Name ?? TargetID.ToString(), Type };
         }
     }
 }

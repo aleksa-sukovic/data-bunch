@@ -9,13 +9,11 @@ namespace DataBunch.app.foundation.utils
 
         public static DirectoryInfo copyDirectory(string originPath, string destinationPath)
         {
-            if (!Directory.Exists(destinationPath)) {
-                Directory.CreateDirectory(destinationPath);
-            }
-
             if (Directory.Exists(destinationPath)) {
                 Directory.Delete(destinationPath, true);
             }
+
+            Directory.CreateDirectory(destinationPath);
 
             foreach (var dirPath in Directory.GetDirectories(originPath, "*", SearchOption.AllDirectories)) {
                 Directory.CreateDirectory(dirPath.Replace(originPath, destinationPath));
@@ -53,7 +51,7 @@ namespace DataBunch.app.foundation.utils
                 throw new StorageException("File does not exists.");
             }
 
-            File.Copy(source, destination);
+            File.Copy(source, destination, true);
         }
 
         public static void deleteFile(string path)

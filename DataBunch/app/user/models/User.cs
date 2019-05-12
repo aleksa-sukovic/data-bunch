@@ -10,6 +10,15 @@ namespace DataBunch.app.user.models
         private List<Collection> collections;
         private string password;
 
+        public User()
+        {
+            Username = "";
+            this.password = "";
+            Name = "";
+            Privilege = "user";
+            collections = new List<Collection>();
+        }
+
         public User(long id, string username, string password, string name, int age, string privilege): base(id)
         {
             Username = username;
@@ -59,6 +68,11 @@ namespace DataBunch.app.user.models
         public override string ToString()
         {
             return "{ ID => " + ID + " Name => " + Name + " Age => " + Age + " }";
+        }
+
+        public override string[] ToArray()
+        {
+            return new [] { Username, Name, Age.ToString(), Privilege };
         }
     }
 }

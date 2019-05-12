@@ -32,7 +32,7 @@ namespace DataBunch.app.sessions.services
             }
 
             if (!Hash.check(user.Password, password)) {
-                throw new AuthException();
+                throw new AuthException("Wrong password.");
             }
 
             currentUser = user;

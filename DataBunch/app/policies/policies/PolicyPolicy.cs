@@ -6,7 +6,6 @@ namespace DataBunch.app.policies.policies
 {
     public class PolicyPolicy: PolicyHandler<Policy>
     {
-
         public PolicyPolicy()
         {
             this.type = "policy";

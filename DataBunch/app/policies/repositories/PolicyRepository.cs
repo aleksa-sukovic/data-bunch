@@ -5,6 +5,7 @@ using DataBunch.app.policies.models;
 using DataBunch.app.policies.policies;
 using DataBunch.app.policies.transformers;
 using DataBunch.app.user.models;
+using DataBunch.app.user.repositories;
 
 namespace DataBunch.app.policies.repositories
 {
@@ -51,6 +52,14 @@ namespace DataBunch.app.policies.repositories
             foreach (var child in collection.Children) {
                 revokeFromCollection(child, user);
             }
+        }
+
+        public override Policy addIncludes(Policy model)
+        {
+            model.User = new UserRepository().query().where("id", "=", model.UserID).first(false);
+            model.Collection = new CollectionRepository().query().where("id", "=", model.TargetID).first(false);
+
+            return model;
         }
     }
 }
