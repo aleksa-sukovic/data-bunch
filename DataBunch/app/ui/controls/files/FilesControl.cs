@@ -5,18 +5,18 @@ using DataBunch.app.collection.repositories;
 using DataBunch.app.file.models;
 using DataBunch.app.file.repositories;
 using DataBunch.app.foundation.db;
-using DataBunch.app.foundation.exceptions;
 using DataBunch.app.sessions.services;
 using DataBunch.app.ui.services;
 
 namespace DataBunch.app.ui.controls.files
 {
-    public partial class FilesControl : UserControl, Refreshable<File>, DialogInterface
+    public partial class FilesControl : UserControl, Refreshable, DialogInterface
     {
         private static FilesControl instance;
         private const string id = "files-control";
         private const string label = "Files";
         private readonly FileRepository repository;
+        private List<File> filteredList;
 
         public static FilesControl Instance => instance ?? (instance = new FilesControl());
         public static string Label => label;
@@ -25,6 +25,7 @@ namespace DataBunch.app.ui.controls.files
         private FilesControl()
         {
             repository = new FileRepository();
+            filteredList = new List<File>();
 
             InitializeComponent();
             initializeCollectionsDropdown();
@@ -32,10 +33,14 @@ namespace DataBunch.app.ui.controls.files
             refresh();
         }
 
-        public void refresh(List<File> toShow = null)
+        public void refresh()
         {
             listView.Items.Clear();
-            var files = toShow ?? repository.all(new List<QueryParam>());
+
+            var files = filteredList;
+            if (files.Count <= 0) {
+                files = repository.forUser(Auth.getUser());
+            }
 
             foreach (var file in files) {
                 var item = new ListViewItem(file.ID.ToString());
@@ -126,16 +131,20 @@ namespace DataBunch.app.ui.controls.files
         private void onCollectionFilter(object sender, EventArgs e)
         {
             if (collectionsDropdown.selectedValue == "Show all") {
-                Console.WriteLine("Show all");
+                filteredList.Clear();
                 refresh();
 
                 return;
             }
 
-            var col = new CollectionRepository().query().where("name", "=", collectionsDropdown.selectedValue)
-                .first();
+            var col = new CollectionRepository().query().where("name", "=", collectionsDropdown.selectedValue).first();
 
-            refresh(repository.query().where("collection_id", "=", col.ID).get());
+            filteredList = repository.query()
+                .forUser(Auth.getUser())
+                .where("collection_id", "=", col.ID)
+                .get();
+
+            refresh();
         }
     }
 }

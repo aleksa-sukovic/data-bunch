@@ -10,7 +10,7 @@ using Collection = DataBunch.app.collection.models.Collection;
 
 namespace DataBunch.app.ui.controls.collections
 {
-    public partial class CollectionsControl : UserControl, DialogInterface, Refreshable<Collection>
+    public partial class CollectionsControl : UserControl, DialogInterface, Refreshable
     {
         private static CollectionsControl instance;
         private const string id = "collections-control";
@@ -29,10 +29,10 @@ namespace DataBunch.app.ui.controls.collections
             refresh();
         }
 
-        public void refresh(List<Collection> toShow = null)
+        public void refresh()
         {
             listView.Items.Clear();
-            var collections = Auth.getUser().Collections;
+            var collections = collectionRepository.query().forUser(Auth.getUser()).get();
 
             foreach (var collection in collections) {
                 var item = new ListViewItem(collection.ID.ToString());

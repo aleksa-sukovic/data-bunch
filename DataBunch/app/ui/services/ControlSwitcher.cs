@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
 using DataBunch.app.foundation.models;
+using DataBunch.app.foundation.utils;
 using DataBunch.app.ui.controls.auth;
 using DataBunch.app.ui.controls.collections;
 using DataBunch.app.ui.controls.files;
@@ -38,7 +39,13 @@ namespace DataBunch.app.ui.services
         private void enablePanel(UserControl control)
         {
             if (form.Controls.Contains(control)) {
-                form.Controls.Remove(control);
+                control.BringToFront();
+
+                if (control is Refreshable r) {
+                    r.refresh();
+                }
+
+                return;
             }
 
             form.Controls.Add(control);

@@ -3,8 +3,8 @@ using DataBunch.app.foundation.models;
 
 namespace DataBunch.app.ui.services
 {
-    public interface Refreshable<T>
+    public interface Refreshable
     {
-        void refresh(List<T> toShow = null);
+        void refresh();
     }
 }

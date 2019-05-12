@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
 using DataBunch.app.foundation.utils;
+using DataBunch.app.policies.models;
 using DataBunch.app.sessions.services;
 using DataBunch.app.ui.controls.auth;
 using DataBunch.app.ui.controls.collections;
@@ -40,8 +41,6 @@ namespace DataBunch.app.ui.forms
             if (Auth.isLoggedIn()) {
                 navigateToPanel(CollectionsControl.ID);
             }
-
-            Log.error(Auth.getUser().Collections.Count.ToString());
         }
 
         private void initializeButtons()
@@ -63,6 +62,10 @@ namespace DataBunch.app.ui.forms
             }
 
             sidebarButtons.showAll();
+            if (Auth.getUser().isUser()) {
+                sidebarButtons.hide(PoliciesControl.ID);
+                sidebarButtons.hide(UsersControl.ID);
+            }
         }
 
         private void onMouseDown(object sender, MouseEventArgs e)

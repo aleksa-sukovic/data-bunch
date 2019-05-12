@@ -10,7 +10,7 @@ using DataBunch.app.user.models;
 
 namespace DataBunch.app.ui.controls.auth
 {
-    public partial class AuthControl : UserControl, Refreshable<User>
+    public partial class AuthControl : UserControl, Refreshable
     {
         private static AuthControl instance;
         private const string id = "auth-control";
@@ -74,7 +74,7 @@ namespace DataBunch.app.ui.controls.auth
             profilePrivilegeField.Text = user.Privilege;
         }
 
-        public void refresh(List<User> toShow = null)
+        public void refresh()
         {
             refreshControls();
         }

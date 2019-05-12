@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DataBunch.app.collection.repositories;
 using DataBunch.app.foundation.db;
-using DataBunch.app.policies.models;
 using DataBunch.app.policies.repositories;
 using DataBunch.app.ui.services;
-using DataBunch.app.user.models;
 using DataBunch.app.user.repositories;
 
 namespace DataBunch.app.ui.controls.policies
 {
-    public partial class PoliciesControl : UserControl, Refreshable<Policy>, DialogInterface
+    public partial class PoliciesControl : UserControl, Refreshable, DialogInterface
     {
         private static PoliciesControl instance;
         private const string id = "policies-control";
@@ -30,10 +28,10 @@ namespace DataBunch.app.ui.controls.policies
             refresh();
         }
 
-        public void refresh(List<Policy> toShow = null)
+        public void refresh()
         {
             listView.Items.Clear();
-            var files = toShow ?? repository.all(new List<QueryParam>());
+            var files = repository.all(new List<QueryParam>());
 
             foreach (var file in files) {
                 var item = new ListViewItem(file.ID.ToString());

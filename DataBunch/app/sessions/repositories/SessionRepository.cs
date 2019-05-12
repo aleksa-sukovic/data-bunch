@@ -20,7 +20,7 @@ namespace DataBunch.app.sessions.repositories
 
         public override Session addIncludes(Session model)
         {
-            model.User = userRepository.query().where("id", "=", model.UserID).withIncludes().first(false);
+            model.User = userRepository.query().where("id", "=", model.UserID).first(false);
 
             return model;
         }

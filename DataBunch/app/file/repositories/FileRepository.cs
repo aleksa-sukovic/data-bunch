@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using DataBunch.app.collection.repositories;
 using DataBunch.app.file.models;
 using DataBunch.app.file.policies;
 using DataBunch.app.file.transformers;
 using DataBunch.app.foundation.repositories;
 using DataBunch.app.foundation.utils;
+using DataBunch.app.user.models;
 
 namespace DataBunch.app.file.repositories
 {
@@ -47,6 +49,18 @@ namespace DataBunch.app.file.repositories
             }
 
             return file.Path.Substring(file.Path.LastIndexOf(".", StringComparison.Ordinal) + 1);
+        }
+
+        public List<File> forUser(User user)
+        {
+            var availableCollections = new CollectionRepository().query().forUser(user).get();
+            var query = this.query();
+
+            foreach (var collection in availableCollections) {
+                query.orWhere("collection_id", "=", collection.ID);
+            }
+
+            return query.get();
         }
     }
 }

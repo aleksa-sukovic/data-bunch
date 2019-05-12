@@ -5,7 +5,7 @@ using DataBunch.app.user.models;
 
 namespace DataBunch.app.ui.controls.users
 {
-    public partial class UsersControl : UserControl, Refreshable<User>
+    public partial class UsersControl : UserControl, Refreshable
     {
         private static UsersControl instance;
         private const string id = "users-control";
@@ -19,7 +19,7 @@ namespace DataBunch.app.ui.controls.users
             InitializeComponent();
         }
 
-        public void refresh(List<User> toShow = null)
+        public void refresh()
         {
             //
         }
