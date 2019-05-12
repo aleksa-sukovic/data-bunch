@@ -62,6 +62,10 @@ namespace DataBunch.app.foundation.repositories
                 throw new ItemNotFoundException();
             }
 
+            if (!reader.HasRows) {
+                return null;
+            }
+
             reader.Read();
             var transformed = transformer.transform(reader);
             reader.Close();

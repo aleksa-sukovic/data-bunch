@@ -84,7 +84,14 @@ namespace DataBunch.app.ui.controls.policies
                 }
 
                 var policy = repository.one(colId);
-                repository.revokeFromCollection(collectionRepo.one(policy.TargetID), userRepo.one(policy.UserID));
+                var collection = collectionRepo.one(policy.TargetID, false, false);
+                var usr = userRepo.one(policy.UserID, false, false);
+
+                if (collection != null && usr != null) {
+                    repository.revokeFromCollection(collection, usr);
+                } else {
+                    repository.delete(policy);
+                }
             }
 
             refresh();
