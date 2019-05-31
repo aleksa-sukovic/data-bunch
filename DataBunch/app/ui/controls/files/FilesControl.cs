@@ -28,7 +28,6 @@ namespace DataBunch.app.ui.controls.files
             filteredList = new List<File>();
 
             InitializeComponent();
-            initializeCollectionsDropdown();
 
             refresh();
         }
@@ -53,6 +52,7 @@ namespace DataBunch.app.ui.controls.files
             }
 
             resizeListView();
+            initializeCollectionsDropdown();
         }
 
         private void onEditButtonClick(object sender, EventArgs e)
@@ -115,17 +115,18 @@ namespace DataBunch.app.ui.controls.files
         private void initializeCollectionsDropdown()
         {
             var items = new CollectionRepository().query().forUser(Auth.getUser()).get();
+            var dataSource = new List<string>();
 
             if (items.Count < 1) {
                 collectionsDropdown.Visible = false;
             }
 
+            dataSource.Add("Show all");
             foreach (var i in items) {
-                collectionsDropdown.AddItem(i.Name);
+                dataSource.Add(i.Name);
             }
-
-            collectionsDropdown.AddItem("Show all");
-            collectionsDropdown.selectedIndex = items.Count;
+            
+            collectionsDropdown.Items = dataSource.ToArray();
         }
 
         private void onCollectionFilter(object sender, EventArgs e)
