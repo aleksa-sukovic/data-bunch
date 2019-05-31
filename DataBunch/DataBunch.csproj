@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +52,152 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ui\forms\Welcome.Designer.cs">
-      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    <Compile Include="app\collection\factories\CollectionFactory.cs" />
+    <Compile Include="app\collection\factories\CollectionMergeFactory.cs" />
+    <Compile Include="app\collection\models\Collection.cs" />
+    <Compile Include="app\collection\policies\CollectionPolicy.cs" />
+    <Compile Include="app\collection\repositories\CollectionRepository.cs" />
+    <Compile Include="app\collection\transformers\CollectionTransformer.cs" />
+    <Compile Include="app\file\models\File.cs" />
+    <Compile Include="app\file\policies\FilePolicy.cs" />
+    <Compile Include="app\file\repositories\FileRepository.cs" />
+    <Compile Include="app\file\transformers\FileTransformer.cs" />
+    <Compile Include="app\foundation\db\DbConnector.cs" />
+    <Compile Include="app\foundation\db\DbParam.cs" />
+    <Compile Include="app\foundation\db\DbParams.cs" />
+    <Compile Include="app\foundation\db\facades\DB.cs" />
+    <Compile Include="app\foundation\db\processors\query\DeleteQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\InsertQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\QueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\SearchQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\processors\query\UpdateQueryProcessor.cs" />
+    <Compile Include="app\foundation\db\QueryParam.cs" />
+    <Compile Include="app\foundation\exceptions\AuthException.cs" />
+    <Compile Include="app\foundation\exceptions\BaseException.cs" />
+    <Compile Include="app\foundation\exceptions\ItemNotFoundException.cs" />
+    <Compile Include="app\foundation\exceptions\StorageException.cs" />
+    <Compile Include="app\foundation\exceptions\TransformException.cs" />
+    <Compile Include="app\foundation\exceptions\UnauthorizedException.cs" />
+    <Compile Include="app\foundation\exceptions\ValidationException.cs" />
+    <Compile Include="app\foundation\models\Model.cs" />
+    <Compile Include="app\foundation\repositories\BaseRepository.cs" />
+    <Compile Include="app\foundation\repositories\FluentQuery.cs" />
+    <Compile Include="app\foundation\transformers\Transformer.cs" />
+    <Compile Include="app\foundation\utils\ConsoleManager.cs" />
+    <Compile Include="app\foundation\utils\ExceptionHandler.cs" />
+    <Compile Include="app\foundation\utils\Hash.cs" />
+    <Compile Include="app\foundation\utils\Log.cs" />
+    <Compile Include="app\foundation\utils\Storage.cs" />
+    <Compile Include="app\policies\handlers\PolicyHandler.cs" />
+    <Compile Include="app\policies\models\Policy.cs" />
+    <Compile Include="app\policies\policies\PolicyPolicy.cs" />
+    <Compile Include="app\policies\repositories\PolicyRepository.cs" />
+    <Compile Include="app\policies\transformers\PolicyTransformer.cs" />
+    <Compile Include="app\sessions\models\Session.cs" />
+    <Compile Include="app\sessions\policies\SessionPolicy.cs" />
+    <Compile Include="app\sessions\repositories\SessionRepository.cs" />
+    <Compile Include="app\sessions\services\Auth.cs" />
+    <Compile Include="app\sessions\transformers\SessionTransformer.cs" />
+    <Compile Include="app\ui\controls\auth\AuthControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ui\forms\WelcomeForm.cs">
+    <Compile Include="app\ui\controls\auth\AuthControl.Designer.cs">
+      <DependentUpon>AuthControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsControl.Designer.cs">
+      <DependentUpon>CollectionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsDetailsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\ui\controls\collections\CollectionsDetailsDialog.Designer.cs">
+      <DependentUpon>CollectionsDetailsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\files\FilesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\files\FilesControl.Designer.cs">
+      <DependentUpon>FilesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\files\FilesDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\files\FilesDetailsDialog.Designer.cs">
+      <DependentUpon>FilesDetailsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesControl.Designer.cs">
+      <DependentUpon>PoliciesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\policies\PoliciesDetailsDialog.Designer.cs">
+      <DependentUpon>PoliciesDetailsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersControl.Designer.cs">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\controls\users\UsersDetailsDialog.Designer.cs">
+      <DependentUpon>UsersDetailsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\forms\WelcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\ui\forms\WelcomeForm.Designer.cs">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\ui\services\ControlSwitcher.cs" />
+    <Compile Include="app\ui\services\DialogInterface.cs" />
+    <Compile Include="app\ui\services\Refreshable.cs" />
+    <Compile Include="app\ui\services\SidebarButtons.cs" />
+    <Compile Include="app\user\models\User.cs" />
+    <Compile Include="app\user\policies\UserPolicy.cs" />
+    <Compile Include="app\user\repositories\UserRepository.cs" />
+    <Compile Include="app\user\transformers\UserTransformer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="app\ui\controls\auth\AuthControl.resx">
+      <DependentUpon>AuthControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\collections\CollectionsControl.resx">
+      <DependentUpon>CollectionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\collections\CollectionsDetailsDialog.resx">
+      <DependentUpon>CollectionsDetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\files\FilesControl.resx">
+      <DependentUpon>FilesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\files\FilesDetailsDialog.resx">
+      <DependentUpon>FilesDetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\policies\PoliciesControl.resx">
+      <DependentUpon>PoliciesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\policies\PoliciesDetailsDialog.resx">
+      <DependentUpon>PoliciesDetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\users\UsersControl.resx">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\controls\users\UsersDetailsDialog.resx">
+      <DependentUpon>UsersDetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\ui\forms\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +206,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -77,13 +222,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="base\facades\.gitkeep" />
-    <Content Include="base\interfaces\.gitkeep" />
-    <Content Include="base\models\.gitkeep" />
-    <Content Include="base\repositories\.gitkeep" />
-    <Content Include="data_bunch\.gitkeep" />
-    <Content Include="file\.gitkeep" />
-    <Content Include="user\.gitkeep" />
+    <None Include="Resources\home.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

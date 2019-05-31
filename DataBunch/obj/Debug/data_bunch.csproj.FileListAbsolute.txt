@@ -1,9 +1,0 @@
-D:\Aleksa\Development\Source\data_bunch\data_bunch\bin\Debug\data_bunch.exe.config
-D:\Aleksa\Development\Source\data_bunch\data_bunch\bin\Debug\data_bunch.exe
-D:\Aleksa\Development\Source\data_bunch\data_bunch\bin\Debug\data_bunch.pdb
-D:\Aleksa\Development\Source\data_bunch\data_bunch\obj\Debug\data_bunch.csprojAssemblyReference.cache
-D:\Aleksa\Development\Source\data_bunch\data_bunch\obj\Debug\DataBunch.Properties.Resources.resources
-D:\Aleksa\Development\Source\data_bunch\data_bunch\obj\Debug\data_bunch.csproj.GenerateResource.cache
-D:\Aleksa\Development\Source\data_bunch\data_bunch\obj\Debug\data_bunch.csproj.CoreCompileInputs.cache
-D:\Aleksa\Development\Source\data_bunch\data_bunch\obj\Debug\data_bunch.exe
-D:\Aleksa\Development\Source\data_bunch\data_bunch\obj\Debug\data_bunch.pdb
