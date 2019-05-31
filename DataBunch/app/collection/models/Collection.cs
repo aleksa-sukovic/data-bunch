@@ -143,11 +143,16 @@ namespace DataBunch.app.collection.models
             return output.Substring(0, output.Length - 2) + "}";
         }
 
-        public string[] ToArray()
+        public override string[] ToArray()
         {
+            var parent = Parent?.Name ?? ParentID.ToString();
+            parent = parent == "0" ? "No Parent" : parent;
+
+            var user = User?.Name ?? UserID.ToString();
+
             return new string[]
             {
-                Name, Type, User?.Name ?? UserID.ToString(), Path
+                Name, Type, parent, user, Path
             };
         }
     }

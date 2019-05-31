@@ -46,8 +46,8 @@ namespace DataBunch.app.collection.repositories
             }
 
             if (item.ParentID != 0 && !item.isNull()) {
-                item = addIncludes(item);
                 checkParentId(item, item.ParentID);
+
                 updateCollectionPaths(item, item.ParentID);
             }
         }
@@ -68,14 +68,14 @@ namespace DataBunch.app.collection.repositories
                 }
             });
 
-            fileRepository.saveMany(beforeSave.Files);
+            afterSave.Files = fileRepository.saveMany(beforeSave.Files);
         }
 
         private void saveChildren(Collection beforeSave, Collection afterSave)
         {
             beforeSave.Children.ForEach(child => child.ParentID = afterSave.ID);
 
-            saveMany(beforeSave.Children);
+            afterSave.Children = saveMany(beforeSave.Children);
         }
 
         protected override void afterDelete(Collection model)
@@ -141,10 +141,13 @@ namespace DataBunch.app.collection.repositories
         private void updateCollectionPaths(Collection item, long parentId)
         {
             var newParent = one(parentId);
-
-            // update path
             var oldPath = item.Path;
             var newPath = newParent.Path + "/" + item.Name;
+
+            if (oldPath == newPath) {
+                return;
+            }
+
             Storage.copyDirectory(oldPath, newPath);
             Storage.deleteDirectory(oldPath);
             item.Path = newPath;

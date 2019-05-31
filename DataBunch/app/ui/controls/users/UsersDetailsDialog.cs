@@ -74,7 +74,7 @@ namespace DataBunch.app.ui.controls.users
             item.Username = usernameField.Text;
             item.Name = nameField.Text;
             item.Age = int.Parse(ageField.Text);
-            if (Hash.make(passwordField.Text) != item.Password) {
+            if (passwordField.Text.Length > 0 && Hash.make(passwordField.Text) != item.Password) {
                 item.Password = passwordField.Text;
             }
             item.Privilege = privilegesDropdown.selectedValue.ToLower();
