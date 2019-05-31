@@ -140,7 +140,6 @@ namespace DataBunch.app.ui.controls.files
             var col = new CollectionRepository().query().where("name", "=", collectionsDropdown.selectedValue).first();
 
             filteredList = repository.query()
-                .forUser(Auth.getUser())
                 .where("collection_id", "=", col.ID)
                 .get();
 
