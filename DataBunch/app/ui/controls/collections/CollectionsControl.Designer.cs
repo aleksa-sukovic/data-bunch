@@ -41,6 +41,7 @@ namespace DataBunch.app.ui.controls.collections
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.parent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView
@@ -50,16 +51,17 @@ namespace DataBunch.app.ui.controls.collections
             this.collectionId,
             this.name,
             this.type,
+            this.parent,
             this.user,
             this.path});
             this.listView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView.Location = new System.Drawing.Point(25, 25);
-            this.listView.Margin = new System.Windows.Forms.Padding(25);
+            this.listView.Location = new System.Drawing.Point(33, 31);
+            this.listView.Margin = new System.Windows.Forms.Padding(33, 31, 33, 31);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(526, 464);
+            this.listView.Size = new System.Drawing.Size(701, 571);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -67,7 +69,7 @@ namespace DataBunch.app.ui.controls.collections
             // collectionId
             // 
             this.collectionId.Text = "ID";
-            this.collectionId.Width = 25;
+            this.collectionId.Width = 45;
             // 
             // name
             // 
@@ -109,14 +111,14 @@ namespace DataBunch.app.ui.controls.collections
             this.bunifuFlatButton1.IconVisible = false;
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(567, 78);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(756, 96);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(20, 20, 20, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(108, 33);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(144, 41);
             this.bunifuFlatButton1.TabIndex = 1;
             this.bunifuFlatButton1.Text = "             Edit";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,14 +148,14 @@ namespace DataBunch.app.ui.controls.collections
             this.bunifuFlatButton2.IconVisible = false;
             this.bunifuFlatButton2.IconZoom = 90D;
             this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(567, 184);
-            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(756, 226);
+            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(20, 20, 20, 5);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
             this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(108, 33);
+            this.bunifuFlatButton2.Size = new System.Drawing.Size(144, 41);
             this.bunifuFlatButton2.TabIndex = 2;
             this.bunifuFlatButton2.Text = "          Delete";
             this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,14 +185,14 @@ namespace DataBunch.app.ui.controls.collections
             this.bunifuFlatButton3.IconVisible = false;
             this.bunifuFlatButton3.IconZoom = 90D;
             this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(567, 131);
-            this.bunifuFlatButton3.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(756, 161);
+            this.bunifuFlatButton3.Margin = new System.Windows.Forms.Padding(20, 20, 20, 5);
             this.bunifuFlatButton3.Name = "bunifuFlatButton3";
             this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(108, 33);
+            this.bunifuFlatButton3.Size = new System.Drawing.Size(144, 41);
             this.bunifuFlatButton3.TabIndex = 3;
             this.bunifuFlatButton3.Text = "           Merge";
             this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -220,14 +222,14 @@ namespace DataBunch.app.ui.controls.collections
             this.bunifuFlatButton4.IconVisible = false;
             this.bunifuFlatButton4.IconZoom = 90D;
             this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(567, 25);
-            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(15, 16, 15, 4);
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(756, 31);
+            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(20, 20, 20, 5);
             this.bunifuFlatButton4.Name = "bunifuFlatButton4";
             this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton4.selected = false;
-            this.bunifuFlatButton4.Size = new System.Drawing.Size(108, 33);
+            this.bunifuFlatButton4.Size = new System.Drawing.Size(144, 41);
             this.bunifuFlatButton4.TabIndex = 4;
             this.bunifuFlatButton4.Text = "           Create";
             this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,17 +237,23 @@ namespace DataBunch.app.ui.controls.collections
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Click += new System.EventHandler(this.onCreateButton);
             // 
+            // parent
+            // 
+            this.parent.Text = "Parent";
+            this.parent.Width = 88;
+            // 
             // CollectionsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.bunifuFlatButton4);
             this.Controls.Add(this.bunifuFlatButton3);
             this.Controls.Add(this.bunifuFlatButton2);
             this.Controls.Add(this.bunifuFlatButton1);
             this.Controls.Add(this.listView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CollectionsControl";
-            this.Size = new System.Drawing.Size(690, 514);
+            this.Size = new System.Drawing.Size(920, 633);
             this.ResumeLayout(false);
 
         }
@@ -262,6 +270,7 @@ namespace DataBunch.app.ui.controls.collections
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        private System.Windows.Forms.ColumnHeader parent;
     }
 }
 
