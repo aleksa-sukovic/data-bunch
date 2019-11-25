@@ -42,14 +42,14 @@ A particular user who is not administrator, has permission to every Collection h
 
 ## Images
 
-![Collections List](https://api.pcloud.com/getpubthumb?code=XZ2CGU7ZC9VxtlrSHE7ICQWgc83N0msG0jkX&linkpassword=undefined&size=550x450&crop=0&type=auto)
+<img src="https://drive.google.com/uc?export=view&id=189YH20KauxopnRp3hxO_nFyeEw7Q2o-8" width="600">
 
-![Collection Details](https://api.pcloud.com/getpubthumb?code=XZlCGU7Z7ilk1D17vRLPn1h7IyLhbyoTHAI7&linkpassword=undefined&size=550x450&crop=0&type=auto)
+<img src="https://drive.google.com/uc?export=view&id=1dY4Cf4C3DxkmQnBWr4O8mZIDKhEyRESY" width="600">
 
-![File Details](https://api.pcloud.com/getpubthumb?code=XZcCGU7ZS8Ux1fA56lQ1qR43it7ty8bOKwLV&linkpassword=undefined&size=550x450&crop=0&type=auto)
+<img src="https://drive.google.com/uc?export=view&id=1zaCRzx_qw-B0j5OYgj0kvAkN1WgQAVjW" width="600">
 
-![Profile Details](https://api.pcloud.com/getpubthumb?code=XZFxGU7ZnhRzIViWogyJLu914KTwj5ioQQHk&linkpassword=undefined&size=550x450&crop=0&type=auto)
+<img src="https://drive.google.com/uc?export=view&id=1bmTXipg38cffkaWFwai6EbEBlq7bRFFc" width="600">
 
-![Profile Edit](https://api.pcloud.com/getpubthumb?code=XZfxGU7ZTfOdIP6RL1QQ57uie7klt5Qdg6xy&linkpassword=undefined&size=550x450&crop=0&type=auto)
+<img src="https://drive.google.com/uc?export=view&id=1jexaarM70qAWVWcVq9FWYhNojU1z92RC" width="600">
 
-![Login](https://api.pcloud.com/getpubthumb?code=XZ1xGU7ZVl0qOfafJlJmcVadPt8BIFwS5Sv7&linkpassword=undefined&size=550x450&crop=0&type=auto)
+<img src="https://drive.google.com/uc?export=view&id=1OzeX_eKiTR_QxnPHCTJY39F0i0kI8G0o" width="600">
